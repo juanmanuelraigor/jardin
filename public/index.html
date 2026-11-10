@@ -272,6 +272,13 @@ footer .big em{color:var(--sky)}
 .tool-list h3{font-size:1.45rem}
 .tool-list p{color:var(--dim);font-size:.93rem;line-height:1.4;margin-top:4px}
 .band{background:var(--deep);border-block:1px solid var(--line)}
+.puertas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+.puertas a{text-decoration:none;transition:border-color .2s,transform .2s}
+.puertas a:hover{border-color:var(--sky);transform:translateY(-3px)}
+.puertas h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.1;margin:0}
+.puertas b{font-family:var(--f-mono);font-weight:500;font-size:.78rem;letter-spacing:.06em;color:var(--sky);margin-top:6px}
+@media (max-width:980px){.puertas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.puertas{grid-template-columns:minmax(0,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,36px);display:grid;gap:14px;align-content:start;min-width:0}
 .card h3{font-size:clamp(1.8rem,3vw,2.4rem)}
 .duo2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(12px,2vw,20px);align-items:stretch}
@@ -546,7 +553,7 @@ footer .big em{color:var(--sky)}
     <a class="brand" href="#laboratorio" data-go="laboratorio"><i></i><span>Jardín de Gente</span></a>
     <div class="tabs" role="tablist" aria-label="Momentos">
       <button class="tab" role="tab" id="t-laboratorio" aria-controls="laboratorio" aria-selected="true" data-go="laboratorio"><b>01</b>El laboratorio</button>
-      <button class="tab" role="tab" id="t-manifiesto" aria-controls="manifiesto" aria-selected="false" data-go="manifiesto"><b>02</b>El manifiesto</button>
+      <button class="tab" role="tab" id="t-manifiesto" aria-controls="manifiesto" aria-selected="false" data-go="manifiesto"><b>02</b>El sustento</button>
     </div>
   </div>
 </nav>
@@ -558,10 +565,10 @@ footer .big em{color:var(--sky)}
       <div>
         <p class="mono">Laboratorio colectivo de futuros · 60 días · virtual</p>
         <h1 style="margin-top:18px">Jardín <em>de gente</em></h1>
-        <p class="hero-lead">Salí del piloto automático. Recuperá tu atención. <span>Ensayá el futuro que querés habitar</span>, junto a otras personas.</p>
+        <p class="hero-lead"><span>Ensayá el futuro que querés habitar</span>, jugando, junto a otras personas.</p>
         <div class="hero-cta">
           <a class="btn" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero sumarme</a>
-          <a class="btn line" href="#manifiesto-breve" data-go="laboratorio" data-anchor="manifiesto-breve">Leer el manifiesto</a>
+          <a class="btn line" href="#transmision" data-go="laboratorio" data-anchor="transmision">Ver cómo funciona</a>
         </div>
       </div>
       <div class="dish" aria-hidden="true">
@@ -575,26 +582,6 @@ footer .big em{color:var(--sky)}
       </div>
     </div>
   </header>
-
-  <section id="para-vos" class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="mono">¿Es para vos?</span>
-        <h2>Para un momento <em>de la vida.</em></h2>
-        <p class="prose">No hace falta estar en crisis ni tener todo claro. Suele llegar cuando aparece alguna de estas señales:</p>
-      </div>
-      <ul class="senales">
-        <li>Sentís que vivís apagando incendios y no te queda espacio para pensar qué querés.</li>
-        <li>Estás en una transición: de trabajo, de ciudad, de vínculo o de etapa.</li>
-        <li>Tenés ideas o proyectos guardados "para cuando haya tiempo".</li>
-        <li>Te cuesta sostener cambios en soledad y querés hacerlo acompañado.</li>
-        <li>Querés volver a imaginar sin la presión de rendir.</li>
-      </ul>
-      <p class="no-es">No es para vos si buscás una fórmula de productividad o un curso para consumir solo. Tampoco reemplaza un acompañamiento terapéutico.</p>
-
-    </div>
-  </section>
-
 
   <section class="tx" id="transmision">
     <div class="wrap tx-grid">
@@ -614,46 +601,46 @@ footer .big em{color:var(--sky)}
   </section>
 
 
-  <section class="manif" id="manifiesto-breve">
+  <section id="semilla" class="band">
     <div class="wrap">
-      <div class="manif-top">
-        <span class="mono">Manifiesto</span>
-        <h2>En defensa de la soberanía cognitiva, de la creatividad <em>y del derecho a soñar.</em></h2>
+      <div class="sec-head">
+        <span class="mono">Probalo acá</span>
+        <h2>No es una meta. <em>Es una semilla.</em></h2>
+        <p class="prose">Una meta va en línea recta. Una semilla crece para todos lados. Sembrá y mirá qué sale.</p>
       </div>
-      <ul class="manif-lines">
-        <li><span>Vivimos bajo la tiranía de la urgencia, el consumo digital y el multitrabajo.</span></li>
-        <li><span>El agotamiento se disfraza de logro.</span></li>
-        <li><span>La imaginación es el <em>primer territorio colonizado.</em></span></li>
-        <li><span>Imaginar no es un lujo. Es una capacidad humana, y se ejercita.</span></li>
-        <li><span>El futuro nace de las conversaciones y las preguntas <em>que nos animamos a habitar hoy.</em></span></li>
-        <li><span>Nadie diseña su futuro en soledad.</span></li>
-        <li><span>Registrar la inercia y proyectar el futuro junto a otros <em>es un acto de soberanía.</em></span></li>
-      </ul>
-      <div class="concreto">
-        <div class="concreto-txt">
-          <p class="infra">Jardín de Gente es una infraestructura comunitaria para desacelerar y recuperar soberanía sobre la atención.</p>
-          <span class="mono">En concreto</span>
-          <p class="big-claim">Un laboratorio para explorar <em>de manera concreta</em> tus posibilidades futuras.</p>
-          <ul class="dots">
-            <li>Registramos la inercia: cómo usás hoy tu tiempo, tu energía y tu atención.</li>
-            <li>Diseñamos pruebas pequeñas y las hacemos en la vida real, no en teoría.</li>
-            <li>Somos rigurosos con lo que cada prueba enseña: qué esperábamos, qué pasó, qué aprendimos y desde qué supuestos lo hicimos.</li>
-          </ul>
-          <button class="btn line" type="button" data-go="manifiesto">Leer el manifiesto completo</button>
-        </div>
-        <figure class="loop" aria-label="Ciclo del método: registrar la inercia, formular una pregunta, diseñar una prueba, ensayar de 3 a 7 días y revisar con rigor. En el centro, el doble ciclo de aprendizaje.">
-          <svg viewBox="-50 -10 500 420" id="loopSvg">
-            <circle cx="200" cy="200" r="140" fill="none" stroke="#8DB0FF" stroke-opacity=".35" stroke-width="1"/>
-            <circle class="inner-spin" cx="200" cy="200" r="78" fill="none" stroke="#8DB0FF" stroke-opacity=".6" stroke-width="1" stroke-dasharray="3 7"/>
-            <g id="loopNodes"></g>
-            <circle id="loopDot" r="7" fill="#D6E2FF"/>
-            <text x="200" y="194" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="22" fill="#D6E2FF">doble ciclo</text>
-            <text x="200" y="216" text-anchor="middle" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="1.6" fill="#8E9CC4">¿DESDE QUÉ SUPUESTOS?</text>
+      <div class="seed-box">
+        <div class="seed-scroll">
+          <svg id="seedSvg" viewBox="0 0 800 520" role="img" aria-labelledby="seedT">
+            <title id="seedT">Una semilla que crece hacia abajo en raíces y hacia arriba en brotes y flores, en muchas direcciones a la vez.</title>
+            <g id="seedG"></g>
           </svg>
-        </figure>
+        </div>
+        <div class="seed-ctrl">
+          <span class="mono" style="color:var(--dim)">Ninguna semilla crece igual</span>
+          <button type="button" class="btn line" id="sembrar">Sembrar de nuevo</button>
+        </div>
       </div>
     </div>
   </section>
+  <section id="para-vos" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">¿Es para vos?</span>
+        <h2>Para un momento <em>de la vida.</em></h2>
+        <p class="prose">Si te suena alguna de estas:</p>
+      </div>
+      <ul class="senales">
+        <li>Sentís que vivís apagando incendios y no te queda espacio para pensar qué querés.</li>
+        <li>Estás en una transición: de trabajo, de ciudad, de vínculo o de etapa.</li>
+        <li>Tenés ideas o proyectos guardados "para cuando haya tiempo".</li>
+        <li>Te cuesta sostener cambios en soledad y querés hacerlo acompañado.</li>
+        <li>Querés volver a imaginar sin la presión de rendir.</li>
+      </ul>
+      <p class="no-es">No es para vos si buscás una fórmula de productividad o un curso para consumir solo. Tampoco reemplaza un acompañamiento terapéutico.</p>
+
+    </div>
+  </section>
+
 
   <div class="ticker" aria-hidden="true"><div class="ticker-track">
     <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
@@ -714,43 +701,6 @@ footer .big em{color:var(--sky)}
   </section>
 
 
-  <section id="que-esperar" class="band">
-    <div class="wrap">
-      <div class="esperar">
-        <div class="card">
-          <span class="mono">Qué podés esperar</span>
-          <ul class="dots">
-            <li>Más claridad sobre cómo usás tu tiempo y tu energía.</li>
-            <li>Algunos experimentos probados en tu vida real, no un plan perfecto.</li>
-            <li>Una dupla y un grupo que te conocen en proceso.</li>
-            <li>Herramientas que te llevás para seguir usando después.</li>
-          </ul>
-          <p class="hint">No prometemos transformaciones mágicas. Ofrecemos un espacio cuidado y herramientas para ensayar.</p>
-        </div>
-        <div class="card">
-          <span class="mono">Qué podés desarrollar</span>
-          <div class="caps">
-            <span>Atención elegida</span><span>Escucha profunda</span><span>Imaginación de futuros</span><span>Aprender del error</span><span>Decidir desde lo importante</span><span>Pedir y dar apoyo</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec-head" style="margin-top:clamp(48px,7vw,80px);margin-bottom:24px">
-        <span class="mono">Qué metas podés trabajar</span>
-        <h3 style="font-size:clamp(1.8rem,3.4vw,2.6rem)">En equilibrio, <em style="color:var(--sky)">no en una sola área.</em></h3>
-        <p class="prose">Elegís qué querés ensayar. Estos son ejemplos de mini-prototipos de 3 a 7 días:</p>
-      </div>
-      <div class="areas">
-        <div><span class="mono">Cuerpo y descanso</span><p>Una semana sin pantalla la primera hora del día.</p></div>
-        <div><span class="mono">Trabajo y proyectos</span><p>Una tarde por semana para ese proyecto postergado.</p></div>
-        <div><span class="mono">Vínculos</span><p>Un encuentro sin celular con alguien que te importa.</p></div>
-        <div><span class="mono">Creatividad</span><p>Escribir, dibujar o tocar 15 minutos por día.</p></div>
-        <div><span class="mono">Tiempo y agenda</span><p>Decir que no a una urgencia ajena por día.</p></div>
-        <div><span class="mono">Comunidad</span><p>Sumarte a algo colectivo de tu barrio o tu red.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section id="campo" class="band">
     <div class="wrap">
       <div class="sec-head">
@@ -765,8 +715,7 @@ footer .big em{color:var(--sky)}
         <div class="campo-txt">
           <p class="big-claim">Un campo social es el espacio que se forma cuando un grupo decide <em>cuidarse.</em></p>
           <div class="prose">
-            <p>No viene armado de afuera: lo co-creamos con cada participante, a partir de cuatro acuerdos simples.</p>
-            <p>Ese borde es el que da seguridad psicológica. Y cuando hay borde, adentro se puede explorar, probar, equivocarse y jugar. La experiencia de cada uno deja de vivirse en soledad y se vuelve aprendizaje compartido.</p>
+            <p>Cuando hay borde, adentro se puede explorar, probar, equivocarse y jugar. Tocá los acuerdos y sacá el borde para ver qué pasa.</p>
           </div>
           <div class="acuerdos2" role="group" aria-label="Los cuatro acuerdos del campo">
             <button type="button" data-k="0" aria-pressed="true"><b>Confidencialidad</b><small>Lo que se dice acá, se queda acá.</small></button>
@@ -778,15 +727,6 @@ footer .big em{color:var(--sky)}
         </div>
       </div>
 
-      <div class="testigo-row">
-        <div class="card testigo-card">
-          <svg viewBox="0 0 240 80" aria-hidden="true" class="pair"><path d="M60 40 Q120 4 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><path d="M60 40 Q120 76 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="pulse" cx="60" cy="40" r="16" fill="#8DB0FF"/><circle class="pulse p2" cx="180" cy="40" r="16" fill="#0E1A3F" stroke="#D6E2FF" stroke-width="1.5"/></svg>
-          <span class="mono">Testigo</span>
-          <h3>Una dupla hasta el final.</h3>
-          <p class="prose">Te asignamos un testigo para trabajar en dupla durante todo el laboratorio. Una llamada por semana para atestiguar sus procesos, hacerse preguntas honestas y escucharse de verdad.</p>
-          <p class="prose">Sin consejos apurados, sin juicio, sin hacer de mentores. Cada quincena reciben preguntas y pautas para profundizar.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -804,7 +744,6 @@ footer .big em{color:var(--sky)}
           <li>Mantenemos <b>presencia activa</b> y resonancia en el canal común.</li>
           <li><b>La corresponsabilidad fortalece nuestro compromiso compartido.</b></li>
         </ul>
-        <p class="resist-line">Las resistencias son parte del viaje. No las esquivamos ni las forzamos: son el material vivo del aprendizaje. El rigor del espacio no es control, es el colchón que nos sostiene mientras exploramos.</p>
       </div>
       <figure class="proto" aria-label="Ejemplo de ficha de prototipo: hipótesis, cinco días de duración, registro diario, aprendizaje y revisión con el Testigo.">
         <div class="proto-head"><span class="mono">Ficha de prototipo #03</span><span class="stamp" id="stamp">Ensayado</span></div>
@@ -829,7 +768,7 @@ footer .big em{color:var(--sky)}
       <div class="sec-head">
         <span class="mono">Economía del espacio</span>
         <h2>Hay distintas maneras <em>de sumarte.</em></h2>
-        <p class="prose">Imaginamos un laboratorio radicalmente accesible y, a la vez, sostenible en el tiempo. El aporte económico no es excluyente.</p>
+        <p class="prose">El aporte económico no es excluyente.</p>
       </div>
       <div class="ways">
         <div class="card">
@@ -863,8 +802,10 @@ footer .big em{color:var(--sky)}
         <details><summary>¿Qué pasa con lo que comparto?</summary><p>Queda en el grupo. La confidencialidad es uno de los acuerdos que sostienen el espacio.</p></details>
         <details><summary>¿Cuánto cuesta?</summary><p>Hay distintas maneras de sumarte. Si podés, acompañás con un aporte mensual de $10.000 a $70.000 ARS que vos definís. El aporte no es excluyente: tu presencia y tu escucha también sostienen el espacio.</p></details>
         <details><summary>¿Es terapia o un curso?</summary><p>Ninguna de las dos. Es un laboratorio grupal de exploración. No reemplaza un acompañamiento terapéutico ni enseña contenidos para memorizar: se aprende haciendo y conversando.</p></details>
-        <details><summary>¿Cuándo empieza?</summary><p>La fecha de la próxima cohorte está por confirmarse. Dejá tus datos y te avisamos primero.</p></details>
+        <details><summary>¿Cuándo empieza?</summary><p>La próxima cohorte arranca en diciembre. Dejá tus datos y te avisamos la fecha primero.</p></details>
       </div>
+      <p class="prose" style="margin-top:28px">¿Querés ir a fondo? El manifiesto, el método y sobre qué hombros nos paramos están en una sola página.</p>
+      <button class="btn line" type="button" data-go="manifiesto" style="margin-top:14px">Leer el sustento</button>
     </div>
   </section>
 
@@ -877,7 +818,7 @@ footer .big em{color:var(--sky)}
   <section id="inscripcion" style="padding-top:0">
     <div class="wrap insc">
       <div>
-        <span class="mono">Próxima cohorte · fecha a confirmar</span>
+        <span class="mono">Próxima cohorte · diciembre</span>
         <h2 style="margin-top:14px">Sumate <em>al jardín.</em></h2>
         <p class="prose" style="margin-top:18px">Dejanos tus datos y te escribimos para contarte cómo sigue. El aporte lo conversamos después.</p>
         <div class="sinergia">
@@ -916,24 +857,17 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
-  <section id="semilla" class="band">
+  <section id="puertas" class="band">
     <div class="wrap">
       <div class="sec-head">
-        <span class="mono">Para jugar un rato</span>
-        <h2>No es una meta. <em>Es una semilla.</em></h2>
-        <p class="prose">Una meta va en línea recta hacia un solo punto. Una semilla crece hacia abajo y hacia arriba, en muchas direcciones a la vez. Sembrá y mirá qué crece.</p>
+        <span class="mono">Mientras tanto</span>
+        <h2>Otras formas <em>de entrar.</em></h2>
       </div>
-      <div class="seed-box">
-        <div class="seed-scroll">
-          <svg id="seedSvg" viewBox="0 0 800 520" role="img" aria-labelledby="seedT">
-            <title id="seedT">Una semilla que crece hacia abajo en raíces y hacia arriba en brotes y flores, en muchas direcciones a la vez.</title>
-            <g id="seedG"></g>
-          </svg>
-        </div>
-        <div class="seed-ctrl">
-          <span class="mono" style="color:var(--dim)">Ninguna semilla crece igual</span>
-          <button type="button" class="btn line" id="sembrar">Sembrar de nuevo</button>
-        </div>
+      <div class="puertas">
+        <a class="card" href="https://capturadora-semillas.jardindegente.workers.dev" target="_blank" rel="noopener"><span class="mono">Capturadora de Semillas</span><h3>Girá la ruleta.</h3><p class="prose">Cada mañana capturamos semillas de vidas nuevas. Te toca una al azar.</p><b>Ir a la Capturadora ↗</b></a>
+        <a class="card" href="https://jardindegente.substack.com/subscribe" target="_blank" rel="noopener"><span class="mono">Newsletter</span><h3>Que te llegue al mail.</h3><p class="prose">Lo que vamos encontrando y escribiendo.</p><b>Suscribirme ↗</b></a>
+        <a class="card" href="https://cuatroacuerdos.jardindegente.workers.dev" target="_blank" rel="noopener"><span class="mono">Taller presencial</span><h3>Los Cuatro Acuerdos.</h3><p class="prose">En Ramos Mejía, en grupo chico.</p><b>Ver el taller ↗</b></a>
+        <a class="card" href="https://www.instagram.com/jardindegente.lab/" target="_blank" rel="noopener"><span class="mono">Instagram</span><h3>Gerardo, Eva y el universo.</h3><p class="prose" style="overflow-wrap:anywhere">@jardindegente.lab</p><b>Seguir ↗</b></a>
       </div>
     </div>
   </section>
@@ -1127,6 +1061,74 @@ footer .big em{color:var(--sky)}
       </div>
     </article>
   </div>
+  <section class="manif" id="metodo">
+    <div class="wrap">
+      <div class="manif-top">
+        <span class="mono">El método</span>
+        <h2>Cómo trabajamos, <em>en concreto.</em></h2>
+      </div>
+      <div class="concreto">
+        <div class="concreto-txt">
+          <p class="infra">Jardín de Gente es una infraestructura comunitaria para desacelerar y recuperar soberanía sobre la atención.</p>
+          <span class="mono">En concreto</span>
+          <p class="big-claim">Un laboratorio para explorar <em>de manera concreta</em> tus posibilidades futuras.</p>
+          <ul class="dots">
+            <li>Registramos la inercia: cómo usás hoy tu tiempo, tu energía y tu atención.</li>
+            <li>Diseñamos pruebas pequeñas y las hacemos en la vida real, no en teoría.</li>
+            <li>Somos rigurosos con lo que cada prueba enseña: qué esperábamos, qué pasó, qué aprendimos y desde qué supuestos lo hicimos.</li>
+          </ul>
+        </div>
+        <figure class="loop" aria-label="Ciclo del método: registrar la inercia, formular una pregunta, diseñar una prueba, ensayar de 3 a 7 días y revisar con rigor. En el centro, el doble ciclo de aprendizaje.">
+          <svg viewBox="-50 -10 500 420" id="loopSvg">
+            <circle cx="200" cy="200" r="140" fill="none" stroke="#8DB0FF" stroke-opacity=".35" stroke-width="1"/>
+            <circle class="inner-spin" cx="200" cy="200" r="78" fill="none" stroke="#8DB0FF" stroke-opacity=".6" stroke-width="1" stroke-dasharray="3 7"/>
+            <g id="loopNodes"></g>
+            <circle id="loopDot" r="7" fill="#D6E2FF"/>
+            <text x="200" y="194" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="22" fill="#D6E2FF">doble ciclo</text>
+            <text x="200" y="216" text-anchor="middle" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="1.6" fill="#8E9CC4">¿DESDE QUÉ SUPUESTOS?</text>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="que-esperar" class="band">
+    <div class="wrap">
+      <div class="esperar">
+        <div class="card">
+          <span class="mono">Qué podés esperar</span>
+          <ul class="dots">
+            <li>Más claridad sobre cómo usás tu tiempo y tu energía.</li>
+            <li>Algunos experimentos probados en tu vida real, no un plan perfecto.</li>
+            <li>Una dupla y un grupo que te conocen en proceso.</li>
+            <li>Herramientas que te llevás para seguir usando después.</li>
+          </ul>
+          <p class="hint">No prometemos transformaciones mágicas. Ofrecemos un espacio cuidado y herramientas para ensayar.</p>
+        </div>
+        <div class="card">
+          <span class="mono">Qué podés desarrollar</span>
+          <div class="caps">
+            <span>Atención elegida</span><span>Escucha profunda</span><span>Imaginación de futuros</span><span>Aprender del error</span><span>Decidir desde lo importante</span><span>Pedir y dar apoyo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin-top:clamp(48px,7vw,80px);margin-bottom:24px">
+        <span class="mono">Qué metas podés trabajar</span>
+        <h3 style="font-size:clamp(1.8rem,3.4vw,2.6rem)">En equilibrio, <em style="color:var(--sky)">no en una sola área.</em></h3>
+        <p class="prose">Elegís qué querés ensayar. Estos son ejemplos de mini-prototipos de 3 a 7 días:</p>
+      </div>
+      <div class="areas">
+        <div><span class="mono">Cuerpo y descanso</span><p>Una semana sin pantalla la primera hora del día.</p></div>
+        <div><span class="mono">Trabajo y proyectos</span><p>Una tarde por semana para ese proyecto postergado.</p></div>
+        <div><span class="mono">Vínculos</span><p>Un encuentro sin celular con alguien que te importa.</p></div>
+        <div><span class="mono">Creatividad</span><p>Escribir, dibujar o tocar 15 minutos por día.</p></div>
+        <div><span class="mono">Tiempo y agenda</span><p>Decir que no a una urgencia ajena por día.</p></div>
+        <div><span class="mono">Comunidad</span><p>Sumarte a algo colectivo de tu barrio o tu red.</p></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
