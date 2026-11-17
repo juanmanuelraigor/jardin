@@ -639,7 +639,7 @@ footer .big em{color:var(--sky)}
 .manif-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(28px,5vw,72px);align-items:start}
 .manif-grid > div{min-width:0}
 .manif-grid .manif-dos p{font-size:clamp(2.2rem,5vw,4.4rem)}
-.scr{position:sticky;top:96px;margin:0;display:grid;justify-items:center;gap:14px}
+.scr{margin:clamp(28px,4vw,48px) 0 0;display:grid;justify-items:center;gap:14px}
 .scr-tel{position:relative;width:250px;height:500px;border-radius:38px;border:2px solid var(--sky);background:#050A1C;padding:12px;box-shadow:0 0 0 6px rgba(141,176,255,.08),0 30px 80px -20px rgba(61,107,229,.5)}
 .scr-tel::before{content:"";position:absolute;top:10px;left:50%;width:70px;height:16px;margin-left:-35px;border-radius:999px;background:#050A1C;z-index:3;border:1px solid rgba(141,176,255,.25)}
 .scr-pant{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:#0A1230}
@@ -668,11 +668,25 @@ footer .big em{color:var(--sky)}
 .scr.calma .scr-calma path{stroke-dashoffset:0}
 .scr.calma .scr-calma .hj{transform:scale(1)}
 .scr.calma .scr-dedo,.scr.lento .scr-dedo{display:none}
+.scr-esc{display:flex;justify-content:center;align-items:flex-end;gap:clamp(16px,4vw,56px)}
+.scr-per{display:grid;justify-items:center;gap:10px;width:clamp(170px,22vw,260px)}
+.scr-per svg{width:100%;height:auto;display:block;overflow:visible}
+.scr-bat{display:flex;align-items:center;gap:8px}
+.scr-bat .mono{font-size:.6rem;color:var(--dim)}
+.scr-bat .bat{position:relative;width:74px;height:26px;border:2px solid var(--sky);border-radius:6px;padding:2px}
+.scr-bat .bat::after{content:"";position:absolute;right:-7px;top:7px;width:4px;height:8px;border-radius:0 2px 2px 0;background:var(--sky)}
+.scr-bat .bat i{display:block;height:100%;width:100%;border-radius:3px;background:#7BE0A0;transition:background .4s}
+.scr-bat b{font-family:var(--f-mono);font-weight:400;font-size:.8rem;color:var(--mist);min-width:3.2em}
+.scr-bat.baja .bat i{background:#F2C46B}
+.scr-bat.vacia .bat{border-color:#FF6F86;animation:batBlink .7s steps(2) infinite}
+.scr-bat.vacia .bat i{background:#FF6F86}
+.scr-bat.vacia b{color:#FF6F86}
+@keyframes batBlink{50%{opacity:.35}}
+@media (max-width:640px){.scr-esc{flex-direction:column-reverse;align-items:center}.scr-per{width:190px}}
 .scr-cap{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;min-height:2.4em}
 .scr-cap b{color:#FF6F86;font-weight:400}
 @media (max-width:900px){
   .manif-grid{grid-template-columns:minmax(0,1fr)}
-  .scr{position:relative;top:0;order:-1}
   .scr-tel{width:200px;height:380px;border-radius:32px}
 }
 @media (prefers-reduced-motion:reduce){.scr-dedo{display:none}}
@@ -965,19 +979,13 @@ footer .big em{color:var(--sky)}
 
   <section class="manif" id="manifiesto-breve">
     <div class="wrap">
-      <div class="manif-grid">
-        <div>
-        <div class="manif-top">
-          <span class="mono">Manifiesto</span>
-          <h2>En defensa de la soberanía cognitiva, de la creatividad <em>y del derecho a soñar.</em></h2>
-          <p class="manif-sub">Que lo que pensás, deseás e imaginás no lo decida un algoritmo ni la urgencia de otros.</p>
-        </div>
-        <div class="manif-dos">
-          <p>La imaginación es el <em>primer territorio colonizado.</em></p>
-          <p>Nadie diseña su futuro <em>en soledad.</em></p>
-        </div>
-        </div>
-        <figure class="scr" id="scr" aria-label="Un celular scrolleado a toda velocidad que se va frenando hasta quedar en pausa, y entonces brota una planta.">
+      <div class="manif-top">
+        <span class="mono">Manifiesto</span>
+        <h2>En defensa de la soberanía cognitiva, de la creatividad <em>y del derecho a soñar.</em></h2>
+        <p class="manif-sub">Que lo que pensás, deseás e imaginás no lo decida un algoritmo ni la urgencia de otros.</p>
+      </div>
+      <figure class="scr" id="scr" aria-label="Una persona scrollea su celular a toda velocidad y su energía se va agotando. Cuando el scroll se frena y llega la pausa, la energía vuelve y brota una planta.">
+        <div class="scr-esc">
           <div class="scr-tel" aria-hidden="true">
             <div class="scr-pant">
               <div class="scr-feed" id="scrFeed"></div>
@@ -985,13 +993,39 @@ footer .big em{color:var(--sky)}
               <span class="scr-dedo"></span>
               <div class="scr-calma">
                 <svg viewBox="0 0 60 80"><path pathLength="1" d="M30 78 C30 60 28 44 30 26" fill="none" stroke="#D6E2FF" stroke-width="2.4" stroke-linecap="round"/><path class="hj h1" d="M30 32 C20 30 12 22 12 12 C22 13 29 21 30 32Z" fill="#8DB0FF"/><path class="hj h2" d="M30 28 C40 26 48 18 48 8 C38 9 31 17 30 28Z" fill="#8DB0FF"/></svg>
-                <p>Pausa.</p>
+                <p>Frená de scrollear.</p>
               </div>
             </div>
           </div>
-          <figcaption class="scr-cap" id="scrCap">Scrolleando <b>a tope</b></figcaption>
-        </figure>
-      </div>
+          <div class="scr-per" aria-hidden="true">
+            <div class="scr-bat"><span class="mono">Energía</span><div class="bat"><i id="scrBatFill"></i></div><b id="scrBatPct">100%</b></div>
+            <svg viewBox="0 0 240 400" id="scrPer">
+              <defs><radialGradient id="perLuz" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8DB0FF" stop-opacity=".55"/><stop offset="1" stop-color="#8DB0FF" stop-opacity="0"/></radialGradient></defs>
+              <ellipse cx="130" cy="384" rx="90" ry="8" fill="#070D24"/>
+              <g stroke="#8DB0FF" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"><line x1="112" y1="318" x2="104" y2="380"/><line x1="160" y1="318" x2="168" y2="380"/></g>
+              <rect x="98" y="306" width="74" height="12" rx="6" fill="#1E3478" stroke="#8DB0FF" stroke-opacity=".6"/>
+              <g id="perPiernas" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M138 300 L84 302 L80 372" stroke="#3D6BE5" stroke-width="20"/>
+                <path d="M68 376 L96 376" stroke="#0E1A3F" stroke-width="10"/>
+              </g>
+              <g id="perCuerpo">
+                <path d="M126 304 C122 260 124 220 128 192 L156 192 C162 226 162 266 152 304 Z" fill="#3D6BE5"/>
+                <circle id="perLuzC" cx="66" cy="196" r="60" fill="url(#perLuz)"/>
+                <path id="perBrazo" d="M136 202 C120 230 108 246 92 240 L72 212" fill="none" stroke="#3D6BE5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                <g id="perCel"><rect x="56" y="188" width="18" height="30" rx="4" fill="#D6E2FF" transform="rotate(-25 65 203)"/></g>
+                <rect x="134" y="168" width="12" height="28" rx="5" fill="#8DB0FF"/>
+                <g id="perCabeza">
+                  <circle id="perCara" cx="136" cy="148" r="26" fill="#8DB0FF"/>
+                  <path d="M118 132 C122 112 156 110 162 136 C160 128 146 122 134 126 C126 128 120 134 118 140Z" fill="#1E3478"/>
+                  <path id="perOjo" d="M116 150 L124 150" stroke="#070D24" stroke-width="3" stroke-linecap="round"/>
+                </g>
+              </g>
+              <g id="perZ" font-family="DM Mono, monospace" fill="#8E9CC4" opacity="0"><text x="176" y="118" font-size="14">z</text><text x="188" y="100" font-size="18">z</text><text x="202" y="78" font-size="22">z</text></g>
+            </svg>
+          </div>
+        </div>
+        <figcaption class="scr-cap" id="scrCap">Scrolleando <b>a tope</b></figcaption>
+      </figure>
       <figure class="ojo" id="ojo" aria-label="Un ojo que se abre y, en su pupila, un brote con raíces de luz.">
         <svg viewBox="0 0 1000 500" aria-hidden="true">
           <defs>
@@ -2344,7 +2378,8 @@ footer .big em{color:var(--sky)}
 (function(){
   var fig = document.getElementById("scr"); if (!fig) return;
   var feed = document.getElementById("scrFeed"), noti = document.getElementById("scrNoti"), cap = document.getElementById("scrCap");
-  var meta = document.querySelector(".manif-dos p:nth-child(2)");
+  var bat = fig.querySelector(".scr-bat"), batFill = document.getElementById("scrBatFill"), batPct = document.getElementById("scrBatPct");
+  var cuerpo = document.getElementById("perCuerpo"), cabeza = document.getElementById("perCabeza"), cara = document.getElementById("perCara"), ojo = document.getElementById("perOjo"), zz = document.getElementById("perZ"), luz = document.getElementById("perLuzC");
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var cols = ["#3D6BE5", "#8DB0FF", "#C0304A", "#F2C46B", "#6B4FD8", "#2BB3A3"];
   function card(i){
@@ -2361,37 +2396,54 @@ footer .big em{color:var(--sky)}
     return d;
   }
   for (var r = 0; r < 2; r++) for (var i = 0; i < 12; i++) feed.appendChild(card(i));
-  var NOTIS = [["URGENTE", "Respondé antes de las 18."], ["OFERTA", "Solo por hoy: 70% off."], ["GRUPO DEL TRABAJO", "37 mensajes nuevos"], ["RECORDATORIO", "Te faltan 4 tareas."], ["TENDENCIA", "Todos están hablando de esto"]];
-  var y = 0, last = 0, notiT = 0, ni = 0, vis = false, estado = "";
+  var NOTIS = [["URGENTE", "Respondé antes de las 18."], ["OFERTA", "Solo por hoy: 70% off."], ["GRUPO DEL TRABAJO", "37 mensajes nuevos"], ["RECORDATORIO", "Te faltan 4 tareas."], ["TENDENCIA", "Todos están hablando de esto"], ["NO TE PIERDAS", "Mirá lo que publicó…"]];
+  var y = 0, last = 0, notiT = 0, ni = 0, vis = false, estado = "", e = 1;
   function vel(){
-    var vh = innerHeight, t;
-    if (innerWidth <= 900 || !meta){ var rf = fig.getBoundingClientRect(); t = Math.max(0, Math.min(1, (vh * .6 - rf.top) / (vh * .45))); }
-    else { var r = meta.getBoundingClientRect(); t = Math.max(0, Math.min(1, (vh * .8 - r.top) / (vh * .4))); }
-    return 1 - t;
+    var vh = innerHeight, rf = fig.getBoundingClientRect(), c = rf.top + rf.height / 2;
+    return 1 - Math.max(0, Math.min(1, (vh * .64 - c) / (vh * .22)));
+  }
+  function persona(){
+    var s = 1 - e;
+    cuerpo.setAttribute("transform", "rotate(" + (-s * 16).toFixed(2) + " 140 300)");
+    cabeza.setAttribute("transform", "rotate(" + (-s * 26).toFixed(2) + " 140 186)");
+    var mix = function(a, b){ return Math.round(b + (a - b) * e); };
+    cara.setAttribute("fill", "rgb(" + mix(141, 75) + "," + mix(176, 90) + "," + mix(255, 140) + ")");
+    ojo.setAttribute("d", e < .3 ? "M116 152 L124 152" : "M116 150 L124 150");
+    ojo.setAttribute("stroke-width", e < .3 ? 1.6 : 3);
+    zz.setAttribute("opacity", e < .18 && estado !== "calma" ? .9 : 0);
+    luz.setAttribute("opacity", estado === "calma" ? 0 : 1);
+    var pct = Math.max(1, Math.round(e * 100));
+    batFill.style.width = pct + "%"; batPct.textContent = pct + "%";
+    bat.classList.toggle("baja", e < .5 && e >= .15); bat.classList.toggle("vacia", e < .15);
   }
   function frame(t){
     var dt = Math.min(50, t - (last || t)); last = t;
     var v = reduce ? 0 : vel(), half = feed.scrollHeight / 2;
-    y = (y + v * 1.9 * dt) % half;
+    y = (y + v * 2.4 * dt) % half;
     feed.style.transform = "translateY(" + (-y).toFixed(1) + "px)";
-    feed.style.filter = v > .5 ? "blur(" + ((v - .5) * 2.4).toFixed(2) + "px)" : "none";
-    var nuevo = v <= .02 ? "calma" : v < .45 ? "lento" : "rapido";
+    feed.style.filter = v > .4 ? "blur(" + ((v - .4) * 3).toFixed(2) + "px)" : "none";
+    var enVista = fig.getBoundingClientRect().top < innerHeight * .75;
+    if (v > .02){ if (enVista) e = Math.max(.01, e - dt / 1000 * .1 * (.4 + v)); }
+    else e = Math.min(1, e + dt / 1000 * .5);
+    var nuevo = v <= .02 ? "calma" : v < .4 ? "lento" : "rapido";
     if (nuevo !== estado){
       estado = nuevo;
       fig.classList.toggle("calma", nuevo === "calma"); fig.classList.toggle("lento", nuevo === "lento");
-      cap.innerHTML = nuevo === "calma" ? "Pausa. Ahora sí: ¿qué querés?" : nuevo === "lento" ? "Se empieza a frenar…" : "Scrolleando <b>a tope</b>";
     }
-    if (v > .45 && t - notiT > 1600){
+    cap.innerHTML = estado === "calma" ? "Recuperá tu atención ↓" : estado === "lento" ? "Se empieza a frenar…" : (e < .15 ? "Scrolleando <b>a tope</b> · sin energía" : "Scrolleando <b>a tope</b>");
+    if (v > .4 && t - notiT > 1300){
       notiT = t; var n = NOTIS[ni++ % NOTIS.length];
       noti.innerHTML = "<b>" + n[0] + "</b>" + n[1]; noti.classList.add("on");
-      setTimeout(function(){ noti.classList.remove("on"); }, 1100);
+      setTimeout(function(){ noti.classList.remove("on"); }, 950);
     }
+    persona();
     if (vis) requestAnimationFrame(frame);
   }
-  if (reduce){ fig.classList.add("calma"); cap.textContent = "Pausa. Ahora sí: ¿qué querés?"; return; }
+  if (reduce){ estado = "calma"; fig.classList.add("calma"); e = 1; persona(); cap.textContent = "Recuperá tu atención ↓"; return; }
   if (!("IntersectionObserver" in window)){ vis = true; requestAnimationFrame(frame); return; }
-  new IntersectionObserver(function(es){ es.forEach(function(e){ var was = vis; vis = e.isIntersecting; if (vis && !was){ last = 0; requestAnimationFrame(frame); } }); }, { rootMargin: "200px 0px" }).observe(fig);
+  new IntersectionObserver(function(es){ es.forEach(function(en){ var was = vis; vis = en.isIntersecting; if (vis && !was){ last = 0; requestAnimationFrame(frame); } }); }, { rootMargin: "200px 0px" }).observe(fig);
 })();
 </script>
+
 
 </body></html>
