@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Jardín de Gente</title>
+<title>Jardín de Gente</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#070D24">
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -589,6 +589,38 @@ footer .big em{color:var(--sky)}
 .infra-cierre em{color:var(--sky)}
 @media (max-width:760px){.duo-t{grid-template-columns:minmax(0,1fr)}.duo-svg text{font-size:19px}.duo-sem text{font-size:14px}}
 @media (prefers-reduced-motion:reduce){.duo-luz,.duo-onda,.duo-sem circle{animation:none}.duo-luz{offset-distance:25%}}
+/* ---------- Aporte elegible ---------- */
+.ap{background:var(--deep);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3.4vw,40px);display:grid;gap:22px;max-width:860px}
+.ap-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.ap-num{font-family:var(--f-display);font-size:clamp(3rem,8vw,5.5rem);line-height:1;color:var(--sky);font-variant-numeric:tabular-nums;margin-top:6px}
+.ap.pres .ap-num small{display:none}
+.ap-num small{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.1em;color:var(--dim)}
+.ap-badge{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night);background:var(--sky);border-radius:999px;padding:.45em .9em;transition:opacity .3s,transform .3s}
+.ap-badge.off{opacity:0;transform:scale(.8)}
+.ap-slider{position:relative;padding-top:30px}
+.ap-mark{position:absolute;top:0;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:4px}
+.ap-mark i{order:2;width:1px;height:14px;background:var(--sky)}
+#apRange{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--sky) var(--p,50%),rgba(141,176,255,.15) var(--p,50%));outline:none;cursor:pointer;margin:0}
+#apRange::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--mist);border:3px solid var(--blue);box-shadow:0 0 18px rgba(141,176,255,.7);cursor:grab}
+#apRange::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--mist);border:3px solid var(--blue);box-shadow:0 0 18px rgba(141,176,255,.7);cursor:grab}
+#apRange:focus-visible::-webkit-slider-thumb{outline:2px solid var(--mist);outline-offset:3px}
+.ap-scale{display:flex;justify-content:space-between;margin-top:12px;gap:12px}
+.ap-scale span{display:grid;gap:2px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.ap-scale span:last-child{text-align:right}
+.ap-scale b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;letter-spacing:0;text-transform:none;color:var(--mist)}
+.ap-msg{font-family:var(--f-display);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.15;color:var(--mist);min-height:2.3em}
+.ap-frascos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ap-fr{display:grid;justify-items:center;gap:8px;text-align:center}
+.ap-fr b{font-family:var(--f-mono);font-weight:400;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.ap-fr .vidrio{position:relative;width:64px;height:84px;border:1.5px solid var(--sky);border-top:0;border-radius:6px 6px 22px 22px;overflow:hidden;background:rgba(7,13,36,.6)}
+.ap-fr .vidrio::before{content:"";position:absolute;top:0;left:-6px;right:-6px;height:1.5px;background:var(--sky)}
+.ap-fr .vidrio i{position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(180deg,var(--sky),var(--blue));transition:height .6s cubic-bezier(.3,.8,.3,1);box-shadow:0 0 16px rgba(141,176,255,.5)}
+.ap-fr .vidrio i::before{content:"";position:absolute;top:-4px;left:-10%;width:120%;height:8px;border-radius:50%;background:var(--sky)}
+.ap-fr.becas .vidrio i{background:linear-gradient(180deg,#F2C46B,#C98B2B);box-shadow:0 0 18px rgba(242,196,107,.55)}
+.ap-fr.becas .vidrio i::before{background:#F2C46B}
+.ap-pie{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-top:18px;border-top:1px dashed var(--line)}
+.ap-pie .toggle{font-size:.72rem;padding:.75em 1.2em}
+@media (prefers-reduced-motion:reduce){.ap-fr .vidrio i,.ap-badge{transition:none}}
 /* ---------- Cono de futuros interactivo ---------- */
 .cf{display:grid;gap:16px}
 .cf-areas{margin-top:0}
@@ -974,21 +1006,28 @@ footer .big em{color:var(--sky)}
       <div class="sec-head">
         <span class="mono">Economía del espacio</span>
         <h2>Hay distintas maneras <em>de sumarte.</em></h2>
-        <p class="prose">Imaginamos un laboratorio radicalmente accesible y, a la vez, sostenible en el tiempo. El aporte económico no es excluyente.</p>
+        <p class="prose">Un laboratorio radicalmente accesible y sostenible en el tiempo. El aporte sugerido es de $35.000 por mes, pero vos elegís: desde $0 hasta $70.000.</p>
       </div>
-      <div class="ways">
-        <div class="card">
-          <span class="mono">Con un aporte mensual</span>
-          <p class="big-num">$10.000 <small>a</small> $70.000</p>
-          <p class="prose">ARS por mes. Cada participante define su aporte con autonomía. Si podés aportar en la escala más alta, ayudás a que el espacio siga existiendo para otros.</p>
+      <div class="ap" id="ap">
+        <div class="ap-top">
+          <div>
+            <span class="mono">Tu aporte mensual</span>
+            <p class="ap-num"><output id="apOut" for="apRange">$35.000</output> <small>ARS / mes</small></p>
+          </div>
+          <span class="ap-badge" id="apBadge">Sugerido</span>
         </div>
-        <div class="card">
-          <span class="mono">Con tu presencia</span>
-          <p class="big-num" style="font-style:italic">Presencia y escucha</p>
-          <p class="prose">Si hoy no podés aportar dinero, podés sumarte igual. Tu compromiso de presencia y escucha también sostiene el jardín.</p>
+        <div class="ap-slider">
+          <span class="ap-mark" aria-hidden="true"><i></i>Sugerido $35.000</span>
+          <input type="range" id="apRange" min="0" max="70000" step="5000" value="35000" aria-label="Elegí tu aporte mensual en pesos">
+          <div class="ap-scale"><span><b>$0</b>presencia y escucha</span><span><b>$70.000</b>posibilidad de pago</span></div>
+        </div>
+        <p class="ap-msg" id="apMsg" aria-live="polite">Es el aporte que sostiene el espacio.</p>
+        <div class="ap-frascos" aria-hidden="true">
+          <div class="ap-fr"><span class="vidrio"><i id="apF1"></i></span><b>Infraestructura</b></div>
+          <div class="ap-fr"><span class="vidrio"><i id="apF2"></i></span><b>Honorarios justos</b></div>
+          <div class="ap-fr becas"><span class="vidrio"><i id="apF3"></i></span><b>Fondo de becas</b></div>
         </div>
       </div>
-      <div class="chips"><span class="chip">Infraestructura</span><span class="chip">Fondo de becas</span><span class="chip">Honorarios justos del equipo</span></div>
     </div>
   </section>
 
@@ -2079,7 +2118,8 @@ footer .big em{color:var(--sky)}
   ];
   var FAQ = [
     { p: "¿Cuánto cuesta?", k: ["cuesta", "precio", "pagar", "plata", "aporte", "costo", "valor", "sale", "gratis", "$"], r: [
-      "Vos definís tu aporte: de <em>$10.000 a $70.000</em> ARS por mes.",
+      "El aporte sugerido es de <em>$35.000</em> por mes.",
+      "Pero vos elegís: desde $0 hasta $70.000. Si hoy no podés, venís igual. Y lo que sumás de más se vuelve una beca para otra persona.",
       "Y si hoy no podés, sumate igual. Tu presencia y tu escucha también sostienen el jardín."
     ]},
     { p: "¿Cuánto tiempo me lleva?", k: ["tiempo", "horas", "dedicacion", "por semana", "cuanto dura", "duracion"], r: [
@@ -2190,6 +2230,37 @@ footer .big em{color:var(--sky)}
   if (reduce || !("IntersectionObserver" in window)){ empezo = true; arrancar(); return; }
   var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting && !empezo){ empezo = true; io.disconnect(); arrancar(); } }, { threshold: .35 });
   io.observe(box);
+})();
+</script>
+
+<script>
+/* ---------- Aporte elegible ---------- */
+(function(){
+  var r = document.getElementById("apRange"); if (!r) return;
+  var box = document.getElementById("ap"), out = document.getElementById("apOut"), badge = document.getElementById("apBadge"), msg = document.getElementById("apMsg");
+  var f1 = document.getElementById("apF1"), f2 = document.getElementById("apF2"), f3 = document.getElementById("apF3");
+  var SUG = 35000, MAX = 70000;
+  function fmt(n){ return "$" + n.toLocaleString("es-AR"); }
+  function render(){
+    var v = +r.value;
+    r.style.setProperty("--p", (v / MAX * 100) + "%");
+    box.classList.toggle("pres", v === 0);
+    badge.classList.toggle("off", v !== SUG);
+    if (v === 0){
+      out.innerHTML = "Presencia";
+      msg.textContent = "Te sumás igual. Tu presencia y tu escucha también sostienen el jardín.";
+    } else {
+      out.textContent = fmt(v);
+      if (v < SUG) msg.textContent = "Gracias por sumarte con lo que podés. El fondo de becas sostiene la diferencia.";
+      else if (v === SUG) msg.textContent = "Es el aporte que sostiene el espacio.";
+      else msg.textContent = "Con lo que sumás de más, alguien más puede entrar becado.";
+    }
+    var base = Math.min(v, SUG) / SUG;
+    f1.style.height = (10 + base * 72) + "%"; f2.style.height = (10 + base * 72) + "%";
+    f3.style.height = v > SUG ? (20 + (v - SUG) / (MAX - SUG) * 72) + "%" : "12%";
+  }
+  r.addEventListener("input", render);
+  render();
 })();
 </script>
 
