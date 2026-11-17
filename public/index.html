@@ -690,6 +690,20 @@ footer .big em{color:var(--sky)}
   .scr-tel{width:200px;height:380px;border-radius:32px}
 }
 @media (prefers-reduced-motion:reduce){.scr-dedo{display:none}}
+/* ---------- Puente ojo → dupla ---------- */
+.puente{position:relative;max-width:760px;margin:clamp(24px,4vw,48px) auto 0;height:clamp(300px,34vw,380px)}
+.pu-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.pu-l{fill:none;vector-effect:non-scaling-stroke;stroke:var(--sky);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(141,176,255,.9))}
+.pu-gota{fill:var(--mist);filter:drop-shadow(0 0 6px #8DB0FF);opacity:0;offset-rotate:0deg}
+.puente.vivo .pu-gota{animation:puGota 1.8s ease-in infinite}
+.puente.vivo .pu-gota.g2{animation-duration:2.2s}
+@keyframes puGota{0%{offset-distance:0%;opacity:0}15%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.pu-frase{position:absolute;left:50%;top:32%;transform:translateX(-50%);width:min(92%,640px);text-align:center;font-family:var(--f-display);font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.pu-frase em{color:var(--sky)}
+.pu-frase .w{display:inline-block;opacity:.08;filter:blur(6px);transform:translateY(8px);transition:opacity .5s,filter .5s,transform .5s}
+.pu-frase .w.on{opacity:1;filter:none;transform:none}
+.puente + .duo-t{margin-top:8px}
+@media (prefers-reduced-motion:reduce){.pu-l{stroke-dashoffset:0}.pu-frase .w{opacity:1;filter:none;transform:none}.puente.vivo .pu-gota{animation:none}}
 /* ---------- Cono de futuros interactivo ---------- */
 .cf{display:grid;gap:16px}
 .cf-areas{margin-top:0}
@@ -1076,6 +1090,19 @@ footer .big em{color:var(--sky)}
           <p class="ask">¿Cuál querés que crezca?</p>
         </figcaption>
       </figure>
+      <div class="puente" id="puente">
+        <svg class="pu-svg" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+          <path class="pu-l" id="puA" pathLength="1" d="M300 0 C300 40 296 70 300 110"/>
+          <path class="pu-l" id="puB" pathLength="1" d="M300 250 C302 280 300 300 300 312 C300 330 240 342 150 360"/>
+          <path class="pu-l" id="puC" pathLength="1" d="M300 312 C300 330 360 342 450 360"/>
+          <circle class="pu-gota" r="3.4" style="offset-path:path('M300 0 C300 40 296 70 300 110');animation-delay:0s"/>
+          <circle class="pu-gota" r="2.6" style="offset-path:path('M300 0 C300 40 296 70 300 110');animation-delay:.6s"/>
+          <circle class="pu-gota g2" r="3" style="offset-path:path('M300 250 C302 280 300 300 300 312 C300 330 240 342 150 360');animation-delay:.3s"/>
+          <circle class="pu-gota g2" r="3" style="offset-path:path('M300 312 C300 330 360 342 450 360');animation-delay:.9s"/>
+        </svg>
+        <p class="pu-frase" id="puFrase">Lo que querés que crezca, <em>no lo regás solo.</em></p>
+      </div>
+
       <div class="duo-t">
         <div class="duo-txt">
           <span class="mono">Tu Testigo · de principio a fin</span>
@@ -2445,5 +2472,42 @@ footer .big em{color:var(--sky)}
 })();
 </script>
 
+
+<script>
+/* ---------- Puente ojo → dupla ---------- */
+(function(){
+  var pu = document.getElementById("puente"); if (!pu) return;
+  var A = document.getElementById("puA"), B = document.getElementById("puB"), C = document.getElementById("puC"), frase = document.getElementById("puFrase");
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ws = [];
+  (function partir(nodo){
+    Array.prototype.slice.call(nodo.childNodes).forEach(function(n){
+      if (n.nodeType === 3){
+        var f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(p){
+          if (!p) return;
+          if (/^\s+$/.test(p)) f.appendChild(document.createTextNode(p));
+          else { var s = document.createElement("span"); s.className = "w"; s.textContent = p; f.appendChild(s); ws.push(s); }
+        });
+        n.parentNode.replaceChild(f, n);
+      } else partir(n);
+    });
+  })(frase);
+  function cl(v){ return Math.max(0, Math.min(1, v)); }
+  function render(){
+    var r = pu.getBoundingClientRect(), vh = innerHeight;
+    var p = reduce ? 1 : cl((vh * .9 - r.top) / (r.height + vh * .25));
+    A.style.strokeDashoffset = 1 - cl(p / .3);
+    var on = Math.round(cl((p - .22) / .38) * ws.length);
+    ws.forEach(function(w, i){ w.classList.toggle("on", i < on); });
+    var b = cl((p - .6) / .3);
+    B.style.strokeDashoffset = 1 - b; C.style.strokeDashoffset = 1 - b;
+    pu.classList.toggle("vivo", p > .3 && !reduce);
+  }
+  addEventListener("scroll", render, { passive: true });
+  addEventListener("resize", render);
+  render();
+})();
+</script>
 
 </body></html>
