@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Jardín de Gente</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#070D24">
+<title>Jardín de Gente</title><link rel="icon" href="favicon.ico?v=3" sizes="any"><link rel="icon" type="image/svg+xml" href="favicon.svg?v=3"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=3"><meta name="theme-color" content="#070D24">
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -609,6 +609,8 @@ footer .big em{color:var(--sky)}
 .ap-scale span:last-child{text-align:right}
 .ap-scale b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;letter-spacing:0;text-transform:none;color:var(--mist)}
 .ap-msg{font-family:var(--f-display);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.15;color:var(--mist);min-height:2.3em}
+.ap-nota{justify-self:start;max-width:46ch;font-size:.92rem;line-height:1.45;color:#C4D1F2;background:var(--night);border:1px dashed var(--sky);border-radius:16px;padding:12px 16px;transform:rotate(-.6deg)}
+.ap-nota .mono{display:block;font-size:.62rem;margin-bottom:4px}
 .ap-frascos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .ap-fr{display:grid;justify-items:center;gap:8px;text-align:center}
 .ap-fr b{font-family:var(--f-mono);font-weight:400;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
@@ -1022,11 +1024,7 @@ footer .big em{color:var(--sky)}
           <div class="ap-scale"><span><b>$0</b>presencia y escucha</span><span><b>$70.000</b>posibilidad de pago</span></div>
         </div>
         <p class="ap-msg" id="apMsg" aria-live="polite">Es el aporte que sostiene el espacio.</p>
-        <div class="ap-frascos" aria-hidden="true">
-          <div class="ap-fr"><span class="vidrio"><i id="apF1"></i></span><b>Infraestructura</b></div>
-          <div class="ap-fr"><span class="vidrio"><i id="apF2"></i></span><b>Honorarios justos</b></div>
-          <div class="ap-fr becas"><span class="vidrio"><i id="apF3"></i></span><b>Fondo de becas</b></div>
-        </div>
+        <p class="ap-nota"><span class="mono">Nota · Becas</span> Hay un fondo de becas: si hoy no podés aportar, tenés lugar igual. Y si podés sumar de más, ayudás a que alguien más entre.</p>
       </div>
     </div>
   </section>
@@ -2238,7 +2236,6 @@ footer .big em{color:var(--sky)}
 (function(){
   var r = document.getElementById("apRange"); if (!r) return;
   var box = document.getElementById("ap"), out = document.getElementById("apOut"), badge = document.getElementById("apBadge"), msg = document.getElementById("apMsg");
-  var f1 = document.getElementById("apF1"), f2 = document.getElementById("apF2"), f3 = document.getElementById("apF3");
   var SUG = 35000, MAX = 70000;
   function fmt(n){ return "$" + n.toLocaleString("es-AR"); }
   function render(){
@@ -2255,9 +2252,6 @@ footer .big em{color:var(--sky)}
       else if (v === SUG) msg.textContent = "Es el aporte que sostiene el espacio.";
       else msg.textContent = "Con lo que sumás de más, alguien más puede entrar becado.";
     }
-    var base = Math.min(v, SUG) / SUG;
-    f1.style.height = (10 + base * 72) + "%"; f2.style.height = (10 + base * 72) + "%";
-    f3.style.height = v > SUG ? (20 + (v - SUG) / (MAX - SUG) * 72) + "%" : "12%";
   }
   r.addEventListener("input", render);
   render();
