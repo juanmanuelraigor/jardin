@@ -326,19 +326,12 @@ footer .big em{color:var(--sky)}
 .dish-tag{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);background:var(--night);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;white-space:nowrap;font-size:.64rem}
 
 /* EN CONCRETO + LOOP */
-.concreto{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(32px,5vw,56px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.concreto{display:grid;grid-template-columns:minmax(0,1fr);max-width:760px;gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(32px,5vw,56px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
 .concreto > *{min-width:0}
 .concreto-txt{display:grid;gap:16px;justify-items:start}
 .infra{color:var(--dim);max-width:52ch}
 .big-claim{font-family:var(--f-display);font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.05;letter-spacing:-.01em}
 .big-claim em{color:var(--sky)}
-.loop{margin:0;width:100%;max-width:460px;justify-self:center}
-.loop svg{width:100%;height:auto;display:block;overflow:visible}
-.loop .node circle{transition:fill .4s,r .4s}
-.loop .node.on circle{fill:#D6E2FF}
-.loop .node text{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;fill:#8E9CC4;transition:fill .4s}
-.loop .node.on text{fill:#D6E2FF}
-.inner-spin{transform-origin:200px 200px;animation:spin 30s linear infinite reverse}
 
 /* TICKER */
 .ticker{overflow:hidden;border-bottom:1px solid var(--line);background:var(--night);padding-block:14px}
@@ -379,7 +372,7 @@ footer .big em{color:var(--sky)}
 
 /* PROTOTIPO */
 .proto{margin:0;position:relative;background:var(--deep);border:1px solid var(--line);border-radius:28px;padding:24px;display:grid;gap:14px;min-width:0}
-.proto-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-right:70px}
+.proto-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-right:70px;min-height:72px}
 .stamp{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--night);background:var(--sky);padding:.4em .8em;border-radius:6px;transform:rotate(-8deg) scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .stamp.on{transform:rotate(-8deg) scale(1)}
 .frasco{position:absolute;top:14px;right:16px;width:58px;height:auto}
@@ -466,6 +459,145 @@ footer .big em{color:var(--sky)}
 .testigo-row{margin-top:clamp(40px,6vw,64px)}
 .testigo-card{grid-template-columns:auto minmax(0,1fr);column-gap:28px;align-items:center}
 .testigo-card .pair{grid-row:span 4}
+.manif-sub{font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.45;color:#C4D1F2;max-width:52ch;text-wrap:pretty}
+/* ---------- El ojo ---------- */
+.ojo{margin:clamp(48px,8vw,110px) 0 0;display:grid;justify-items:center;gap:clamp(20px,3vw,36px);text-align:center}
+.ojo svg{width:min(100%,1000px);height:auto;display:block;overflow:visible}
+.ojo-hook{display:grid;gap:14px;justify-items:center;max-width:820px}
+.ojo.js .ojo-hook{opacity:0;transform:translateY(16px);transition:opacity .9s,transform .9s}
+.ojo.js.abierto .ojo-hook{opacity:1;transform:none}
+.ojo-hook .big{font-family:var(--f-display);font-size:clamp(2.3rem,5.6vw,4.4rem);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+.ojo-hook .big em{color:var(--sky)}
+.ojo-hook .ask{font-family:var(--f-display);font-style:italic;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15;color:#C4D1F2}
+.ojo-abri b{font-weight:400;color:var(--mist)}
+.ojo-abri i{font-style:normal;margin-inline:.7em;color:var(--dim)}
+.ojo.js .ojo-abri b{opacity:.15;transition:opacity .8s,text-shadow .8s}
+.ojo.js.abierto .ojo-abri b{opacity:1;text-shadow:0 0 12px rgba(141,176,255,.7)}
+.ojo.js.abierto .ojo-abri b:nth-of-type(2){transition-delay:.6s}
+.ojo.js.abierto .ojo-abri b:nth-of-type(3){transition-delay:1.2s}
+#ojoBrote path,#ojoRaices path{stroke-dasharray:1;stroke-dashoffset:1}
+.proto-solo{display:grid;justify-items:center;text-align:center}
+.proto-solo .sec-head{justify-items:center;margin-inline:auto}
+.proto-solo .proto{width:100%;max-width:560px;text-align:left}
+/* ---------- Charla con Gerardo ---------- */
+.ch{max-width:720px;background:var(--deep);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.ch-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--panel)}
+.ch-av{position:relative;width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:radial-gradient(circle at 35% 30%,#F2C46B,#8A5A1E);border:2px solid #F2C46B;display:grid;place-items:center}
+.ch-av b{font-family:var(--f-display);font-style:italic;font-size:1.7rem;color:#2A1A0C;font-weight:400}
+.ch-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-who{display:grid;gap:2px}
+.ch-who b{font-family:var(--f-display);font-weight:400;font-size:1.4rem;line-height:1}
+.ch-who .mono{font-size:.62rem;color:var(--dim);display:flex;align-items:center;gap:6px}
+.ch-who .mono i{width:7px;height:7px;border-radius:50%;background:#7BE0A0;box-shadow:0 0 8px #7BE0A0}
+.ch-log{display:flex;flex-direction:column;gap:10px;padding:22px 20px;min-height:320px;max-height:min(70vh,560px);overflow-y:auto;scroll-behavior:smooth}
+.ch-msg{max-width:82%;padding:12px 16px;border-radius:20px 20px 20px 6px;background:var(--night);border:1px solid var(--line);font-family:var(--f-display);font-size:clamp(1.2rem,2vw,1.45rem);line-height:1.25;color:var(--mist);animation:chIn .45s cubic-bezier(.3,1.3,.5,1) both;align-self:flex-start}
+.ch-msg.yo{align-self:flex-end;background:var(--sky);color:var(--night);border-color:var(--sky);border-radius:20px 20px 6px 20px;font-family:var(--f-body);font-size:1rem;font-weight:600}
+.ch-msg em{color:var(--sky)}
+.ch-typing{display:flex;gap:5px;align-items:center;padding:16px 18px}
+.ch-typing i{width:7px;height:7px;border-radius:50%;background:var(--sky);animation:chDot 1s ease-in-out infinite}
+.ch-typing i:nth-child(2){animation-delay:.15s}.ch-typing i:nth-child(3){animation-delay:.3s}
+.ch-tags{display:flex;flex-wrap:wrap;gap:8px;max-width:100%;align-self:flex-start}
+.ch-tags span{font-family:var(--f-display);font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1;padding:.5em .8em;border:1px solid var(--sky);border-radius:999px;animation:chPop .5s cubic-bezier(.3,1.6,.5,1) both}
+.ch-tags span:nth-child(3n+1){background:var(--sky);color:var(--night)}
+.ch-acu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:min(100%,560px);align-self:flex-start}
+.ch-acu div{background:var(--night);border:1px solid var(--sky);border-radius:16px;padding:12px 14px;display:grid;gap:4px;animation:chPop .5s cubic-bezier(.3,1.6,.5,1) both}
+.ch-acu b{font-family:var(--f-mono);font-weight:400;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+.ch-acu span{font-family:var(--f-display);font-size:1.15rem;line-height:1.2}
+.ch-opts{display:flex;flex-wrap:wrap;gap:8px;padding:14px 20px 18px;border-top:1px solid var(--line);min-height:68px;align-items:center}
+.ch-opts button{font:inherit;font-size:.95rem;color:var(--mist);background:transparent;border:1px solid var(--sky);border-radius:999px;padding:.6em 1.1em;cursor:pointer;transition:background .25s,color .25s;animation:chIn .4s ease both}
+.ch-opts button:hover{background:var(--sky);color:var(--night)}
+.ch-opts .btn{animation:chIn .4s ease both}
+.ch-form{display:flex;gap:8px;padding:12px 16px 16px;border-top:1px solid var(--line);background:var(--night)}
+.ch-form input{flex:1;min-width:0;font:inherit;font-size:1rem;color:var(--mist);background:var(--deep);border:1px solid var(--line);border-radius:999px;padding:.7em 1.1em}
+.ch-form input:focus{outline:none;border-color:var(--sky)}
+.ch-form button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--sky);color:var(--night);font-size:1.2rem;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes chIn{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes chPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes chDot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+@media (max-width:600px){.ch-acu{grid-template-columns:minmax(0,1fr)}.ch-msg{max-width:92%}.ch-opts{gap:6px;padding:10px 14px 12px}.ch-opts button{font-size:.85rem;padding:.5em .9em}.ch-log{min-height:280px;max-height:60vh}}
+@media (prefers-reduced-motion:reduce){.ch-msg,.ch-tags span,.ch-acu div,.ch-opts button,.ch-opts .btn,.ch-typing i{animation:none}}
+/* ---------- Cono de futuros interactivo ---------- */
+.cf{display:grid;gap:16px}
+.cf-areas{margin-top:0}
+.cf-svg{width:100%;height:auto;display:block;overflow:visible;user-select:none;-webkit-user-select:none}
+.cf-svg text{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em}
+.cf-band-l{fill:var(--sky)}
+.cf-dim{fill:var(--dim)}
+.cf-otro path{fill:none;stroke:#8DB0FF;stroke-opacity:.28;stroke-width:1.5;stroke-dasharray:4 5}
+.cf-otro circle{fill:var(--deep);stroke:#8DB0FF;stroke-opacity:.6;stroke-width:1.5;cursor:pointer}
+.cf-otro text{fill:var(--dim);font-size:11px;cursor:pointer}
+#cfPath{stroke-dasharray:1;stroke-dashoffset:0}
+#cfPath.draw{transition:stroke-dashoffset .9s cubic-bezier(.3,.8,.3,1)}
+.cf-handle{cursor:grab;touch-action:none;outline:none}
+.cf-handle:active{cursor:grabbing}
+.cf-handle:focus-visible .cf-halo{stroke:var(--mist);stroke-width:2}
+.cf-halo{fill:rgba(141,176,255,.15);stroke:var(--sky);stroke-opacity:.6;transform-box:fill-box;transform-origin:center;animation:cfPulse 2.4s ease-in-out infinite}
+@keyframes cfPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.45}}
+@media (max-width:600px){.cf-svg text{font-size:17px}.cf-otro text{font-size:15px}}
+.cf-ej{color:#C4D1F2;font-size:.95rem;line-height:1.45;padding-top:8px;border-top:1px dashed var(--line)}
+.cf-ej .mono{font-size:.66rem;margin-right:6px}
+.cf-proto{border-top:0;padding-top:0}
+.cf-ej em{font-family:var(--f-display);font-size:1.2em;color:var(--mist)}
+.cf-tabla{margin-top:8px;background:var(--deep);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.cf-tabla tbody tr.on th,.cf-tabla tbody tr.on td{background:rgba(141,176,255,.1)}
+.cf-tabla tbody th,.cf-tabla td{transition:background .4s}
+.cf-hint{text-align:center;color:var(--dim);font-size:.66rem}
+.cf-read{background:var(--deep);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px}
+.cf-q{font-family:var(--f-display);font-style:italic;font-size:clamp(1.4rem,2.4vw,1.8rem);line-height:1.15;color:var(--mist)}
+.cf-band{color:#C4D1F2;font-size:.95rem;line-height:1.45}
+.cf-band b{font-family:var(--f-mono);font-weight:400;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night);background:var(--sky);border-radius:999px;padding:.3em .8em;margin-right:6px}
+@media (prefers-reduced-motion:reduce){.cf-halo{animation:none}#cfPath.draw{transition:none}}
+/* ---------- Recorrido · 8 semanas ---------- */
+.rc{display:flex;flex-direction:column;gap:clamp(32px,4vw,52px)}
+.rc-head{display:grid;gap:16px;max-width:720px}
+.rc-head p{color:var(--dim);text-wrap:pretty}
+.rc-scroll{overflow-x:auto;margin-inline:calc(-1 * var(--gutter));padding:0 var(--gutter) 8px;scrollbar-width:thin}
+.rc-tl{min-width:760px;display:flex;flex-direction:column;gap:10px}
+.rc-fases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.rc-fase{font:inherit;color:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:var(--deep);transition:background .3s,border-color .3s}
+.rc-fase[aria-pressed="true"]{background:var(--panel);border-color:var(--sky)}
+.rc-fase:hover{border-color:var(--sky)}
+.rc-fase .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+.rc-fase .n{font-family:var(--f-display);font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.05;color:var(--mist)}
+.rc-fase .v{font-size:14px;line-height:1.4;color:var(--dim)}
+.rc-sems{position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));padding:22px 0 6px}
+.rc-base{position:absolute;left:6.25%;right:6.25%;top:40px;height:1px;background:var(--line)}
+.rc-bar{position:absolute;left:6.25%;top:39px;height:3px;width:0;border-radius:2px;background:var(--blue);box-shadow:0 0 14px rgba(61,107,229,.6);transition:width .5s cubic-bezier(.3,.8,.3,1)}
+.rc-sem{position:relative;font:inherit;color:inherit;background:transparent;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px}
+.rc-sem .dbox{height:36px;display:flex;align-items:center;justify-content:center}
+.rc-sem .d{width:12px;height:12px;border-radius:999px;background:var(--night);border:1px solid var(--sky);transition:all .3s}
+.rc-sem.hito .d{width:18px;height:18px}
+.rc-sem.enc .d{background:var(--blue)}
+.rc-sem.done .d{background:var(--sky)}
+.rc-sem[aria-pressed="true"] .d{width:18px;height:18px;box-shadow:0 0 0 6px rgba(141,176,255,.15)}
+.rc-sem.hito[aria-pressed="true"] .d{width:24px;height:24px}
+.rc-sem .l{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);transition:color .3s}
+.rc-sem[aria-pressed="true"] .l{color:var(--mist)}
+.rc-sem .h{min-height:22px;font-family:var(--f-display);font-style:italic;font-size:15px;line-height:1.15;color:var(--sky);text-align:center;padding:0 4px}
+.rc-tes{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.rc-tes span{justify-self:center;width:26px;height:26px;border-radius:999px;border:1px solid rgba(141,176,255,.35);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:10px;color:var(--dim)}
+.rc-tes-l{text-align:center;color:var(--dim);font-size:11px;letter-spacing:.12em}
+.rc-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,3vw,40px);background:var(--deep);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3.4vw,40px)}
+.rc-izq,.rc-der{display:flex;flex-direction:column;gap:12px;min-width:0}
+.rc-der{border-left:1px solid var(--line);padding-left:clamp(0px,3vw,40px)}
+.rc-q{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.12;color:var(--mist);text-wrap:balance;transition:opacity .38s,transform .38s,filter .38s}
+.rc-q.out{opacity:0;transform:translateY(10px);filter:blur(4px)}
+.rc-nota{font-size:14px;color:var(--dim)}
+.rc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.rc-list li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:baseline;font-size:16px;line-height:1.45;color:#C4D1F2}
+.rc-list li::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--sky);transform:translateY(-2px)}
+.rc-nav{display:flex;gap:10px;margin-top:auto;padding-top:8px}
+.rc-nav .toggle{color:var(--mist);font-size:11px;padding:.6em 1.1em;transition:border-color .3s,opacity .3s}
+.rc-nav .toggle:hover:not(:disabled){border-color:var(--sky)}
+.rc-nav .toggle:disabled{opacity:.35;cursor:default}
+.rc-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.rc-ley{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--dim)}
+.rc-ley span{display:flex;align-items:center;gap:8px}
+.rc-ley i{width:12px;height:12px;border-radius:999px;border:1px solid var(--sky)}
+.rc-ley i.f{background:var(--sky)}
+@media (max-width:640px){.rc-der{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}}
+@media (prefers-reduced-motion:reduce){.rc-bar,.rc-q,.rc-sem .d,.rc-fase{transition:none}}
 @media (max-width:880px){.campo-grid{grid-template-columns:minmax(0,1fr)}.testigo-card{grid-template-columns:minmax(0,1fr)}.testigo-card .pair{grid-row:auto}}
 @media (max-width:600px){.acuerdos2{grid-template-columns:minmax(0,1fr)}}
 
@@ -613,12 +745,62 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
+  <section id="recorrido">
+    <div class="wrap rc">
+      <div class="rc-head">
+        <span class="mono">El recorrido</span>
+        <h2>Ocho semanas, <em>paso a paso.</em></h2>
+        <p>Primero observamos, después imaginamos, ensayamos y cosechamos. Tu Testigo te acompaña todas las semanas.</p>
+      </div>
+
+      <div class="rc-scroll">
+        <div class="rc-tl">
+          <div class="rc-fases" id="rcFases" role="group" aria-label="Fases del laboratorio"></div>
+          <div class="rc-sems" id="rcSems" role="group" aria-label="Elegir semana">
+            <div class="rc-base" aria-hidden="true"></div>
+            <div class="rc-bar" id="rcBar" aria-hidden="true"></div>
+          </div>
+          <div class="rc-tes" aria-hidden="true">
+            <span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span>
+          </div>
+          <p class="mono rc-tes-l">Testigo semanal · 40 minutos en dupla, del principio al fin</p>
+        </div>
+      </div>
+
+      <div class="rc-panel" aria-live="polite">
+        <div class="rc-izq">
+          <span class="mono" id="rcMeta">Semana 1 / 8 · Mapeo de inercia</span>
+          <p class="rc-q" id="rcQ">¿En qué se te va la energía sin que lo elijas?</p>
+          <p class="rc-nota">La pregunta para conversar con tu Testigo.</p>
+        </div>
+        <div class="rc-der">
+          <span class="mono">Qué pasa esta semana</span>
+          <ul class="rc-list" id="rcList"></ul>
+          <div class="rc-nav">
+            <button class="toggle" type="button" id="rcPrev">← Anterior</button>
+            <button class="toggle" type="button" id="rcNext">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc-pie">
+        <div class="rc-ley">
+          <span><i class="f"></i>Encuentro grupal en vivo</span>
+          <span><i></i>Semana con tu Testigo</span>
+        </div>
+        <a class="btn" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero sumarme</a>
+      </div>
+    </div>
+  </section>
+
+
 
   <section class="manif" id="manifiesto-breve">
     <div class="wrap">
       <div class="manif-top">
         <span class="mono">Manifiesto</span>
         <h2>En defensa de la soberanía cognitiva, de la creatividad <em>y del derecho a soñar.</em></h2>
+        <p class="manif-sub">Que lo que pensás, deseás e imaginás no lo decida un algoritmo ni la urgencia de otros.</p>
       </div>
       <ul class="manif-lines">
         <li><span>Vivimos bajo la tiranía de la urgencia, el consumo digital y el multitrabajo.</span></li>
@@ -629,6 +811,56 @@ footer .big em{color:var(--sky)}
         <li><span>Nadie diseña su futuro en soledad.</span></li>
         <li><span>Registrar la inercia y proyectar el futuro junto a otros <em>es un acto de soberanía.</em></span></li>
       </ul>
+      <figure class="ojo" id="ojo" aria-label="Un ojo que se abre y, en su pupila, un brote con raíces de luz.">
+        <svg viewBox="0 0 1000 500" aria-hidden="true">
+          <defs>
+            <radialGradient id="ojoFondo" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#122351"/><stop offset="1" stop-color="#070D24"/></radialGradient>
+            <radialGradient id="ojoIris" cx="50%" cy="50%" r="50%"><stop offset=".35" stop-color="#0E1A3F"/><stop offset=".75" stop-color="#3D6BE5"/><stop offset=".97" stop-color="#8DB0FF"/><stop offset="1" stop-color="#070D24"/></radialGradient>
+            <filter id="ojoGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="ojoClip"><path id="ojoClipPath" d="M40 250 Q500 250 960 250 Q500 250 40 250Z"/></clipPath>
+            <clipPath id="ojoPupClip"><circle id="ojoPupClipC" cx="500" cy="250" r="40"/></clipPath>
+          </defs>
+          <g clip-path="url(#ojoClip)">
+            <rect x="0" y="0" width="1000" height="500" fill="url(#ojoFondo)"/>
+            <g id="ojoStars"></g>
+            <g id="ojoIrisG">
+              <circle cx="500" cy="250" r="175" fill="url(#ojoIris)"/>
+              <g id="ojoFibras" stroke="#8DB0FF" stroke-opacity=".22" stroke-width="1"></g>
+              <circle id="ojoPup" cx="500" cy="250" r="40" fill="#070D24"/>
+              <g clip-path="url(#ojoPupClip)">
+                <line x1="380" y1="300" x2="620" y2="300" stroke="#8DB0FF" stroke-opacity=".35"/>
+                <g id="ojoBrote" fill="none" stroke="#8DB0FF" stroke-width="2" stroke-linecap="round" filter="url(#ojoGlow)">
+                  <path pathLength="1" d="M500 300 C498 282 504 264 500 232"/>
+                  <path pathLength="1" d="M500 300 C492 312 478 318 466 334"/>
+                  <path pathLength="1" d="M500 300 C510 314 524 320 538 336"/>
+                  <path pathLength="1" d="M500 300 C501 318 497 332 500 350"/>
+                  <path pathLength="1" d="M482 318 C474 318 464 314 452 316"/>
+                  <path pathLength="1" d="M520 318 C530 314 540 316 552 312"/>
+                  <path pathLength="1" d="M499 334 C490 340 484 348 478 360"/>
+                  <path pathLength="1" d="M500 262 C484 256 472 244 474 226 C490 230 500 244 500 262Z" fill="#8DB0FF" fill-opacity=".25"/>
+                  <path pathLength="1" d="M500 250 C516 242 528 230 528 214 C512 216 502 230 500 250Z" fill="#8DB0FF" fill-opacity=".25"/>
+                </g>
+              </g>
+              <g id="ojoRaices" fill="none" stroke="#D6E2FF" stroke-width="1.4" stroke-linecap="round" opacity=".7" filter="url(#ojoGlow)">
+                <path pathLength="1" d="M466 334 C452 352 440 370 420 384"/>
+                <path pathLength="1" d="M538 336 C552 354 566 366 586 378"/>
+                <path pathLength="1" d="M500 350 C502 372 496 390 500 418"/>
+                <path pathLength="1" d="M452 316 C430 318 410 330 392 326"/>
+                <path pathLength="1" d="M552 312 C574 306 592 314 610 302"/>
+                <path pathLength="1" d="M478 360 C470 376 456 392 452 410"/>
+              </g>
+              <ellipse cx="452" cy="200" rx="20" ry="12" fill="#D6E2FF" opacity=".75"/>
+            </g>
+          </g>
+          <g id="ojoLuz"></g>
+          <path id="ojoLinea" d="M40 250 Q500 250 960 250 Q500 250 40 250Z" fill="none" stroke="#8DB0FF" stroke-width="2" filter="url(#ojoGlow)"/>
+        </svg>
+        <figcaption class="ojo-hook">
+          <span class="mono ojo-abri">Abrí <b>la mente</b><i>·</i><b>el corazón</b><i>·</i><b>las manos</b></span>
+          <p class="big">Donde ponés tu atención, <em>crece tu futuro.</em></p>
+          <p class="ask">¿Cuál querés que crezca?</p>
+        </figcaption>
+      </figure>
       <div class="concreto">
         <div class="concreto-txt">
           <p class="infra">Jardín de Gente es una infraestructura comunitaria para desacelerar y recuperar soberanía sobre la atención.</p>
@@ -641,190 +873,11 @@ footer .big em{color:var(--sky)}
           </ul>
           <button class="btn line" type="button" data-go="manifiesto">Leer el manifiesto completo</button>
         </div>
-        <figure class="loop" aria-label="Ciclo del método: registrar la inercia, formular una pregunta, diseñar una prueba, ensayar de 3 a 7 días y revisar con rigor. En el centro, el doble ciclo de aprendizaje.">
-          <svg viewBox="-50 -10 500 420" id="loopSvg">
-            <circle cx="200" cy="200" r="140" fill="none" stroke="#8DB0FF" stroke-opacity=".35" stroke-width="1"/>
-            <circle class="inner-spin" cx="200" cy="200" r="78" fill="none" stroke="#8DB0FF" stroke-opacity=".6" stroke-width="1" stroke-dasharray="3 7"/>
-            <g id="loopNodes"></g>
-            <circle id="loopDot" r="7" fill="#D6E2FF"/>
-            <text x="200" y="194" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="22" fill="#D6E2FF">doble ciclo</text>
-            <text x="200" y="216" text-anchor="middle" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="1.6" fill="#8E9CC4">¿DESDE QUÉ SUPUESTOS?</text>
-          </svg>
-        </figure>
       </div>
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true"><div class="ticker-track">
-    <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
-    <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
-  </div></div>
-
-
-  <section id="herramientas">
-    <div class="wrap split">
-      <figure class="pregs" aria-label="Preguntas semanales para conversar con tu Testigo.">
-        <header><span class="mono">Preguntas de la semana</span><span class="mono">Semana <b id="qWeek">1</b> / 8</span></header>
-        <div class="q-stage"><p class="q" id="qText" aria-live="polite">¿En qué se te va la energía sin que lo elijas?</p></div>
-        <div class="q-dots" id="qDots" role="group" aria-label="Elegir semana"></div>
-        <div class="q-foot">
-          <svg viewBox="0 0 120 40" aria-hidden="true"><path d="M30 20 Q60 2 90 20" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><path d="M30 20 Q60 38 90 20" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="pulse" cx="30" cy="20" r="9" fill="#8DB0FF"/><circle class="pulse p2" cx="90" cy="20" r="9" fill="#0E1A3F" stroke="#D6E2FF" stroke-width="1.5"/></svg>
-          <p>Una pregunta por semana para conversar con tu Testigo. Sin planillas ni tareas.</p>
-        </div>
-      </figure>
-      <div>
-        <div class="sec-head">
-          <span class="mono">Las herramientas</span>
-          <h2>Ensayamos futuros <em>en ciclos cortos.</em></h2>
-          <p class="prose">Tecnologías sociales y cognitivas para bajar la autoexigencia y facilitar decisiones cotidianas.</p>
-        </div>
-        <div class="tool-wrap">
-          <ol class="tool-list">
-            <li><span class="n">1</span><div><h3>Mapeo de inercia</h3><p>Dos semanas mirando, sin juzgar, a dónde se va tu energía y qué urgencias te manejan la agenda.</p><p class="obs">Y algo pasa: <em>observar ya empieza a mover cosas.</em></p></div></li>
-            <li><span class="n">2</span><div><h3>Cono de futuros aplicado</h3><p>Trazás caminos entre hoy y lo que deseás, en equilibrio entre las áreas de tu vida.</p>
-              <svg class="mini-cono" viewBox="0 0 340 150" role="img" aria-label="Desde hoy salen cuatro caminos hacia distintas áreas de la vida: cuerpo, vínculos, trabajo y creatividad. Una línea punteada recta marca la inercia.">
-                <path d="M24 75 L300 8 L300 142 Z" fill="#8DB0FF" fill-opacity=".06" stroke="#8DB0FF" stroke-opacity=".35" stroke-dasharray="2 5"/>
-                <line x1="24" y1="75" x2="292" y2="128" stroke="#8E9CC4" stroke-width="1.5" stroke-dasharray="5 5"/>
-                <text x="236" y="146" class="mc-dim">INERCIA</text>
-                <path class="mc-p" style="--i:0" d="M24 75 C110 75 180 40 270 26"/>
-                <path class="mc-p" style="--i:1" d="M24 75 C110 75 180 62 270 58"/>
-                <path class="mc-p" style="--i:2" d="M24 75 C110 75 180 86 270 90"/>
-                <path class="mc-p" style="--i:3" d="M24 75 C120 80 170 100 250 112"/>
-                <g class="mc-n" style="--i:0"><circle cx="272" cy="26" r="6"/><text x="284" y="30">CUERPO</text></g>
-                <g class="mc-n" style="--i:1"><circle cx="272" cy="58" r="6"/><text x="284" y="62">VÍNCULOS</text></g>
-                <g class="mc-n" style="--i:2"><circle cx="272" cy="90" r="6"/><text x="284" y="94">TRABAJO</text></g>
-                <g class="mc-n" style="--i:3"><circle cx="252" cy="112" r="6"/><text x="190" y="128" class="mc-sm">CREATIVIDAD</text></g>
-                <circle cx="24" cy="75" r="8" fill="#D6E2FF"/><text x="10" y="100" class="mc-dim">HOY</text>
-              </svg>
-            </div></li>
-            <li><span class="n">3</span><div><h3>Mini-prototipos</h3><p>Cambios de 3 a 7 días para salir de la parálisis por análisis y aprender sin miedo al error.</p></div></li>
-            <li><span class="n">4</span><div><h3>Cosecha y campo social</h3><p>Encuentros para compartir hallazgos y aprender en grupo.</p></div></li>
-          </ol>
-          <aside class="rail" aria-label="Constante durante todo el proceso: Testigo semanal">
-            <span class="rail-lbl mono">Constante · Testigo semanal</span>
-            <span class="rail-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span>
-          </aside>
-        </div>
-        <div class="constante">
-          <span class="mono">Constante en todo el proceso</span>
-          <p><b>Testigo semanal.</b> 40 minutos en dupla, cada semana, del principio al fin. Escucha empática y sin juicio, pase lo que pase con las otras herramientas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="que-esperar" class="band">
-    <div class="wrap">
-      <div class="esperar">
-        <div class="card">
-          <span class="mono">Qué podés esperar</span>
-          <ul class="dots">
-            <li>Más claridad sobre cómo usás tu tiempo y tu energía.</li>
-            <li>Algunos experimentos probados en tu vida real, no un plan perfecto.</li>
-            <li>Una dupla y un grupo que te conocen en proceso.</li>
-            <li>Herramientas que te llevás para seguir usando después.</li>
-          </ul>
-          <p class="hint">No prometemos transformaciones mágicas. Ofrecemos un espacio cuidado y herramientas para ensayar.</p>
-        </div>
-        <div class="card">
-          <span class="mono">Qué podés desarrollar</span>
-          <div class="caps">
-            <span>Atención elegida</span><span>Escucha profunda</span><span>Imaginación de futuros</span><span>Aprender del error</span><span>Decidir desde lo importante</span><span>Pedir y dar apoyo</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec-head" style="margin-top:clamp(48px,7vw,80px);margin-bottom:24px">
-        <span class="mono">Qué metas podés trabajar</span>
-        <h3 style="font-size:clamp(1.8rem,3.4vw,2.6rem)">En equilibrio, <em style="color:var(--sky)">no en una sola área.</em></h3>
-        <p class="prose">Elegís qué querés ensayar. Estos son ejemplos de mini-prototipos de 3 a 7 días:</p>
-      </div>
-      <div class="areas">
-        <div><span class="mono">Cuerpo y descanso</span><p>Una semana sin pantalla la primera hora del día.</p></div>
-        <div><span class="mono">Trabajo y proyectos</span><p>Una tarde por semana para ese proyecto postergado.</p></div>
-        <div><span class="mono">Vínculos</span><p>Un encuentro sin celular con alguien que te importa.</p></div>
-        <div><span class="mono">Creatividad</span><p>Escribir, dibujar o tocar 15 minutos por día.</p></div>
-        <div><span class="mono">Tiempo y agenda</span><p>Decir que no a una urgencia ajena por día.</p></div>
-        <div><span class="mono">Comunidad</span><p>Sumarte a algo colectivo de tu barrio o tu red.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="campo" class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="mono">Campo social</span>
-        <h2>El laboratorio es el borde. <em>Adentro, se juega.</em></h2>
-      </div>
-      <div class="campo-grid">
-        <figure class="borde">
-          <canvas id="bordeCv" role="img" aria-label="Diez personas forman un círculo que hace de borde. Adentro, pequeñas exploraciones se mueven, rebotan y germinan con libertad. Sin el borde, se dispersan."></canvas>
-          <figcaption class="mono" id="bordeCap">Con borde: adentro se explora</figcaption>
-        </figure>
-        <div class="campo-txt">
-          <p class="big-claim">Un campo social es el espacio que se forma cuando un grupo decide <em>cuidarse.</em></p>
-          <div class="prose">
-            <p>No viene armado de afuera: lo co-creamos con cada participante, a partir de cuatro acuerdos simples.</p>
-            <p>Ese borde es el que da seguridad psicológica. Y cuando hay borde, adentro se puede explorar, probar, equivocarse y jugar. La experiencia de cada uno deja de vivirse en soledad y se vuelve aprendizaje compartido.</p>
-          </div>
-          <div class="acuerdos2" role="group" aria-label="Los cuatro acuerdos del campo">
-            <button type="button" data-k="0" aria-pressed="true"><b>Confidencialidad</b><small>Lo que se dice acá, se queda acá.</small></button>
-            <button type="button" data-k="1" aria-pressed="false"><b>Respeto</b><small>Cada historia tiene su tiempo.</small></button>
-            <button type="button" data-k="2" aria-pressed="false"><b>Suspensión del juicio</b><small>Escuchamos antes de opinar.</small></button>
-            <button type="button" data-k="3" aria-pressed="false"><b>Seguridad psicológica</b><small>Podés no saber sin pagar un costo.</small></button>
-          </div>
-          <button type="button" class="btn line" id="bordeBtn" aria-pressed="true">Probá quitar el borde</button>
-        </div>
-      </div>
-
-      <div class="testigo-row">
-        <div class="card testigo-card">
-          <svg viewBox="0 0 240 80" aria-hidden="true" class="pair"><path d="M60 40 Q120 4 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><path d="M60 40 Q120 76 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="pulse" cx="60" cy="40" r="16" fill="#8DB0FF"/><circle class="pulse p2" cx="180" cy="40" r="16" fill="#0E1A3F" stroke="#D6E2FF" stroke-width="1.5"/></svg>
-          <span class="mono">Testigo</span>
-          <h3>Una dupla hasta el final.</h3>
-          <p class="prose">Te asignamos un testigo para trabajar en dupla durante todo el laboratorio. Una llamada por semana para atestiguar sus procesos, hacerse preguntas honestas y escucharse de verdad.</p>
-          <p class="prose">Sin consejos apurados, sin juicio, sin hacer de mentores. Cada quincena reciben preguntas y pautas para profundizar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="compromiso">
-    <div class="wrap split rev">
-      <div>
-        <div class="sec-head">
-          <span class="mono">Pacto de presencia</span>
-          <h2>Esto crece <em>con tu compromiso.</em></h2>
-        </div>
-        <div class="facts"><span><b>60</b> días</span><span><b>6–10</b> personas</span><span><b>1</b> llamada semanal</span></div>
-        <ul class="pacto-list">
-          <li>Cada participante es <b>co-creador</b>: lo personal enriquece lo colectivo.</li>
-          <li>Ante imprevistos <b>podés ver la grabación</b>, y le devolvés tu síntesis al Testigo y al campo social.</li>
-          <li>Mantenemos <b>presencia activa</b> y resonancia en el canal común.</li>
-          <li><b>La corresponsabilidad fortalece nuestro compromiso compartido.</b></li>
-        </ul>
-        <p class="resist-line">Las resistencias son parte del viaje. No las esquivamos ni las forzamos: son el material vivo del aprendizaje. El rigor del espacio no es control, es el colchón que nos sostiene mientras exploramos.</p>
-      </div>
-      <figure class="proto" aria-label="Ejemplo de ficha de prototipo: hipótesis, cinco días de duración, registro diario, aprendizaje y revisión con el Testigo.">
-        <div class="proto-head"><span class="mono">Ficha de prototipo #03</span><span class="stamp" id="stamp">Ensayado</span></div>
-        <svg class="frasco" viewBox="0 0 80 110" aria-hidden="true">
-          <path d="M26 6h28M30 6v26L10 92a10 10 0 0 0 9 14h42a10 10 0 0 0 9-14L50 32V6" fill="none" stroke="#8DB0FF" stroke-width="2"/>
-          <path d="M16 80 L64 80 L70 92a10 10 0 0 1-9 14H19a10 10 0 0 1-9-14Z" fill="#3D6BE5" fill-opacity=".5"/>
-          <path class="sprout" d="M40 96 C40 84 40 74 42 62" fill="none" stroke="#D6E2FF" stroke-width="2" stroke-linecap="round"/>
-          <path class="leaf" d="M42 66 q10 -8 14 -2 q-8 6 -14 2z" fill="#8DB0FF"/>
-          <circle class="bub" cx="28" cy="96" r="2" fill="#D6E2FF"/><circle class="bub b2" cx="50" cy="98" r="1.6" fill="#D6E2FF"/><circle class="bub b3" cx="58" cy="94" r="1.3" fill="#D6E2FF"/>
-        </svg>
-        <div class="prow"><span class="mono">Hipótesis</span><p>Si camino 20 minutos sin celular al mediodía, llego a la noche con más energía.</p></div>
-        <div class="prow"><span class="mono">Duración</span><div class="days5" id="days5"><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="prow"><span class="mono">Registro</span><div class="bars" id="bars"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:45%"></i><i style="--h:75%"></i><i style="--h:85%"></i></div></div>
-        <div class="prow"><span class="mono">Aprendizaje</span><p id="learn" class="learn"></p></div>
-        <div class="prow"><span class="mono">Testigo</span><p class="tst" id="tst">✓ Revisado en la llamada semanal</p></div>
-      </figure>
-    </div>
-  </section>
-
-  <section id="aporte" style="padding-top:0">
+  <section id="aporte">
     <div class="wrap">
       <div class="sec-head">
         <span class="mono">Economía del espacio</span>
@@ -847,26 +900,139 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
+    <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
+  </div></div>
 
-  <section id="preguntas" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="mono">Preguntas frecuentes</span>
-        <h2>Antes de <em>sumarte.</em></h2>
-      </div>
-      <div class="faq">
-        <details><summary>¿Necesito llegar con una meta clara?</summary><p>No. Alcanza con una pregunta o una incomodidad. Las primeras semanas son de observación, y lo que querés ensayar aparece en el camino.</p></details>
-        <details><summary>¿Cuánto tiempo me lleva por semana?</summary><p>La llamada de 40 minutos con tu Testigo, tus prototipos (pensados para entrar en tu vida, no para sumarle tareas) y un encuentro grupal en vivo cada quince días.</p></details>
-        <details><summary>¿Es virtual?</summary><p>Sí. Todo el laboratorio es virtual, así que podés participar desde donde estés.</p></details>
-        <details><summary>¿Qué pasa si no puedo ir a un encuentro?</summary><p>Ves la grabación y le compartís tu síntesis a tu Testigo y al campo social. Así seguís presente en el tejido del grupo.</p></details>
-        <details><summary>¿Quién es mi Testigo?</summary><p>Otra persona del grupo, asignada al inicio. Trabajan en dupla hasta el final, con una llamada semanal de escucha sin juicio y sin consejos apurados.</p></details>
-        <details><summary>¿Qué pasa con lo que comparto?</summary><p>Queda en el grupo. La confidencialidad es uno de los acuerdos que sostienen el espacio.</p></details>
-        <details><summary>¿Cuánto cuesta?</summary><p>Hay distintas maneras de sumarte. Si podés, acompañás con un aporte mensual de $10.000 a $70.000 ARS que vos definís. El aporte no es excluyente: tu presencia y tu escucha también sostienen el espacio.</p></details>
-        <details><summary>¿Es terapia o un curso?</summary><p>Ninguna de las dos. Es un laboratorio grupal de exploración. No reemplaza un acompañamiento terapéutico ni enseña contenidos para memorizar: se aprende haciendo y conversando.</p></details>
-        <details><summary>¿Cuándo empieza?</summary><p>La fecha de la próxima cohorte está por confirmarse. Dejá tus datos y te avisamos primero.</p></details>
+
+  <section id="herramientas">
+    <div class="wrap split">
+      <figure class="pregs" aria-label="Preguntas semanales para conversar con tu Testigo.">
+        <header><span class="mono">Preguntas de la semana</span><span class="mono">Semana <b id="qWeek">1</b> / 8</span></header>
+        <div class="q-stage"><p class="q" id="qText" aria-live="polite">¿En qué se te va la energía sin que lo elijas?</p></div>
+        <div class="q-dots" id="qDots" role="group" aria-label="Elegir semana"></div>
+        <div class="q-foot">
+          <svg viewBox="0 0 120 40" aria-hidden="true"><path d="M30 20 Q60 2 90 20" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><path d="M30 20 Q60 38 90 20" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="pulse" cx="30" cy="20" r="9" fill="#8DB0FF"/><circle class="pulse p2" cx="90" cy="20" r="9" fill="#0E1A3F" stroke="#D6E2FF" stroke-width="1.5"/></svg>
+          <p>Una pregunta por semana para conversar con tu Testigo. Sin planillas ni tareas.</p>
+        </div>
+      </figure>
+      <div>
+        <div class="sec-head">
+          <span class="mono">Una herramienta por dentro</span>
+          <h2>El cono <em>de futuros.</em></h2>
+          <p class="prose">Desde hoy se abren muchos futuros. Si no elegís, decide la inercia. Acá trazás el camino hacia el que deseás.</p>
+        </div>
+        <div class="cf" id="cf">
+          <div class="toggles cf-areas" id="cfAreas" role="group" aria-label="Elegir un área de tu vida"></div>
+          <svg class="cf-svg" id="cfSvg" viewBox="0 0 720 360" role="img" aria-label="Cono de futuros: desde hoy se abren futuros probables, plausibles y posibles. Una línea punteada marca la inercia. Podés mover tu futuro deseado dentro del cono.">
+            <defs><filter id="cfGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <path d="M40 180 L600 20 L600 340Z" fill="#8DB0FF" fill-opacity=".04" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
+            <path d="M40 180 L600 85 L600 275Z" fill="#8DB0FF" fill-opacity=".06" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
+            <path d="M40 180 L600 140 L600 220Z" fill="#8DB0FF" fill-opacity=".1" stroke="#8DB0FF" stroke-opacity=".35" stroke-dasharray="2 5"/>
+            <text class="cf-band-l" x="612" y="56">POSIBLE</text>
+            <text class="cf-band-l" x="612" y="116">PLAUSIBLE</text>
+            <text class="cf-band-l" x="612" y="184">PROBABLE</text>
+            <line x1="40" y1="180" x2="600" y2="206" stroke="#8E9CC4" stroke-width="1.5" stroke-dasharray="5 6"/>
+            <text class="cf-dim" x="250" y="210" transform="rotate(2.7 250 210)">INERCIA</text>
+            <g id="cfOtros"></g>
+            <path id="cfPath" pathLength="1" fill="none" stroke="#8DB0FF" stroke-width="3" stroke-linecap="round" filter="url(#cfGlow)"/>
+            <circle cx="40" cy="180" r="9" fill="#D6E2FF"/>
+            <text class="cf-dim" x="26" y="210">HOY</text>
+            <text class="cf-dim" x="600" y="8" text-anchor="end">DENTRO DE UN AÑO</text>
+            <g id="cfHandle" class="cf-handle" tabindex="0" role="slider" aria-label="Tu futuro deseado. Movelo con el mouse, el dedo o las flechas." aria-valuetext="">
+              <circle class="cf-halo" r="22"/>
+              <circle r="11" fill="#D6E2FF" filter="url(#cfGlow)"/>
+            </g>
+          </svg>
+          <p class="mono cf-hint">Arrastrá el punto para mover tu futuro</p>
+          <div class="cf-read" aria-live="polite">
+            <span class="mono" id="cfArea">Cuerpo</span>
+            <p class="cf-q" id="cfQ"></p>
+            <p class="cf-band"><b id="cfBand">Posible</b> <span id="cfBandTxt"></span></p>
+            <p class="cf-ej"><span class="mono">Por ejemplo</span> <em id="cfEj"></em></p>
+            <p class="cf-ej cf-proto"><span class="mono">Para probar de 3 a 7 días</span> <em id="cfProto"></em></p>
+          </div>
+          <div class="tabla cf-tabla">
+            <table>
+              <thead><tr><th scope="col">Futuro</th><th scope="col">Qué es</th><th scope="col">La pregunta</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Probable</th><td data-l="Qué es">Lo que pasa si seguís igual. Lo empuja la inercia.</td><td data-l="La pregunta">¿Qué pasa si no cambio nada?</td></tr>
+                <tr><th scope="row">Plausible</th><td data-l="Qué es">Lo que puede pasar con algunos cambios a tu alcance.</td><td data-l="La pregunta">¿Qué cambio chico puedo hacer?</td></tr>
+                <tr><th scope="row">Posible</th><td data-l="Qué es">Todo lo que podría pasar, aunque hoy parezca lejano.</td><td data-l="La pregunta">¿Qué me animo a imaginar?</td></tr>
+                <tr><th scope="row">Deseado</th><td data-l="Qué es">El futuro que elegís. Puede estar en cualquiera de las tres franjas.</td><td data-l="La pregunta">¿Qué quiero que crezca?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+
+  <section id="charla" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Lo que pasa adentro</span>
+        <h2>Preguntale <em>a Gerardo.</em></h2>
+        <p class="prose">Lo que pasa adentro, las dudas de siempre y lo que se te ocurra.</p>
+      </div>
+      <div class="ch" id="charlaBox">
+        <header class="ch-head">
+          <span class="ch-av"><b>G</b><img src="gerardo.jpg" alt="" onerror="this.remove()"></span>
+          <span class="ch-who"><b>Gerardo</b><span class="mono"><i></i>En línea</span></span>
+        </header>
+        <div class="ch-log" id="chLog" role="log" aria-live="polite"></div>
+        <div class="ch-opts" id="chOpts" role="group" aria-label="Preguntale algo a Gerardo"></div>
+        <form class="ch-form" id="chForm" autocomplete="off">
+          <label class="sr" for="chIn">Escribile a Gerardo</label>
+          <input type="text" id="chIn" placeholder="Escribile a Gerardo…" maxlength="200">
+          <button type="submit" aria-label="Enviar">→</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="campo" class="band" style="padding-top:0">
+    <div class="wrap">
+
+      <div class="testigo-row">
+        <div class="card testigo-card">
+          <svg viewBox="0 0 240 80" aria-hidden="true" class="pair"><path d="M60 40 Q120 4 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><path d="M60 40 Q120 76 180 40" fill="none" stroke="#8DB0FF" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="pulse" cx="60" cy="40" r="16" fill="#8DB0FF"/><circle class="pulse p2" cx="180" cy="40" r="16" fill="#0E1A3F" stroke="#D6E2FF" stroke-width="1.5"/></svg>
+          <span class="mono">Testigo</span>
+          <h3>Una dupla hasta el final.</h3>
+          <p class="prose">Te asignamos un testigo para trabajar en dupla durante todo el laboratorio. Una llamada por semana para atestiguar sus procesos, hacerse preguntas honestas y escucharse de verdad.</p>
+          <p class="prose">Sin consejos apurados, sin juicio, sin hacer de mentores. Cada quincena reciben preguntas y pautas para profundizar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compromiso">
+    <div class="wrap proto-solo">
+      <div class="sec-head">
+        <span class="mono">Un mini-prototipo por dentro</span>
+        <h2>Así se <em>ensaya.</em></h2>
+      </div>
+      <figure class="proto" aria-label="Ejemplo de ficha de prototipo: hipótesis, cinco días de duración, registro diario, aprendizaje y revisión con el Testigo.">
+        <div class="proto-head"><span class="mono">Ficha de prototipo #03</span><span class="stamp" id="stamp">Ensayado</span></div>
+        <svg class="frasco" viewBox="0 0 80 110" aria-hidden="true">
+          <path d="M26 6h28M30 6v26L10 92a10 10 0 0 0 9 14h42a10 10 0 0 0 9-14L50 32V6" fill="none" stroke="#8DB0FF" stroke-width="2"/>
+          <path d="M16 80 L64 80 L70 92a10 10 0 0 1-9 14H19a10 10 0 0 1-9-14Z" fill="#3D6BE5" fill-opacity=".5"/>
+          <path class="sprout" d="M40 96 C40 84 40 74 42 62" fill="none" stroke="#D6E2FF" stroke-width="2" stroke-linecap="round"/>
+          <path class="leaf" d="M42 66 q10 -8 14 -2 q-8 6 -14 2z" fill="#8DB0FF"/>
+          <circle class="bub" cx="28" cy="96" r="2" fill="#D6E2FF"/><circle class="bub b2" cx="50" cy="98" r="1.6" fill="#D6E2FF"/><circle class="bub b3" cx="58" cy="94" r="1.3" fill="#D6E2FF"/>
+        </svg>
+        <div class="prow"><span class="mono">Hipótesis</span><p>Si camino 20 minutos sin celular al mediodía, llego a la noche con más energía.</p></div>
+        <div class="prow"><span class="mono">Duración</span><div class="days5" id="days5"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="prow"><span class="mono">Registro</span><div class="bars" id="bars"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:45%"></i><i style="--h:75%"></i><i style="--h:85%"></i></div></div>
+        <div class="prow"><span class="mono">Aprendizaje</span><p id="learn" class="learn"></p></div>
+        <div class="prow"><span class="mono">Testigo</span><p class="tst" id="tst">✓ Revisado en la llamada semanal</p></div>
+      </figure>
+    </div>
+  </section>
+
+
 
   <section style="padding-top:0">
     <div class="wrap cita">
@@ -916,27 +1082,6 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
-  <section id="semilla" class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="mono">Para jugar un rato</span>
-        <h2>No es una meta. <em>Es una semilla.</em></h2>
-        <p class="prose">Una meta va en línea recta hacia un solo punto. Una semilla crece hacia abajo y hacia arriba, en muchas direcciones a la vez. Sembrá y mirá qué crece.</p>
-      </div>
-      <div class="seed-box">
-        <div class="seed-scroll">
-          <svg id="seedSvg" viewBox="0 0 800 520" role="img" aria-labelledby="seedT">
-            <title id="seedT">Una semilla que crece hacia abajo en raíces y hacia arriba en brotes y flores, en muchas direcciones a la vez.</title>
-            <g id="seedG"></g>
-          </svg>
-        </div>
-        <div class="seed-ctrl">
-          <span class="mono" style="color:var(--dim)">Ninguna semilla crece igual</span>
-          <button type="button" class="btn line" id="sembrar">Sembrar de nuevo</button>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- ================= MOMENTO 2: EL MANIFIESTO ================= -->
@@ -1131,7 +1276,6 @@ footer .big em{color:var(--sky)}
 
 <footer>
   <div class="wrap">
-    <p class="big">Toca adueñarnos de la<br>conversación <em>del futuro.</em></p>
     <a class="btn line" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero mi lugar</a>
   </div>
 </footer>
@@ -1206,28 +1350,6 @@ footer .big em{color:var(--sky)}
     requestAnimationFrame(draw);
   })();
 
-  /* ---------- Ciclo del método ---------- */
-  (function(){
-    var g = document.getElementById("loopNodes"), dot = document.getElementById("loopDot"); if (!g) return;
-    var labels = [["REGISTRAR", "LA INERCIA"], ["FORMULAR", "UNA PREGUNTA"], ["DISEÑAR", "UNA PRUEBA"], ["ENSAYAR", "3 A 7 DÍAS"], ["REVISAR", "CON RIGOR"]], nodes = [];
-    labels.forEach(function(lb, i){
-      var a = -Math.PI / 2 + i * 2 * Math.PI / 5, x = 200 + Math.cos(a) * 140, y = 200 + Math.sin(a) * 140, n = el("g", { "class": "node" });
-      n.appendChild(el("circle", { cx: x, cy: y, r: 10, fill: "#0E1A3F", stroke: "#8DB0FF", "stroke-width": 1.5 }));
-      var tx = 200 + Math.cos(a) * 178, ty = 200 + Math.sin(a) * 178, anchor = Math.abs(Math.cos(a)) < .3 ? "middle" : (Math.cos(a) > 0 ? "start" : "end");
-      if (Math.abs(Math.cos(a)) >= .3) tx = 200 + Math.cos(a) * 160;
-      var t1 = el("text", { x: tx, y: ty - (Math.sin(a) < -.5 ? 14 : 0), "text-anchor": anchor }); t1.textContent = lb[0];
-      var t2 = el("text", { x: tx, y: ty + 12 - (Math.sin(a) < -.5 ? 14 : 0), "text-anchor": anchor }); t2.textContent = lb[1];
-      n.appendChild(t1); n.appendChild(t2); g.appendChild(n); nodes.push({ el: n, a: a });
-    });
-    function frame(t){
-      var a = -Math.PI / 2 + (reduce ? 0 : (t / 12000) * 2 * Math.PI);
-      dot.setAttribute("cx", 200 + Math.cos(a) * 140); dot.setAttribute("cy", 200 + Math.sin(a) * 140);
-      nodes.forEach(function(nd){ var d = Math.abs(Math.atan2(Math.sin(a - nd.a), Math.cos(a - nd.a))); nd.el.classList.toggle("on", d < .45); });
-      if (!reduce) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  })();
-
   /* ---------- Preguntas de la semana ---------- */
   (function(){
     var qs = ["¿En qué se te va la energía sin que lo elijas?", "¿Qué urgencia de otros estás viviendo como propia?", "¿Qué te gustaría que pase si nada te frenara?", "¿Qué pequeña prueba podrías hacer esta semana?", "¿Qué aprendiste de lo que no salió como esperabas?", "¿Qué estás empezando a ver distinto?", "¿A quién necesitás cerca para sostener esto?", "¿Qué futuro querés seguir regando?"];
@@ -1287,7 +1409,7 @@ footer .big em{color:var(--sky)}
   /* ---------- Revelado al scrollear ---------- */
   (function(){
     if (reduce || !("IntersectionObserver" in window)) return;
-    var sel = ".sec-head, .manif-lines li, .concreto-txt, .loop, .bitacora, .tool-list li, .senales li, .card, .areas > div, .borde, .campo-txt, .proto, .faq details, .cita p, .cap-body > *";
+    var sel = ".sec-head, .manif-lines li, .concreto-txt, .bitacora, .tool-list li, .senales li, .card, .areas > div, .borde, .campo-txt, .proto, .faq details, .cita p, .cap-body > *";
     var els = document.querySelectorAll(sel);
     var io = new IntersectionObserver(function(ents){ ents.forEach(function(e){ if (e.isIntersecting){ var sib = Array.prototype.indexOf.call(e.target.parentNode.children, e.target); e.target.style.setProperty("--d", Math.min(sib, 6) * 0.08 + "s"); e.target.classList.add("rv"); io.unobserve(e.target); } }); }, { threshold: .15, rootMargin: "0px 0px -8% 0px" });
     els.forEach(function(e){ var r = e.getBoundingClientRect(); if (r.top > innerHeight) io.observe(e); });
@@ -1495,11 +1617,11 @@ footer .big em{color:var(--sky)}
     g.getBoundingClientRect();
     items.forEach(function(it){ var e = it.el, d = Math.max(0, it.depth + .5) * 420; if (it.path){ e.style.transition = "stroke-dashoffset 600ms ease-out " + d + "ms"; e.style.strokeDashoffset = 0; } else { e.style.transition = "opacity 500ms ease-out " + d + "ms"; e.style.opacity = e.getAttribute("opacity") || 1; } });
   }
-  build(20261005);
-  document.getElementById("sembrar").addEventListener("click", function(){ build(Math.floor(Math.random() * 2e9) + 1); animate(); });
+  if (g) build(20261005);
+  var sbtn = document.getElementById("sembrar"); if (sbtn) sbtn.addEventListener("click", function(){ build(Math.floor(Math.random() * 2e9) + 1); animate(); });
   var io = null;
   function maybeSeed(){
-    if (reduce || !("IntersectionObserver" in window) || io) return;
+    if (!g || reduce || !("IntersectionObserver" in window) || io) return;
     io = new IntersectionObserver(function(ents){ if (ents[0].isIntersecting){ seedPlayed = true; animate(); io.disconnect(); } }, { threshold: .45 });
     io.observe(document.getElementById("seedSvg"));
   }
@@ -1540,4 +1662,452 @@ footer .big em{color:var(--sky)}
 <script>
 (function(){var w=document.getElementById("wa");if(w)w.addEventListener("click",function(){try{if(window.fbq)fbq("track","Contact",{content_name:"WhatsApp inscripción"});}catch(_){}});})();
 </script>
+<script>
+/* ---------- Recorrido · 8 semanas ---------- */
+(function(){
+  var fasesEl = document.getElementById("rcFases");
+  if (!fasesEl) return;
+  var semsEl = document.getElementById("rcSems"), bar = document.getElementById("rcBar");
+  var meta = document.getElementById("rcMeta"), q = document.getElementById("rcQ"), list = document.getElementById("rcList");
+  var prev = document.getElementById("rcPrev"), next = document.getElementById("rcNext");
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var FASES = [
+    { r: "Semanas 1–2", n: "Mapeo de inercia", v: "Observar a dónde se va tu energía." },
+    { r: "Semanas 3–4", n: "Cono de futuros", v: "Imaginar caminos hacia lo que deseás." },
+    { r: "Semanas 5–6", n: "Mini-prototipos", v: "Ensayar cambios chicos en la vida real." },
+    { r: "Semanas 7–8", n: "Cosecha", v: "Compartir lo aprendido en grupo." }
+  ];
+  var SEMANAS = [
+    { hito: "Inicio", enc: true, q: "¿En qué se te va la energía sin que lo elijas?",
+      pasa: ["Encuentro de apertura: armamos juntos los acuerdos del campo social.", "Te asignamos tu Testigo.", "Empezás a registrar, sin juzgar, a dónde va tu tiempo y tu atención."] },
+    { hito: "", q: "¿Qué urgencias ajenas manejaron tu agenda esta semana?",
+      pasa: ["Seguís con el registro de inercia.", "Primera llamada larga con tu Testigo sobre lo que observaste."] },
+    { hito: "Encuentro 2", enc: true, q: "Si nada cambiara, ¿cómo sería tu vida dentro de un año?",
+      pasa: ["Encuentro grupal: compartimos lo que dejó ver el registro.", "Trazás tu cono de futuros entre hoy y lo que deseás."] },
+    { hito: "", q: "¿Qué área de tu vida está pidiendo más lugar en el futuro que querés habitar?",
+      pasa: ["Buscás equilibrio entre cuerpo, vínculos, trabajo y creatividad.", "Elegís qué querés ensayar."] },
+    { hito: "Encuentro 3", enc: true, q: "¿Qué cambio chico podrías probar durante 3 a 7 días?",
+      pasa: ["Encuentro grupal: diseñamos los prototipos.", "Arrancás tu primer prototipo en la vida real."] },
+    { hito: "", q: "¿Qué esperabas de tu prototipo, qué pasó y desde qué supuestos lo hiciste?",
+      pasa: ["Completás tu ficha de prototipo.", "Lo revisás con tu Testigo y, si querés, probás otro."] },
+    { hito: "Cosecha", enc: true, q: "¿Qué aprendiste de lo que no salió como esperabas?",
+      pasa: ["Encuentro grupal de cosecha: compartimos hallazgos.", "Lo personal se vuelve aprendizaje colectivo."] },
+    { hito: "Cierre", q: "¿Qué te llevás, y qué querés seguir cuidando cuando termine el laboratorio?",
+      pasa: ["Última llamada con tu Testigo.", "Te llevás las herramientas para seguir usándolas."] }
+  ];
+
+  var semanaActiva = 0, faseBtns = [], semBtns = [], timer = null;
+
+  FASES.forEach(function(f, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "rc-fase";
+    b.innerHTML = '<span class="r">' + f.r + '</span><span class="n">' + f.n + '</span><span class="v">' + f.v + '</span>';
+    b.addEventListener("click", function(){ set(i * 2); });
+    fasesEl.appendChild(b); faseBtns.push(b);
+  });
+  SEMANAS.forEach(function(s, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "rc-sem" + (s.hito ? " hito" : "") + (s.enc ? " enc" : "");
+    b.setAttribute("aria-label", "Semana " + (i + 1) + (s.hito ? " · " + s.hito : ""));
+    b.innerHTML = '<span class="dbox"><span class="d"></span></span><span class="l">Sem ' + (i + 1) + '</span><span class="h">' + s.hito + '</span>';
+    b.addEventListener("click", function(){ set(i); });
+    semsEl.appendChild(b); semBtns.push(b);
+  });
+
+  function fill(){
+    var s = SEMANAS[semanaActiva];
+    q.textContent = s.q;
+    list.innerHTML = "";
+    s.pasa.forEach(function(t){ var li = document.createElement("li"); li.textContent = t; list.appendChild(li); });
+  }
+
+  function render(animar){
+    var fase = Math.floor(semanaActiva / 2);
+    bar.style.width = (semanaActiva / 8 * 100) + "%";
+    semBtns.forEach(function(b, i){
+      b.classList.toggle("done", i <= semanaActiva);
+      b.setAttribute("aria-pressed", i === semanaActiva ? "true" : "false");
+    });
+    faseBtns.forEach(function(b, i){ b.setAttribute("aria-pressed", i === fase ? "true" : "false"); });
+    meta.textContent = "Semana " + (semanaActiva + 1) + " / 8 · " + FASES[fase].n;
+    prev.disabled = semanaActiva === 0;
+    next.disabled = semanaActiva === 7;
+    clearTimeout(timer);
+    if (animar && !reduce) {
+      q.classList.add("out");
+      timer = setTimeout(function(){ fill(); q.classList.remove("out"); }, 380);
+    } else { fill(); }
+  }
+
+  function set(i){
+    i = Math.max(0, Math.min(7, i));
+    if (i === semanaActiva) return;
+    semanaActiva = i; render(true);
+  }
+  prev.addEventListener("click", function(){ set(semanaActiva - 1); });
+  next.addEventListener("click", function(){ set(semanaActiva + 1); });
+  render(false);
+})();
+</script>
+
+<script>
+/* ---------- El ojo que se abre ---------- */
+(function(){
+  var fig = document.getElementById("ojo"); if (!fig) return;
+  var NS = "http://www.w3.org/2000/svg";
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var clipP = document.getElementById("ojoClipPath"), linea = document.getElementById("ojoLinea");
+  var irisG = document.getElementById("ojoIrisG"), pup = document.getElementById("ojoPup"), pupClip = document.getElementById("ojoPupClipC");
+  var brote = document.querySelectorAll("#ojoBrote path"), raices = document.querySelectorAll("#ojoRaices path"), luzG = document.getElementById("ojoLuz"), luces = [], stars = document.getElementById("ojoStars"), fib = document.getElementById("ojoFibras");
+  fig.classList.add("js");
+
+  for (var i = 0; i < 90; i++){
+    var a = i / 90 * Math.PI * 2, r1 = 70 + Math.random() * 20, r2 = 140 + Math.random() * 30, l = document.createElementNS(NS, "line");
+    l.setAttribute("x1", 500 + Math.cos(a) * r1); l.setAttribute("y1", 250 + Math.sin(a) * r1);
+    l.setAttribute("x2", 500 + Math.cos(a) * r2); l.setAttribute("y2", 250 + Math.sin(a) * r2);
+    fib.appendChild(l);
+  }
+  for (var j = 0; j < 70; j++){
+    var c = document.createElementNS(NS, "circle");
+    c.setAttribute("cx", 40 + Math.random() * 920); c.setAttribute("cy", 30 + Math.random() * 440);
+    c.setAttribute("r", (Math.random() * 1.4 + .4).toFixed(2)); c.setAttribute("fill", "#D6E2FF");
+    c.setAttribute("opacity", (Math.random() * .6 + .15).toFixed(2));
+    stars.appendChild(c);
+  }
+
+  for (var q = 0; q < 22; q++){
+    var lc = document.createElementNS(NS, "circle");
+    lc.setAttribute("fill", q % 3 ? "#8DB0FF" : "#D6E2FF"); lc.setAttribute("filter", "url(#ojoGlow)");
+    luzG.appendChild(lc);
+    luces.push({ el: lc, ph: Math.random(), sp: .05 + Math.random() * .08, dx: (Math.random() * 2 - 1) * 260, w: Math.random() * 6.28, r: 1.4 + Math.random() * 2.2 });
+  }
+
+  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+  function ease(t){ return 1 - Math.pow(1 - t, 3); }
+  var H = 215, gx = 0, gy = 0, tx = 0, ty = 0, blink = 1, nextBlink = 0, visible = false;
+
+  function eye(h){
+    var d = "M40 250 Q500 " + (250 - 2 * h) + " 960 250 Q500 " + (250 + 2 * h) + " 40 250Z";
+    clipP.setAttribute("d", d); linea.setAttribute("d", d);
+  }
+  function progreso(){
+    if (reduce) return 1;
+    var r = fig.getBoundingClientRect(), vh = innerHeight;
+    return clamp((vh * .9 - r.top) / (vh * .65), 0, 1);
+  }
+  function frame(t){
+    var p = progreso(), abre = ease(clamp(p / .7, 0, 1)), crece = clamp((p - .45) / .5, 0, 1);
+    if (!reduce && p >= 1){
+      if (!nextBlink) nextBlink = t + 3000 + Math.random() * 4000;
+      var k = (t - nextBlink) / 280;
+      if (k >= 0 && k <= 1) blink = Math.abs(1 - 2 * k) * .95 + .05;
+      else { blink = 1; if (k > 1) nextBlink = t + 4000 + Math.random() * 5000; }
+    } else { blink = 1; nextBlink = 0; }
+    eye(H * abre * blink);
+    gx += (tx - gx) * .06; gy += (ty - gy) * .06;
+    irisG.setAttribute("transform", "translate(" + gx.toFixed(1) + " " + gy.toFixed(1) + ")");
+    var pr = 38 + 56 * ease(crece);
+    pup.setAttribute("r", pr); pupClip.setAttribute("r", pr);
+    for (var n = 0; n < brote.length; n++){
+      var s = clamp(crece * 1.4 - n * .06, 0, 1);
+      brote[n].style.strokeDashoffset = 1 - ease(s);
+    }
+    var esc = clamp((crece - .7) / .3, 0, 1);
+    for (var m = 0; m < raices.length; m++) raices[m].style.strokeDashoffset = 1 - ease(clamp(esc * 1.5 - m * .08, 0, 1));
+    var brillo = reduce ? 1 : esc;
+    luces.forEach(function(L){
+      var k = reduce ? L.ph : (t / 1000 * L.sp + L.ph) % 1;
+      var x = 500 + gx + L.dx * k + Math.sin(k * 6.28 + L.w) * 18, y = 250 + gy - k * 330;
+      L.el.setAttribute("cx", x.toFixed(1)); L.el.setAttribute("cy", y.toFixed(1)); L.el.setAttribute("r", L.r);
+      L.el.setAttribute("opacity", (brillo * Math.sin(k * Math.PI) * .9).toFixed(2));
+    });
+    fig.classList.toggle("abierto", p > .75);
+    if (visible && !reduce) requestAnimationFrame(frame);
+  }
+
+  if (!reduce){
+    addEventListener("pointermove", function(e){
+      var r = fig.getBoundingClientRect(); if (!r.width) return;
+      var dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height * .4)) / r.height;
+      tx = clamp(dx * 90, -60, 60); ty = clamp(dy * 50, -22, 22);
+    }, { passive: true });
+  }
+  if (reduce || !("IntersectionObserver" in window)){ visible = true; reduce = true; frame(0); return; }
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ var was = visible; visible = e.isIntersecting; if (visible && !was) requestAnimationFrame(frame); });
+  }, { rootMargin: "100px 0px" }).observe(fig);
+  frame(0);
+})();
+</script>
+
+<script>
+/* ---------- Cono de futuros interactivo ---------- */
+(function(){
+  var svg = document.getElementById("cfSvg"); if (!svg) return;
+  var NS = "http://www.w3.org/2000/svg";
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var AREAS = [
+    { n: "Cuerpo y descanso", c: "Cuerpo", q: "¿Cómo querés sentirte en tu cuerpo dentro de un año?", x: 470, y: 80,
+      proto: "Una semana sin pantalla la primera hora del día.",
+      ej: ["Seguir cansado y moverte solo cuando sobra tiempo.", "Caminar tres veces por semana y dormir una hora más.", "Empezar una práctica corporal nueva y tener energía todo el día."] },
+    { n: "Trabajo y proyectos", c: "Trabajo", q: "¿Qué querés que tu trabajo te deje, además de plata?", x: 560, y: 245,
+      proto: "Una tarde por semana para ese proyecto postergado.",
+      ej: ["El mismo trabajo, la misma urgencia, el mismo cansancio.", "Negociar un día sin reuniones o un horario más tuyo.", "Vivir de algo que tenga sentido para vos."] },
+    { n: "Vínculos", c: "Vínculos", q: "¿Con quiénes querés estar más cerca?", x: 540, y: 150,
+      proto: "Un encuentro sin celular con alguien que te importa.",
+      ej: ["Ver a tus amigos solo en los cumpleaños.", "Una cena por mes con la gente que querés.", "Armar una comunidad con la que compartís proyectos y cuidados."] },
+    { n: "Creatividad", c: "Creatividad", q: "¿Qué te gustaría estar creando?", x: 450, y: 290,
+      proto: "Escribir, dibujar o tocar 15 minutos por día.",
+      ej: ["Lo creativo queda para cuando sobre tiempo, y nunca sobra.", "Una hora por semana para escribir, dibujar o tocar.", "Mostrar algo que creaste: una muestra, un disco, un taller."] },
+    { n: "Tiempo y agenda", c: "Tiempo", q: "¿A qué querés dedicarle tu tiempo?", x: 380, y: 150,
+      proto: "Decir que no a una urgencia ajena por día.",
+      ej: ["La agenda la siguen manejando las urgencias de otros.", "Reservar dos mañanas por semana para lo importante.", "Una semana organizada por tus prioridades, no por las de afuera."] },
+    { n: "Comunidad", c: "Comunidad", q: "¿De qué querés ser parte?", x: 590, y: 320,
+      proto: "Sumarte a algo colectivo de tu barrio o tu red.",
+      ej: ["Sentir que todo lo tenés que resolver solo.", "Participar una vez por mes de algo colectivo.", "Ser parte de una red que se cuida y crea en conjunto."] }
+  ];
+  var BANDAS = [
+    { max: 40, n: "Probable", t: "Está cerca de la inercia: si seguís igual, es probable que llegue solo." },
+    { max: 95, n: "Plausible", t: "Pide algunos cambios en tu forma de vivir. Se puede." },
+    { max: 1e9, n: "Posible", t: "Pide ensayar y animarte a algo nuevo. Para eso es el laboratorio." }
+  ];
+  var areasEl = document.getElementById("cfAreas"), otros = document.getElementById("cfOtros");
+  var path = document.getElementById("cfPath"), handle = document.getElementById("cfHandle");
+  var areaEl = document.getElementById("cfArea"), qEl = document.getElementById("cfQ"), bandEl = document.getElementById("cfBand"), bandTxt = document.getElementById("cfBandTxt");
+  var protoEl = document.getElementById("cfProto"), ejEl = document.getElementById("cfEj"), filas = Array.prototype.slice.call(document.querySelectorAll(".cf-tabla tbody tr"));
+  var activa = 0, chips = [], marcas = [];
+
+  function d(a){ return "M40 180 C 200 180, " + (a.x - 160) + " " + a.y + ", " + a.x + " " + a.y; }
+  function clampPt(x, y){
+    x = Math.max(160, Math.min(600, x));
+    var h = (x - 40) / 560 * 158;
+    y = Math.max(180 - h, Math.min(180 + h, y));
+    return { x: x, y: y };
+  }
+  function banda(a){
+    var r = Math.abs(a.y - 180) / ((a.x - 40) / 560);
+    for (var i = 0; i < BANDAS.length; i++) if (r <= BANDAS[i].max) return { b: BANDAS[i], i: i };
+  }
+
+  AREAS.forEach(function(a, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "toggle"; b.textContent = a.n;
+    b.addEventListener("click", function(){ elegir(i); });
+    areasEl.appendChild(b); chips.push(b);
+    var g = document.createElementNS(NS, "g"); g.setAttribute("class", "cf-otro");
+    var p = document.createElementNS(NS, "path"), c = document.createElementNS(NS, "circle"), t = document.createElementNS(NS, "text");
+    c.setAttribute("r", 6);
+    g.appendChild(p); g.appendChild(c); g.appendChild(t); t.textContent = a.c.toUpperCase();
+    g.addEventListener("click", function(){ elegir(i); });
+    otros.appendChild(g); marcas.push({ g: g, p: p, c: c, t: t });
+  });
+
+  function dibujar(animar){
+    var a = AREAS[activa];
+    path.setAttribute("d", d(a));
+    handle.setAttribute("transform", "translate(" + a.x + " " + a.y + ")");
+    AREAS.forEach(function(o, i){
+      var m = marcas[i];
+      m.g.style.display = i === activa ? "none" : "";
+      m.p.setAttribute("d", d(o)); m.c.setAttribute("cx", o.x); m.c.setAttribute("cy", o.y);
+      m.t.setAttribute("x", o.x - 12); m.t.setAttribute("y", o.y - 12); m.t.setAttribute("text-anchor", "end");
+    });
+    var res = banda(a), bd = res.b;
+    bandEl.textContent = bd.n; bandTxt.textContent = bd.t;
+    ejEl.textContent = a.ej[res.i];
+    protoEl.textContent = a.proto;
+    filas.forEach(function(f, j){ f.classList.toggle("on", j === res.i || j === 3); });
+    handle.setAttribute("aria-valuetext", a.n + ": futuro " + bd.n.toLowerCase());
+    if (animar && !reduce){
+      path.classList.remove("draw"); path.style.strokeDashoffset = 1;
+      path.getBoundingClientRect();
+      path.classList.add("draw"); path.style.strokeDashoffset = 0;
+    }
+  }
+  function elegir(i){
+    activa = i;
+    chips.forEach(function(c, j){ c.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    areaEl.textContent = AREAS[i].n; qEl.textContent = AREAS[i].q;
+    dibujar(true);
+  }
+  function mover(x, y){
+    var p = clampPt(x, y); AREAS[activa].x = p.x; AREAS[activa].y = p.y;
+    path.classList.remove("draw"); path.style.strokeDashoffset = 0;
+    dibujar(false);
+  }
+  function aSvg(e){
+    var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+  var arrastrando = false;
+  handle.addEventListener("pointerdown", function(e){ arrastrando = true; handle.setPointerCapture(e.pointerId); e.preventDefault(); });
+  handle.addEventListener("pointermove", function(e){ if (!arrastrando) return; var p = aSvg(e); mover(p.x, p.y); });
+  handle.addEventListener("pointerup", function(){ arrastrando = false; });
+  handle.addEventListener("pointercancel", function(){ arrastrando = false; });
+  svg.addEventListener("click", function(e){
+    if (e.target.closest && (e.target.closest(".cf-otro") || e.target.closest("#cfHandle"))) return;
+    var p = aSvg(e); if (p.x >= 160 && p.x <= 600) mover(p.x, p.y);
+  });
+  handle.addEventListener("keydown", function(e){
+    var a = AREAS[activa], s = e.shiftKey ? 30 : 12, k = e.key;
+    if (k === "ArrowUp") mover(a.x, a.y - s); else if (k === "ArrowDown") mover(a.x, a.y + s);
+    else if (k === "ArrowLeft") mover(a.x - s, a.y); else if (k === "ArrowRight") mover(a.x + s, a.y);
+    else return;
+    e.preventDefault();
+  });
+  elegir(0);
+})();
+</script>
+
+<script>
+/* ---------- Charla con Gerardo ---------- */
+(function(){
+  var box = document.getElementById("charlaBox"); if (!box) return;
+  var log = document.getElementById("chLog"), opts = document.getElementById("chOpts"), form = document.getElementById("chForm"), input = document.getElementById("chIn");
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var WA = "5491151325175";
+  var INTRO = [
+    "¡Hola! Soy Gerardo. Sí, el del bigote.",
+    "Te digo la verdad: acá no hay transformaciones mágicas.",
+    "Hay un espacio cuidado y herramientas para <em>ensayar.</em> Preguntame lo que quieras."
+  ];
+  var RAMAS = [
+    { p: "¿Qué me llevo?", k: ["llevo", "aprendo", "sirve", "gano", "beneficio", "para que", "resultado"], r: [
+      "Claridad sobre a dónde se te van el tiempo y la energía.",
+      "Experimentos probados en tu vida real. No un plan perfecto.",
+      "Una dupla y un grupo que te conocen <em>en proceso.</em>",
+      "Y de paso entrenás todo esto:",
+      { tags: ["Atención elegida", "Escucha profunda", "Imaginación de futuros", "Aprender del error", "Decidir desde lo importante", "Pedir y dar apoyo"] },
+      "Son herramientas tuyas. Te las llevás para seguir usándolas."
+    ]},
+    { p: "¿Qué es el campo social?", k: ["campo", "acuerdo", "cuidado", "seguro", "segura"], r: [
+      "Es lo que se forma cuando un grupo decide <em>cuidarse.</em>",
+      "No viene armado de afuera: lo co-creamos entre todos con cuatro acuerdos.",
+      { acu: [["Confidencialidad", "Lo que se dice acá, se queda acá."], ["Respeto", "Cada historia tiene su tiempo."], ["Suspensión del juicio", "Escuchamos antes de opinar."], ["Seguridad psicológica", "Podés no saber sin pagar un costo."]] },
+      "Ese es el borde. Y cuando hay borde, <em>adentro se juega.</em>"
+    ]},
+    { p: "¿Y si me equivoco?", k: ["equivoc", "error", "fallar", "falla", "miedo", "sale mal"], r: [
+      "¡Mejor! Equivocarse es mi especialidad.",
+      "Acá el error es un dato para aprender, no algo que esconder.",
+      "Probás, te equivocás, ajustás. Y lo que te pasa deja de vivirse en soledad: se vuelve <em>aprendizaje compartido.</em>"
+    ]}
+  ];
+  var FAQ = [
+    { p: "¿Cuánto cuesta?", k: ["cuesta", "precio", "pagar", "plata", "aporte", "costo", "valor", "sale", "gratis", "$"], r: [
+      "Vos definís tu aporte: de <em>$10.000 a $70.000</em> ARS por mes.",
+      "Y si hoy no podés, sumate igual. Tu presencia y tu escucha también sostienen el jardín."
+    ]},
+    { p: "¿Cuánto tiempo me lleva?", k: ["tiempo", "horas", "dedicacion", "por semana", "cuanto dura", "duracion"], r: [
+      "Poco, y bien puesto.",
+      "Son 8 semanas: 40 minutos por semana con tu Testigo y un encuentro grupal en vivo cada quince días.",
+      "Tus prototipos entran en tu vida. No te suman tareas."
+    ]},
+    { p: "¿Necesito una meta clara?", k: ["meta", "objetivo", "no se que quiero", "claridad"], r: [
+      "Para nada. Alcanza con una pregunta o una incomodidad.",
+      "Las primeras semanas son de observación. Lo que querés ensayar aparece en el camino."
+    ]},
+    { p: "¿Es virtual?", k: ["virtual", "zoom", "presencial", "online", "donde", "lugar", "remoto"], r: [
+      "Sí, todo el laboratorio es virtual.",
+      "Te sumás desde donde estés. Yo, por ejemplo, desde un sillón muy cómodo."
+    ]},
+    { p: "¿Y si no puedo ir a un encuentro?", k: ["faltar", "falto", "no puedo ir", "perder", "grabacion", "imprevisto"], r: [
+      "Pasa. La vida no avisa.",
+      "Ves la grabación y le compartís tu síntesis a tu Testigo y al grupo. Así seguís presente."
+    ]},
+    { p: "¿Quién es mi Testigo?", k: ["testigo", "dupla", "pareja", "companero", "companera"], r: [
+      "Otra persona del grupo, asignada al inicio.",
+      "Trabajan en dupla hasta el final: una llamada por semana, escucha sin juicio y <em>sin consejos apurados.</em>"
+    ]},
+    { p: "¿Qué pasa con lo que comparto?", k: ["comparto", "confidencial", "privacidad", "privado", "secreto", "intimo"], r: [
+      "Queda en el grupo.",
+      "La confidencialidad es uno de los acuerdos que sostienen el espacio."
+    ]},
+    { p: "¿Es terapia o un curso?", k: ["terapia", "curso", "psicolog", "taller", "clase", "coaching"], r: [
+      "Ninguna de las dos.",
+      "Es un laboratorio grupal. No reemplaza una terapia ni enseña contenidos para memorizar.",
+      "Se aprende <em>haciendo y conversando.</em>"
+    ]},
+    { p: "¿Cuándo empieza?", k: ["cuando", "empieza", "fecha", "inicio", "arranca", "comienza", "proxima"], r: [
+      "La fecha de la próxima cohorte está por confirmarse.",
+      "Dejá tus datos y te avisamos primero."
+    ]}
+  ];
+  var HOLA = { k: ["hola", "buenas", "que tal", "como estas", "gerardo"], r: ["¡Hola, hola! Acá estoy, con el bigote peinado.", "Preguntame lo que quieras sobre el laboratorio."] };
+  var usadas = [], ocupado = false, empezo = false;
+
+  function norm(t){ return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[¿?¡!.,]/g, " "); }
+  function abajo(){ log.scrollTop = log.scrollHeight; }
+  function espera(ms){ return new Promise(function(r){ setTimeout(r, reduce ? 0 : ms); }); }
+  function burbuja(html, yo){
+    var d = document.createElement("div"); d.className = "ch-msg" + (yo ? " yo" : "");
+    if (yo) d.textContent = html; else d.innerHTML = html;
+    log.appendChild(d); abajo();
+  }
+  function especial(m){
+    var d = document.createElement("div");
+    if (m.tags){ d.className = "ch-tags"; m.tags.forEach(function(t, i){ var s = document.createElement("span"); s.textContent = t; s.style.animationDelay = (reduce ? 0 : i * .18) + "s"; d.appendChild(s); }); }
+    else if (m.acu){ d.className = "ch-acu"; m.acu.forEach(function(a, i){ var c = document.createElement("div"); c.innerHTML = "<b>" + a[0] + "</b><span>" + a[1] + "</span>"; c.style.animationDelay = (reduce ? 0 : i * .3) + "s"; d.appendChild(c); }); }
+    else if (m.wa){ d.className = "ch-tags"; var a = document.createElement("a"); a.className = "btn line"; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Escribirle a Juanma por WhatsApp"; a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Hola Juanma, tengo una pregunta sobre el laboratorio: " + m.wa); d.appendChild(a); }
+    log.appendChild(d); abajo();
+  }
+  function decir(lista){
+    return lista.reduce(function(pr, m){
+      return pr.then(function(){
+        if (reduce){ typeof m === "string" ? burbuja(m) : especial(m); return; }
+        var t = document.createElement("div"); t.className = "ch-msg ch-typing"; t.innerHTML = "<i></i><i></i><i></i>";
+        log.appendChild(t); abajo();
+        var largo = typeof m === "string" ? m.replace(/<[^>]+>/g, "").length : 40;
+        return espera(450 + Math.min(largo * 18, 1100)).then(function(){
+          t.remove(); typeof m === "string" ? burbuja(m) : especial(m);
+          return espera(typeof m === "string" ? 250 : (m.wa ? 300 : 1400));
+        });
+      });
+    }, Promise.resolve());
+  }
+  function boton(txt, fn){ var b = document.createElement("button"); b.type = "button"; b.textContent = txt; b.addEventListener("click", fn); opts.appendChild(b); }
+  function sumarme(){
+    var a = document.createElement("a"); a.className = "btn"; a.href = "#inscripcion"; a.textContent = "Quiero sumarme";
+    a.addEventListener("click", function(e){ var t = document.getElementById("inscripcion"); if (t){ e.preventDefault(); t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); } });
+    opts.appendChild(a);
+  }
+  function opciones(modo){
+    opts.innerHTML = "";
+    var lista = modo === "faq" ? FAQ : RAMAS;
+    lista.forEach(function(r){ if (usadas.indexOf(r) < 0) boton(r.p, function(){ elegir(r); }); });
+    if (modo === "faq") boton("← Volver", function(){ opciones(); });
+    else boton("Tengo otra pregunta", function(){ if (ocupado) return; ocupado = true; opts.innerHTML = ""; decir(["Dale, preguntá nomás. Tocá una o escribime abajo."]).then(function(){ ocupado = false; opciones("faq"); }); });
+    if (usadas.length >= 2) sumarme();
+  }
+  function responder(texto, r){
+    if (ocupado) return; ocupado = true; opts.innerHTML = "";
+    burbuja(texto, true);
+    var resto = r ? r.r.slice() : null;
+    if (r && usadas.indexOf(r) < 0) usadas.push(r);
+    if (!r) resto = ["Uh, esa no me la sé. Y mirá que sé un montón de cosas inútiles.", "Mejor preguntásela a Juanma directo:", { wa: texto }];
+    espera(300).then(function(){ return decir(resto); }).then(function(){ ocupado = false; opciones(FAQ.indexOf(r) > -1 ? "faq" : null); });
+  }
+  function elegir(r){ responder(r.p, r); }
+  function buscar(t){
+    var n = norm(t), todas = FAQ.concat(RAMAS);
+    for (var i = 0; i < todas.length; i++) for (var j = 0; j < todas[i].k.length; j++) if (n.indexOf(todas[i].k[j]) > -1) return todas[i];
+    for (var h = 0; h < HOLA.k.length; h++) if (n.indexOf(HOLA.k[h]) > -1) return HOLA;
+    return null;
+  }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var t = input.value.trim(); if (!t || ocupado) return;
+    input.value = "";
+    if (!empezo){ empezo = true; }
+    responder(t, buscar(t));
+  });
+  function arrancar(){ ocupado = true; decir(INTRO).then(function(){ ocupado = false; opciones(); }); }
+
+  if (reduce || !("IntersectionObserver" in window)){ empezo = true; arrancar(); return; }
+  var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting && !empezo){ empezo = true; io.disconnect(); arrancar(); } }, { threshold: .35 });
+  io.observe(box);
+})();
+</script>
+
 </body></html>
