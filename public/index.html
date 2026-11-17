@@ -210,6 +210,10 @@ footer .big em{color:var(--sky)}
 .manif{background:var(--deep);border-block:1px solid var(--line)}
 .manif-top{display:grid;gap:16px;max-width:860px;margin-bottom:clamp(28px,4vw,48px)}
 .manif-top h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.manif-dos{display:grid;gap:clamp(28px,5vw,64px);padding-block:clamp(32px,5vw,64px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.manif-dos p{font-family:var(--f-display);font-size:clamp(2.4rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.015em;max-width:15ch;text-wrap:balance}
+.manif-dos p:nth-child(2){justify-self:end;text-align:right}
+.manif-dos em{color:var(--sky)}
 .manif-lines{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .manif-lines li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:clamp(12px,2vw,24px);align-items:baseline;padding-block:clamp(14px,2vw,22px);border-bottom:1px solid var(--line);font-family:var(--f-display);font-size:clamp(1.55rem,3.4vw,2.6rem);line-height:1.12;letter-spacing:-.01em}
 .manif-lines li::before{content:"";width:12px;height:12px;border-radius:50% 50% 50% 0;background:var(--sky);transform:rotate(-45deg) translateY(-2px)}
@@ -805,15 +809,10 @@ footer .big em{color:var(--sky)}
         <h2>En defensa de la soberanía cognitiva, de la creatividad <em>y del derecho a soñar.</em></h2>
         <p class="manif-sub">Que lo que pensás, deseás e imaginás no lo decida un algoritmo ni la urgencia de otros.</p>
       </div>
-      <ul class="manif-lines">
-        <li><span>Vivimos bajo la tiranía de la urgencia, el consumo digital y el multitrabajo.</span></li>
-        <li><span>El agotamiento se disfraza de logro.</span></li>
-        <li><span>La imaginación es el <em>primer territorio colonizado.</em></span></li>
-        <li><span>Imaginar no es un lujo. Es una capacidad humana, y se ejercita.</span></li>
-        <li><span>El futuro nace de las conversaciones y las preguntas <em>que nos animamos a habitar hoy.</em></span></li>
-        <li><span>Nadie diseña su futuro en soledad.</span></li>
-        <li><span>Registrar la inercia y proyectar el futuro junto a otros <em>es un acto de soberanía.</em></span></li>
-      </ul>
+      <div class="manif-dos">
+        <p>La imaginación es el <em>primer territorio colonizado.</em></p>
+        <p>Nadie diseña su futuro <em>en soledad.</em></p>
+      </div>
       <figure class="ojo" id="ojo" aria-label="Un ojo que se abre y, en su pupila, un brote con raíces de luz.">
         <svg viewBox="0 0 1000 500" aria-hidden="true">
           <defs>
@@ -1418,7 +1417,7 @@ footer .big em{color:var(--sky)}
   /* ---------- Revelado al scrollear ---------- */
   (function(){
     if (reduce || !("IntersectionObserver" in window)) return;
-    var sel = ".sec-head, .manif-lines li, .concreto-txt, .bitacora, .tool-list li, .senales li, .card, .areas > div, .borde, .campo-txt, .proto, .faq details, .cita p, .cap-body > *";
+    var sel = ".sec-head, .manif-dos p, .concreto-txt, .bitacora, .tool-list li, .senales li, .card, .areas > div, .borde, .campo-txt, .proto, .faq details, .cita p, .cap-body > *";
     var els = document.querySelectorAll(sel);
     var io = new IntersectionObserver(function(ents){ ents.forEach(function(e){ if (e.isIntersecting){ var sib = Array.prototype.indexOf.call(e.target.parentNode.children, e.target); e.target.style.setProperty("--d", Math.min(sib, 6) * 0.08 + "s"); e.target.classList.add("rv"); io.unobserve(e.target); } }); }, { threshold: .15, rootMargin: "0px 0px -8% 0px" });
     els.forEach(function(e){ var r = e.getBoundingClientRect(); if (r.top > innerHeight) io.observe(e); });
