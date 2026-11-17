@@ -628,6 +628,13 @@ footer .big em{color:var(--sky)}
 .pie-links{display:flex;flex-wrap:wrap;gap:18px}
 .pie-links a{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);text-decoration:none}
 .pie-links a:hover{color:var(--mist)}
+.h3-hero{padding-block:clamp(56px,8vw,104px) 0}
+.h3-hero .wrap{display:grid;gap:16px;max-width:900px}
+.h3-hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:.95}
+.h3-hero h1 em{color:var(--sky)}
+.h3-cta{padding-top:0;text-align:center}
+.cita-m{padding:clamp(40px,6vw,80px) 0;margin-inline:auto;text-align:center}
+@media (max-width:600px){.tab b{display:none}.tab{padding:.5em .7em}}
 /* ---------- Cono de futuros interactivo ---------- */
 .cf{display:grid;gap:16px}
 .cf-areas{margin-top:0}
@@ -790,6 +797,7 @@ footer .big em{color:var(--sky)}
     <div class="tabs" role="tablist" aria-label="Momentos">
       <button class="tab" role="tab" id="t-laboratorio" aria-controls="laboratorio" aria-selected="true" data-go="laboratorio"><b>01</b>El laboratorio</button>
       <button class="tab" role="tab" id="t-manifiesto" aria-controls="manifiesto" aria-selected="false" data-go="manifiesto"><b>02</b>El manifiesto</button>
+      <button class="tab" role="tab" id="t-herramientas" aria-controls="herramientas" aria-selected="false" data-go="herramientas"><b>03</b>Herramientas</button>
     </div>
   </div>
 </nav>
@@ -907,83 +915,7 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
-  <section id="herramientas">
-    <div class="wrap cf-full">
-      <div>
-        <div class="sec-head">
-          <span class="mono">Una herramienta por dentro</span>
-          <h2>El cono <em>de futuros.</em></h2>
-          <p class="prose">Desde hoy se abren muchos futuros. Si no elegís, decide la inercia. Acá trazás el camino hacia el que deseás.</p>
-        </div>
-        <div class="cf" id="cf">
-          <div class="toggles cf-areas" id="cfAreas" role="group" aria-label="Elegir un área de tu vida"></div>
-          <svg class="cf-svg" id="cfSvg" viewBox="0 0 720 360" role="img" aria-label="Cono de futuros: desde hoy se abren futuros probables, plausibles y posibles. Una línea punteada marca la inercia. Podés mover tu futuro deseado dentro del cono.">
-            <defs><filter id="cfGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-            <path d="M40 180 L600 20 L600 340Z" fill="#8DB0FF" fill-opacity=".04" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
-            <path d="M40 180 L600 85 L600 275Z" fill="#8DB0FF" fill-opacity=".06" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
-            <path d="M40 180 L600 140 L600 220Z" fill="#8DB0FF" fill-opacity=".1" stroke="#8DB0FF" stroke-opacity=".35" stroke-dasharray="2 5"/>
-            <text class="cf-band-l" x="612" y="56">POSIBLE</text>
-            <text class="cf-band-l" x="612" y="116">PLAUSIBLE</text>
-            <text class="cf-band-l" x="612" y="184">PROBABLE</text>
-            <line x1="40" y1="180" x2="600" y2="206" stroke="#8E9CC4" stroke-width="1.5" stroke-dasharray="5 6"/>
-            <text class="cf-dim" x="250" y="210" transform="rotate(2.7 250 210)">INERCIA</text>
-            <g id="cfOtros"></g>
-            <path id="cfPath" pathLength="1" fill="none" stroke="#8DB0FF" stroke-width="3" stroke-linecap="round" filter="url(#cfGlow)"/>
-            <circle cx="40" cy="180" r="9" fill="#D6E2FF"/>
-            <text class="cf-dim" x="26" y="210">HOY</text>
-            <text class="cf-dim" x="600" y="8" text-anchor="end">DENTRO DE UN AÑO</text>
-            <g id="cfHandle" class="cf-handle" tabindex="0" role="slider" aria-label="Tu futuro deseado. Movelo con el mouse, el dedo o las flechas." aria-valuetext="">
-              <circle class="cf-halo" r="22"/>
-              <circle r="11" fill="#D6E2FF" filter="url(#cfGlow)"/>
-            </g>
-          </svg>
-          <p class="mono cf-hint">Arrastrá el punto para mover tu futuro</p>
-          <div class="cf-read" aria-live="polite">
-            <span class="mono" id="cfArea">Cuerpo</span>
-            <p class="cf-q" id="cfQ"></p>
-            <p class="cf-band"><b id="cfBand">Posible</b> <span id="cfBandTxt"></span></p>
-            <p class="cf-ej"><span class="mono">Por ejemplo</span> <em id="cfEj"></em></p>
-            <p class="cf-ej cf-proto"><span class="mono">Para probar de 3 a 7 días</span> <em id="cfProto"></em></p>
-          </div>
-          <div class="tabla cf-tabla">
-            <table>
-              <thead><tr><th scope="col">Futuro</th><th scope="col">Qué es</th><th scope="col">La pregunta</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Probable</th><td data-l="Qué es">Lo que pasa si seguís igual. Lo empuja la inercia.</td><td data-l="La pregunta">¿Qué pasa si no cambio nada?</td></tr>
-                <tr><th scope="row">Plausible</th><td data-l="Qué es">Lo que puede pasar con algunos cambios a tu alcance.</td><td data-l="La pregunta">¿Qué cambio chico puedo hacer?</td></tr>
-                <tr><th scope="row">Posible</th><td data-l="Qué es">Todo lo que podría pasar, aunque hoy parezca lejano.</td><td data-l="La pregunta">¿Qué me animo a imaginar?</td></tr>
-                <tr><th scope="row">Deseado</th><td data-l="Qué es">El futuro que elegís. Puede estar en cualquiera de las tres franjas.</td><td data-l="La pregunta">¿Qué quiero que crezca?</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="compromiso">
-    <div class="wrap proto-solo">
-      <div class="sec-head">
-        <span class="mono">Un mini-prototipo por dentro</span>
-        <h2>Así se <em>ensaya.</em></h2>
-      </div>
-      <figure class="proto" aria-label="Ejemplo de ficha de prototipo: hipótesis, cinco días de duración, registro diario, aprendizaje y revisión con el Testigo.">
-        <div class="proto-head"><span class="mono">Ficha de prototipo #03</span><span class="stamp" id="stamp">Ensayado</span></div>
-        <svg class="frasco" viewBox="0 0 80 110" aria-hidden="true">
-          <path d="M26 6h28M30 6v26L10 92a10 10 0 0 0 9 14h42a10 10 0 0 0 9-14L50 32V6" fill="none" stroke="#8DB0FF" stroke-width="2"/>
-          <path d="M16 80 L64 80 L70 92a10 10 0 0 1-9 14H19a10 10 0 0 1-9-14Z" fill="#3D6BE5" fill-opacity=".5"/>
-          <path class="sprout" d="M40 96 C40 84 40 74 42 62" fill="none" stroke="#D6E2FF" stroke-width="2" stroke-linecap="round"/>
-          <path class="leaf" d="M42 66 q10 -8 14 -2 q-8 6 -14 2z" fill="#8DB0FF"/>
-          <circle class="bub" cx="28" cy="96" r="2" fill="#D6E2FF"/><circle class="bub b2" cx="50" cy="98" r="1.6" fill="#D6E2FF"/><circle class="bub b3" cx="58" cy="94" r="1.3" fill="#D6E2FF"/>
-        </svg>
-        <div class="prow"><span class="mono">Hipótesis</span><p>Si camino 20 minutos sin celular al mediodía, llego a la noche con más energía.</p></div>
-        <div class="prow"><span class="mono">Duración</span><div class="days5" id="days5"><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="prow"><span class="mono">Registro</span><div class="bars" id="bars"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:45%"></i><i style="--h:75%"></i><i style="--h:85%"></i></div></div>
-        <div class="prow"><span class="mono">Aprendizaje</span><p id="learn" class="learn"></p></div>
-        <div class="prow"><span class="mono">Testigo</span><p class="tst" id="tst">✓ Revisado en la llamada semanal</p></div>
-      </figure>
-    </div>
-  </section>
 
   <div class="ticker" aria-hidden="true"><div class="ticker-track">
     <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
@@ -1115,13 +1047,8 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
-  <section style="padding-top:0">
-    <div class="wrap cita">
-      <p>"Alguien debió conservar y cuidar con amor <em>este jardín de gente."</em></p>
-    </div>
-  </section>
 
-  <section id="inscripcion" style="padding-top:0">
+  <section id="inscripcion">
     <div class="wrap insc">
       <div>
         <span class="mono">Próxima cohorte · fecha a confirmar</span>
@@ -1163,6 +1090,101 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
+</main>
+
+<!-- ================= MOMENTO 3: HERRAMIENTAS ================= -->
+<main id="herramientas" role="tabpanel" aria-labelledby="t-herramientas" hidden>
+  <header class="h3-hero">
+    <div class="wrap">
+      <span class="mono">03 · Herramientas</span>
+      <h1>Herramientas <em>para ensayar.</em></h1>
+      <p class="prose">Dos de las que usamos en el laboratorio. Jugá con ellas.</p>
+    </div>
+  </header>
+
+  <section id="cono-futuros">
+    <div class="wrap cf-full">
+      <div>
+        <div class="sec-head">
+          <span class="mono">Una herramienta por dentro</span>
+          <h2>El cono <em>de futuros.</em></h2>
+          <p class="prose">Desde hoy se abren muchos futuros. Si no elegís, decide la inercia. Acá trazás el camino hacia el que deseás.</p>
+        </div>
+        <div class="cf" id="cf">
+          <div class="toggles cf-areas" id="cfAreas" role="group" aria-label="Elegir un área de tu vida"></div>
+          <svg class="cf-svg" id="cfSvg" viewBox="0 0 720 360" role="img" aria-label="Cono de futuros: desde hoy se abren futuros probables, plausibles y posibles. Una línea punteada marca la inercia. Podés mover tu futuro deseado dentro del cono.">
+            <defs><filter id="cfGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <path d="M40 180 L600 20 L600 340Z" fill="#8DB0FF" fill-opacity=".04" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
+            <path d="M40 180 L600 85 L600 275Z" fill="#8DB0FF" fill-opacity=".06" stroke="#8DB0FF" stroke-opacity=".3" stroke-dasharray="2 5"/>
+            <path d="M40 180 L600 140 L600 220Z" fill="#8DB0FF" fill-opacity=".1" stroke="#8DB0FF" stroke-opacity=".35" stroke-dasharray="2 5"/>
+            <text class="cf-band-l" x="612" y="56">POSIBLE</text>
+            <text class="cf-band-l" x="612" y="116">PLAUSIBLE</text>
+            <text class="cf-band-l" x="612" y="184">PROBABLE</text>
+            <line x1="40" y1="180" x2="600" y2="206" stroke="#8E9CC4" stroke-width="1.5" stroke-dasharray="5 6"/>
+            <text class="cf-dim" x="250" y="210" transform="rotate(2.7 250 210)">INERCIA</text>
+            <g id="cfOtros"></g>
+            <path id="cfPath" pathLength="1" fill="none" stroke="#8DB0FF" stroke-width="3" stroke-linecap="round" filter="url(#cfGlow)"/>
+            <circle cx="40" cy="180" r="9" fill="#D6E2FF"/>
+            <text class="cf-dim" x="26" y="210">HOY</text>
+            <text class="cf-dim" x="600" y="8" text-anchor="end">DENTRO DE UN AÑO</text>
+            <g id="cfHandle" class="cf-handle" tabindex="0" role="slider" aria-label="Tu futuro deseado. Movelo con el mouse, el dedo o las flechas." aria-valuetext="">
+              <circle class="cf-halo" r="22"/>
+              <circle r="11" fill="#D6E2FF" filter="url(#cfGlow)"/>
+            </g>
+          </svg>
+          <p class="mono cf-hint">Arrastrá el punto para mover tu futuro</p>
+          <div class="cf-read" aria-live="polite">
+            <span class="mono" id="cfArea">Cuerpo</span>
+            <p class="cf-q" id="cfQ"></p>
+            <p class="cf-band"><b id="cfBand">Posible</b> <span id="cfBandTxt"></span></p>
+            <p class="cf-ej"><span class="mono">Por ejemplo</span> <em id="cfEj"></em></p>
+            <p class="cf-ej cf-proto"><span class="mono">Para probar de 3 a 7 días</span> <em id="cfProto"></em></p>
+          </div>
+          <div class="tabla cf-tabla">
+            <table>
+              <thead><tr><th scope="col">Futuro</th><th scope="col">Qué es</th><th scope="col">La pregunta</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Probable</th><td data-l="Qué es">Lo que pasa si seguís igual. Lo empuja la inercia.</td><td data-l="La pregunta">¿Qué pasa si no cambio nada?</td></tr>
+                <tr><th scope="row">Plausible</th><td data-l="Qué es">Lo que puede pasar con algunos cambios a tu alcance.</td><td data-l="La pregunta">¿Qué cambio chico puedo hacer?</td></tr>
+                <tr><th scope="row">Posible</th><td data-l="Qué es">Todo lo que podría pasar, aunque hoy parezca lejano.</td><td data-l="La pregunta">¿Qué me animo a imaginar?</td></tr>
+                <tr><th scope="row">Deseado</th><td data-l="Qué es">El futuro que elegís. Puede estar en cualquiera de las tres franjas.</td><td data-l="La pregunta">¿Qué quiero que crezca?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prototipo">
+    <div class="wrap proto-solo">
+      <div class="sec-head">
+        <span class="mono">Un mini-prototipo por dentro</span>
+        <h2>Así se <em>ensaya.</em></h2>
+      </div>
+      <figure class="proto" aria-label="Ejemplo de ficha de prototipo: hipótesis, cinco días de duración, registro diario, aprendizaje y revisión con el Testigo.">
+        <div class="proto-head"><span class="mono">Ficha de prototipo #03</span><span class="stamp" id="stamp">Ensayado</span></div>
+        <svg class="frasco" viewBox="0 0 80 110" aria-hidden="true">
+          <path d="M26 6h28M30 6v26L10 92a10 10 0 0 0 9 14h42a10 10 0 0 0 9-14L50 32V6" fill="none" stroke="#8DB0FF" stroke-width="2"/>
+          <path d="M16 80 L64 80 L70 92a10 10 0 0 1-9 14H19a10 10 0 0 1-9-14Z" fill="#3D6BE5" fill-opacity=".5"/>
+          <path class="sprout" d="M40 96 C40 84 40 74 42 62" fill="none" stroke="#D6E2FF" stroke-width="2" stroke-linecap="round"/>
+          <path class="leaf" d="M42 66 q10 -8 14 -2 q-8 6 -14 2z" fill="#8DB0FF"/>
+          <circle class="bub" cx="28" cy="96" r="2" fill="#D6E2FF"/><circle class="bub b2" cx="50" cy="98" r="1.6" fill="#D6E2FF"/><circle class="bub b3" cx="58" cy="94" r="1.3" fill="#D6E2FF"/>
+        </svg>
+        <div class="prow"><span class="mono">Hipótesis</span><p>Si camino 20 minutos sin celular al mediodía, llego a la noche con más energía.</p></div>
+        <div class="prow"><span class="mono">Duración</span><div class="days5" id="days5"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="prow"><span class="mono">Registro</span><div class="bars" id="bars"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:45%"></i><i style="--h:75%"></i><i style="--h:85%"></i></div></div>
+        <div class="prow"><span class="mono">Aprendizaje</span><p id="learn" class="learn"></p></div>
+        <div class="prow"><span class="mono">Testigo</span><p class="tst" id="tst">✓ Revisado en la llamada semanal</p></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="h3-cta">
+    <div class="wrap">
+      <a class="btn" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero sumarme</a>
+    </div>
+  </section>
 </main>
 
 <!-- ================= MOMENTO 2: EL MANIFIESTO ================= -->
@@ -1331,6 +1353,10 @@ footer .big em{color:var(--sky)}
       </div>
     </article>
 
+    <div class="cita cita-m">
+      <p>"Alguien debió conservar y cuidar con amor <em>este jardín de gente."</em></p>
+    </div>
+
     <article class="cap" id="bibliografia">
       <span class="cap-n" aria-hidden="true">VII</span>
       <div class="cap-body">
@@ -1376,7 +1402,7 @@ footer .big em{color:var(--sky)}
   function el(tag, attrs){ var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
 
   /* ---------- Momentos ---------- */
-  var panels = { laboratorio: document.getElementById("laboratorio"), manifiesto: document.getElementById("manifiesto") };
+  var panels = { laboratorio: document.getElementById("laboratorio"), manifiesto: document.getElementById("manifiesto"), herramientas: document.getElementById("herramientas") };
   var seedPlayed = false;
   function show(name, anchor){
     if (!panels[name]) name = "laboratorio";
@@ -1769,7 +1795,8 @@ footer .big em{color:var(--sky)}
 
   /* ---------- Inicio ---------- */
   var h = (location.hash || "").slice(1);
-  if (h === "manifiesto" || ["cono", "holding", "centros", "fundamentos", "bibliografia"].indexOf(h) > -1) show("manifiesto", h === "manifiesto" ? null : h);
+  if (h === "herramientas" || h === "cono-futuros" || h === "prototipo") show("herramientas", h === "herramientas" ? null : h);
+  else if (h === "manifiesto" || ["cono", "holding", "centros", "fundamentos", "bibliografia"].indexOf(h) > -1) show("manifiesto", h === "manifiesto" ? null : h);
   else { maybeSeed(); if (h === "inscripcion") show("laboratorio", "inscripcion"); }
 })();
 </script>
