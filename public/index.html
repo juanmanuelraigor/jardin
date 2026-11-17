@@ -704,6 +704,30 @@ footer .big em{color:var(--sky)}
 .pu-frase .w.on{opacity:1;filter:none;transform:none}
 .puente + .duo-t{margin-top:8px}
 @media (prefers-reduced-motion:reduce){.pu-l{stroke-dashoffset:0}.pu-frase .w{opacity:1;filter:none;transform:none}.puente.vivo .pu-gota{animation:none}}
+/* ---------- Puente dupla → recorrido ---------- */
+.puente2{max-width:900px;margin:clamp(56px,8vw,110px) auto 0;display:grid;gap:clamp(12px,2vw,20px);text-align:center}
+.p2-frase{font-family:var(--f-display);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.02;letter-spacing:-.01em}
+.p2-frase em{color:var(--sky)}
+.p2-svg{width:100%;height:auto;display:block;overflow:visible}
+.p2-svg text{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;fill:var(--dim);text-anchor:middle;transition:fill .5s}
+.p2-pl .crece{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .9s cubic-bezier(.3,1.3,.5,1)}
+.p2-pl .hoja,.p2-pl .flor{transform-box:fill-box;transform:scale(0);transition:transform .6s .45s cubic-bezier(.3,1.6,.5,1)}
+.p2-pl .hoja.i{transform-origin:100% 100%}.p2-pl .hoja.d{transform-origin:0% 100%}.p2-pl .flor{transform-origin:50% 50%;transition-delay:.7s}
+.p2-pl .semilla{transition:opacity .4s}
+.p2-pl.on .crece{transform:scaleY(1)}
+.p2-pl.on .hoja,.p2-pl.on .flor{transform:scale(1)}
+.p2-pl.on text{fill:var(--mist)}
+.p2-pl.on .semilla{opacity:.35}
+.p2-pl .brillo{opacity:0;transition:opacity .6s}
+.p2-pl.on .brillo{opacity:1}
+#manifiesto-breve{border-bottom:0;padding-bottom:0}
+@media (max-width:600px){.p2-svg text{font-size:19px}}
+#recorrido.tras-puente{padding-top:clamp(32px,5vw,56px);background:var(--deep)}
+#recorrido.tras-puente .rc-panel,#recorrido.tras-puente .rc-fase:not([aria-pressed="true"]){background:var(--night)}
+.manif-cierre{background:var(--deep);border-bottom:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.p2-pl .crece,.p2-pl .hoja,.p2-pl .flor{transition:none}}
+.manif-cierre{padding-top:clamp(24px,4vw,48px)}
+.manif-cierre .infra-cierre{margin-top:0}
 /* ---------- Cono de futuros interactivo ---------- */
 .cf{display:grid;gap:16px}
 .cf-areas{margin-top:0}
@@ -936,56 +960,6 @@ footer .big em{color:var(--sky)}
     </div>
   </section>
 
-  <section id="recorrido">
-    <div class="wrap rc">
-      <div class="rc-head">
-        <span class="mono">El recorrido</span>
-        <h2>Ocho semanas, <em>paso a paso.</em></h2>
-        <p>Primero observamos, después imaginamos, ensayamos y cosechamos. Tu Testigo te acompaña todas las semanas.</p>
-      </div>
-
-      <div class="rc-scroll">
-        <div class="rc-tl">
-          <div class="rc-fases" id="rcFases" role="group" aria-label="Fases del laboratorio"></div>
-          <div class="rc-sems" id="rcSems" role="group" aria-label="Elegir semana">
-            <div class="rc-base" aria-hidden="true"></div>
-            <div class="rc-bar" id="rcBar" aria-hidden="true"></div>
-          </div>
-          <div class="rc-tes" aria-hidden="true">
-            <span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span>
-          </div>
-          <p class="mono rc-tes-l">Testigo semanal · 40 minutos en dupla, del principio al fin</p>
-        </div>
-      </div>
-
-      <div class="rc-panel" aria-live="polite">
-        <div class="rc-izq">
-          <span class="mono" id="rcMeta">Semana 1 / 8 · Mapeo de inercia</span>
-          <p class="rc-q" id="rcQ">¿En qué se te va la energía sin que lo elijas?</p>
-          <p class="rc-nota">La pregunta para conversar con tu Testigo.</p>
-        </div>
-        <div class="rc-der">
-          <span class="mono">Qué pasa esta semana</span>
-          <ul class="rc-list" id="rcList"></ul>
-          <div class="rc-nav">
-            <button class="toggle" type="button" id="rcPrev">← Anterior</button>
-            <button class="toggle" type="button" id="rcNext">Siguiente →</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rc-pie">
-        <div class="rc-ley">
-          <span><i class="f"></i>Encuentro grupal en vivo</span>
-          <span><i></i>Semana con tu Testigo</span>
-        </div>
-        <a class="btn" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero sumarme</a>
-      </div>
-    </div>
-  </section>
-
-
-
   <div class="ticker" aria-hidden="true"><div class="ticker-track">
     <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
     <span>Observar</span><i>✺</i><span>Registrar</span><i>✺</i><span>Ensayar</span><i>✺</i><span>Compartir</span><i>✺</i><span>Transformar</span><i>✺</i><span>Juntos</span><i>✺</i>
@@ -1134,6 +1108,67 @@ footer .big em{color:var(--sky)}
         </svg>
       </div>
 
+      <div class="puente2" id="puente2">
+        <p class="p2-frase">Semana a semana, <em>algo crece.</em></p>
+        <svg class="p2-svg" viewBox="0 0 800 210" aria-hidden="true">
+          <line x1="20" y1="170" x2="780" y2="170" stroke="#8DB0FF" stroke-opacity=".35" stroke-dasharray="3 6"/>
+          <g id="p2Plantas"></g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="recorrido" class="tras-puente">
+    <div class="wrap rc">
+      <div class="rc-head">
+        <span class="mono">El recorrido</span>
+        <h2>Ocho semanas, <em>paso a paso.</em></h2>
+        <p>Primero observamos, después imaginamos, ensayamos y cosechamos. Tu Testigo te acompaña todas las semanas.</p>
+      </div>
+
+      <div class="rc-scroll">
+        <div class="rc-tl">
+          <div class="rc-fases" id="rcFases" role="group" aria-label="Fases del laboratorio"></div>
+          <div class="rc-sems" id="rcSems" role="group" aria-label="Elegir semana">
+            <div class="rc-base" aria-hidden="true"></div>
+            <div class="rc-bar" id="rcBar" aria-hidden="true"></div>
+          </div>
+          <div class="rc-tes" aria-hidden="true">
+            <span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span><span>40'</span>
+          </div>
+          <p class="mono rc-tes-l">Testigo semanal · 40 minutos en dupla, del principio al fin</p>
+        </div>
+      </div>
+
+      <div class="rc-panel" aria-live="polite">
+        <div class="rc-izq">
+          <span class="mono" id="rcMeta">Semana 1 / 8 · Mapeo de inercia</span>
+          <p class="rc-q" id="rcQ">¿En qué se te va la energía sin que lo elijas?</p>
+          <p class="rc-nota">La pregunta para conversar con tu Testigo.</p>
+        </div>
+        <div class="rc-der">
+          <span class="mono">Qué pasa esta semana</span>
+          <ul class="rc-list" id="rcList"></ul>
+          <div class="rc-nav">
+            <button class="toggle" type="button" id="rcPrev">← Anterior</button>
+            <button class="toggle" type="button" id="rcNext">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc-pie">
+        <div class="rc-ley">
+          <span><i class="f"></i>Encuentro grupal en vivo</span>
+          <span><i></i>Semana con tu Testigo</span>
+        </div>
+        <a class="btn" href="#inscripcion" data-go="laboratorio" data-anchor="inscripcion">Quiero sumarme</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="manif-cierre">
+    <div class="wrap">
       <div class="infra-cierre">
         <p>Jardín de Gente es una infraestructura comunitaria para <em>desacelerar y recuperar soberanía sobre la atención.</em></p>
         <button class="btn line" type="button" data-go="manifiesto">Leer el manifiesto completo</button>
@@ -2507,6 +2542,44 @@ footer .big em{color:var(--sky)}
   addEventListener("scroll", render, { passive: true });
   addEventListener("resize", render);
   render();
+})();
+</script>
+
+<script>
+/* ---------- Puente dupla → recorrido: ocho semanas que crecen ---------- */
+(function(){
+  var pu = document.getElementById("puente2"), g = document.getElementById("p2Plantas"); if (!pu || !g) return;
+  var NS = "http://www.w3.org/2000/svg", reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches, pls = [];
+  function el(t, a){ var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  for (var i = 0; i < 8; i++){
+    var x = 70 + i * 94, H = 18 + i * 13, gr = el("g", { "class": "p2-pl" });
+    gr.appendChild(el("circle", { "class": "brillo", cx: x, cy: 170, r: 26, fill: "#8DB0FF", opacity: 0, "fill-opacity": .12 }));
+    gr.appendChild(el("ellipse", { "class": "semilla", cx: x, cy: 170, rx: 6, ry: 4, fill: "#D6E2FF" }));
+    if (i > 0){
+      gr.appendChild(el("path", { "class": "crece", d: "M" + x + " 170 C" + (x - 2) + " " + (170 - H * .5) + " " + (x + 2) + " " + (170 - H * .8) + " " + x + " " + (170 - H), fill: "none", stroke: "#D6E2FF", "stroke-width": 2.4, "stroke-linecap": "round" }));
+      var nh = Math.min(3, Math.ceil(i / 2));
+      for (var h = 0; h < nh; h++){
+        var hy = 170 - H * (.45 + h * .22), L = 8 + i * 1.6;
+        gr.appendChild(el("path", { "class": "hoja i", d: "M" + x + " " + hy + " c" + (-L * .4) + " " + (-L * .1) + " " + (-L) + " " + (-L * .6) + " " + (-L) + " " + (-L * .9) + " c" + (L * .5) + " " + (-L * .05) + " " + L + " " + (L * .4) + " " + L + " " + (L * .9) + "z", fill: "#8DB0FF" }));
+        gr.appendChild(el("path", { "class": "hoja d", d: "M" + x + " " + (hy - 6) + " c" + (L * .4) + " " + (-L * .1) + " " + L + " " + (-L * .6) + " " + L + " " + (-L * .9) + " c" + (-L * .5) + " " + (-L * .05) + " " + (-L) + " " + (L * .4) + " " + (-L) + " " + (L * .9) + "z", fill: "#8DB0FF" }));
+      }
+      if (i === 7){
+        var fl = el("g", { "class": "flor" });
+        for (var pt = 0; pt < 6; pt++){ var a = pt * Math.PI / 3; fl.appendChild(el("circle", { cx: x + Math.cos(a) * 9, cy: 170 - H - 6 + Math.sin(a) * 9, r: 6.5, fill: "#F2C46B" })); }
+        fl.appendChild(el("circle", { cx: x, cy: 170 - H - 6, r: 5.5, fill: "#D6E2FF" }));
+        gr.appendChild(fl);
+      }
+    }
+    var tx = el("text", { x: x, y: 198 }); tx.textContent = "SEM " + (i + 1); gr.appendChild(tx);
+    g.appendChild(gr); pls.push(gr);
+  }
+  function render(){
+    var r = pu.getBoundingClientRect(), vh = innerHeight;
+    var p = reduce ? 1 : Math.max(0, Math.min(1, (vh * .85 - r.top) / (r.height + vh * .2)));
+    var n = Math.round(p * 8.4);
+    pls.forEach(function(pl, i){ pl.classList.toggle("on", i < n); });
+  }
+  addEventListener("scroll", render, { passive: true }); addEventListener("resize", render); render();
 })();
 </script>
 
