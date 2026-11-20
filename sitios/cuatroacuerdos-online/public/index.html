@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivir los Cuatro Acuerdos · Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Jardín de Gente = azul noche. Cuatro Acuerdos suma la tierra. Cada acuerdo tiene su color de raíz. */
+  /* Layout: brote arriba, raíces abajo. La página baja como un corte de tierra: cada sección es un estrato. */
+  --noche: #0b1828;
+  --noche-2: #12233a;
+  --linea: #24395a;
+  --hueso: #efe5d6;
+  --niebla: #9cb0c6;
+  --tierra: #3a2318;
+  --tierra-2: #24150e;
+  --a1: #d9744b; /* palabra */
+  --a2: #e7b14f; /* personal */
+  --a3: #93cf8f; /* suposiciones */
+  --a4: #86b9e6; /* lo máximo */
+  --terracota: #d9744b;
+  --ocre: #e7b14f;
+  --display: "Young Serif", Georgia, "Times New Roman", serif;
+  --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--noche); color: var(--hueso); font-family: var(--body); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--ocre); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ocre); font-weight: 800; }
+:focus-visible { outline: 2px solid var(--ocre); outline-offset: 3px; border-radius: 4px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 800 17px/1 var(--body); padding: 16px 24px; border-radius: 6px; border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: transform .15s ease, background .15s ease, border-color .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-tierra { background: var(--terracota); color: #1a0e08; }
+.btn-tierra:hover { background: #e5865f; }
+.btn-linea { background: transparent; color: var(--hueso); border-color: var(--linea); }
+.btn-linea:hover { border-color: var(--ocre); }
+
+/* HERO */
+.hero { position: relative; overflow: hidden; }
+#raices { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .wrap { position: relative; padding-top: 48px; padding-bottom: 230px; }
+.marca { color: var(--niebla); font-size: 15px; }
+.marca b { color: var(--hueso); font-weight: 500; }
+.hero h1 { margin-top: 56px; font-size: clamp(44px, 7.4vw, 92px); max-width: 13ch; letter-spacing: -.01em; }
+.hero h1 em { font-style: normal; color: var(--terracota); }
+.hero .bajada { margin-top: 24px; max-width: 34ch; font-size: clamp(19px, 2.2vw, 23px); opacity: .92; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.chip { border: 1px solid var(--linea); background: rgba(11,24,40,.7); padding: 8px 14px; border-radius: 999px; font-size: 15px; }
+.chip strong { color: var(--ocre); }
+.ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+
+.hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: 48px; align-items: center; }
+.hero h1.titulo { margin-top: 44px; font-size: clamp(46px, 6.4vw, 84px); max-width: 11ch; }
+.hero h1.titulo em { font-style: normal; color: var(--terracota); display: block; }
+.libro { margin-top: 16px; font-size: 17px; color: var(--niebla); max-width: 42ch; }
+.libro i { color: var(--hueso); }
+.gancho { margin-top: 26px; font-family: var(--display); font-size: clamp(24px, 2.8vw, 32px); line-height: 1.2; color: var(--ocre); }
+.hero .bajada { margin-top: 12px; }
+.pc { margin: 40px 0 0; position: relative; }
+.pantalla { background: #15191f; border: 12px solid #262b33; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 1px #343a44; display: grid; }
+.pbar { display: flex; align-items: center; gap: 8px; padding: 9px 12px; font-size: 12px; color: #c9d2dc; background: #0f1318; border-bottom: 1px solid #23282f; white-space: nowrap; overflow: hidden; }
+.pbar .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--a3); flex: none; }
+.pbar .part { margin-left: auto; color: #8a96a4; }
+.grilla { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; padding: 8px; }
+.tile { aspect-ratio: 4/3; border-radius: 8px; background: var(--f); position: relative; display: grid; place-items: end center; overflow: hidden; }
+.tile .nom { position: absolute; left: 6px; bottom: 6px; display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: #f2ece4; background: rgba(0,0,0,.5); padding: 2px 7px 2px 4px; border-radius: 4px; }
+.tile .nom svg { width: 11px; fill: none; stroke: currentColor; stroke-width: 2; }
+.tile .persona { width: 70%; display: block; transform-origin: 50% 100%; animation: respira var(--d) ease-in-out infinite; }
+@keyframes respira { 0%,100% { transform: translateY(0) rotate(0); } 35% { transform: translateY(-2px) rotate(-1.5deg); } 70% { transform: translateY(1px) rotate(1deg); } }
+.tile .ondas { display: none; gap: 2px; align-items: flex-end; height: 10px; }
+.tile .ondas b { width: 2px; background: var(--ocre); border-radius: 1px; animation: onda .7s ease-in-out infinite; }
+.tile .ondas b:nth-child(2) { animation-delay: .15s; } .tile .ondas b:nth-child(3) { animation-delay: .3s; }
+@keyframes onda { 0%,100% { height: 3px; } 50% { height: 10px; } }
+.tile.habla .ondas { display: inline-flex; }
+.tile.habla .nom > svg { display: none; }
+.tile.habla { box-shadow: inset 0 0 0 2px var(--ocre), 0 0 16px rgba(231,177,79,.35); }
+.tile.habla .persona { animation-duration: 1.4s; }
+.reac { position: absolute; right: 10px; bottom: 26px; font-size: 20px; pointer-events: none; animation: sube 2.4s ease-out forwards; }
+@keyframes sube { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: 1; transform: translateY(-6px) scale(1.1); } 100% { transform: translateY(-60px) scale(1); opacity: 0; } }
+.mano { position: absolute; left: 8px; top: 6px; font-size: 16px; animation: saluda 1s ease-in-out 3; transform-origin: 70% 90%; }
+@keyframes saluda { 0%,100% { transform: rotate(0); } 50% { transform: rotate(18deg); } }
+.tile.vos .nom { background: var(--terracota); color: #1a0e08; }
+.controles { display: flex; justify-content: center; gap: 10px; padding: 10px; background: #0f1318; border-top: 1px solid #23282f; }
+.controles i { width: 34px; height: 34px; border-radius: 50%; background: #262c35; display: grid; place-items: center; }
+.controles svg { width: 17px; height: 17px; fill: none; stroke: #e6ebf0; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.controles .salir { background: #c8463c; width: 48px; border-radius: 17px; }
+.cuello { width: 70px; height: 34px; margin: 0 auto; background: linear-gradient(#2a2f37, #1c2027); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.base { width: 200px; height: 10px; margin: 0 auto; border-radius: 6px 6px 3px 3px; background: #2a2f37; }
+.pc figcaption { margin-top: 14px; text-align: center; font-size: 14px; color: var(--niebla); }
+
+/* DETECTOR */
+.detector { background: var(--noche-2); padding: 96px 0; position: relative; }
+.det-head { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 40px; align-items: end; }
+.det-head h2 { font-size: clamp(34px, 4.6vw, 54px); margin-top: 12px; }
+.det-head p { color: var(--niebla); font-size: 19px; }
+.pasos-det { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 15px; color: var(--hueso); }
+.pasos-det span { display: inline-flex; align-items: center; gap: 8px; }
+.pasos-det i { font-style: normal; width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; border: 1px solid var(--ocre); color: var(--ocre); font-size: 13px; font-weight: 800; }
+.cuatro { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; margin-top: 40px; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; }
+.cuatro div { padding: 22px 20px; display: grid; gap: 10px; align-content: start; border-right: 1px solid var(--linea); position: relative; }
+.cuatro div:last-child { border-right: 0; }
+.cuatro div::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--c); }
+.cuatro .n { font-family: var(--display); font-size: 40px; line-height: 1; color: var(--c); display: flex; align-items: center; gap: 10px; }
+.cuatro .n svg { width: 28px; height: 28px; stroke: var(--c); }
+.cuatro b { font-family: var(--display); font-weight: 400; font-size: 21px; line-height: 1.2; }
+.instruccion { margin-top: 44px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; }
+.instruccion h3 { font-size: 26px; }
+.instruccion span { color: var(--niebla); font-size: 16px; }
+.frases { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.frase { font: 500 17px/1.35 var(--body); text-align: left; background: var(--noche); color: var(--hueso); border: 1px solid var(--linea); border-radius: 8px; padding: 14px 16px; cursor: pointer; transition: border-color .15s, background .15s; max-width: 100%; }
+.frase:hover { border-color: var(--niebla); }
+.frase[aria-pressed="true"] { background: var(--tierra); border-color: var(--terracota); color: #fff1e6; }
+.frase[aria-pressed="true"]::before { content: "● "; color: var(--ocre); }
+.det-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 26px; }
+.contador { color: var(--niebla); font-size: 16px; font-variant-numeric: tabular-nums; }
+.contador b { color: var(--hueso); }
+
+/* RESULTADO */
+.resultado { margin-top: 44px; border-radius: 18px; overflow: hidden; border: 1px solid var(--linea); background: linear-gradient(180deg, #0b1828 0 18%, #2a1910 18% 100%); display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); }
+.mapa { position: relative; min-height: 460px; }
+#mapa { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.mapa-leyenda { position: absolute; left: 20px; right: 20px; bottom: 16px; font-size: 14px; color: rgba(239,229,214,.75); }
+.carta-zona { padding: 32px; display: grid; gap: 18px; align-content: start; perspective: 1200px; }
+.carta { background: var(--hueso); color: var(--tierra-2); border-radius: 14px; padding: 28px; position: relative; overflow: hidden; transform-origin: 50% 50%; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.carta.gira { animation: girar .9s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes girar { from { transform: rotateY(88deg) translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+.carta .tag { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; color: #7a5a44; }
+.carta .grande { display: flex; align-items: center; gap: 16px; margin-top: 6px; }
+.carta .num { font-family: var(--display); font-size: 120px; line-height: .9; color: var(--c); -webkit-text-stroke: 1px rgba(36,21,14,.25); }
+.carta .glifo { width: 64px; height: 64px; stroke: var(--tierra-2); }
+.carta h3 { font-size: 30px; margin-top: 8px; color: var(--tierra-2); }
+.carta p { margin-top: 12px; font-size: 17px; }
+.carta .taller { margin-top: 14px; padding-top: 14px; border-top: 1px dashed rgba(36,21,14,.3); font-weight: 700; }
+.carta::after { content: ""; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px; border-radius: 50%; background: var(--c); opacity: .22; }
+.piedras { display: grid; gap: 8px; }
+.piedras .t { font-size: 14px; color: var(--niebla); }
+.piedras ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.piedras li { font-size: 14px; padding: 6px 10px; border-radius: 999px; background: rgba(11,24,40,.6); border: 1px solid var(--c); color: var(--hueso); }
+.carta-zona .ir { color: var(--ocre); font-weight: 800; }
+
+/* LOS CUATRO DE CERCA */
+.cerca { padding: 110px 0 60px; }
+.cerca-head { max-width: 640px; display: grid; gap: 14px; }
+.cerca-head h2 { font-size: clamp(34px, 4.6vw, 54px); }
+.cerca-head p { color: var(--niebla); font-size: 19px; }
+.banda { display: grid; grid-template-columns: minmax(0, 260px) minmax(0,1fr) minmax(0, 320px); gap: 32px; align-items: center; padding: 34px 0; border-top: 1px solid var(--linea); }
+.banda:first-of-type { margin-top: 48px; }
+.banda .gnum { font-family: var(--display); font-size: clamp(120px, 15vw, 200px); line-height: .8; color: transparent; -webkit-text-stroke: 1.5px var(--c); transition: color .35s ease; }
+.banda:hover .gnum, .banda:focus-within .gnum { color: var(--c); }
+.banda h3 { font-size: clamp(28px, 3.4vw, 40px); }
+.banda .linea { margin-top: 10px; color: var(--niebla); font-size: 18px; max-width: 40ch; }
+.banda .preg { font-family: var(--display); font-size: 21px; line-height: 1.35; color: var(--c); border-left: 2px solid var(--c); padding-left: 16px; }
+
+/* RECORRIDO: tres momentos */
+.recorrido { padding: 110px 0; background: var(--noche); }
+.rec-head { max-width: 640px; display: grid; gap: 14px; }
+.rec-head h2 { font-size: clamp(34px, 4.6vw, 54px); }
+.rec-head p { color: var(--niebla); font-size: 19px; }
+
+.tramo { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; position: relative; }
+.tramo::before { content: ""; position: absolute; left: 0; right: 0; top: 46px; height: 2px; background: linear-gradient(90deg, var(--a1), var(--a2), var(--a3), var(--a4)); opacity: .6; }
+.tramo li { position: relative; padding: 0 28px 0 0; display: grid; gap: 12px; align-content: start; }
+.tramo .etapa { font-family: var(--display); font-size: 92px; line-height: 1; color: var(--terracota); background: var(--noche); width: max-content; padding-right: 14px; position: relative; }
+.tramo li:nth-child(2) .etapa { color: var(--ocre); }
+.tramo li:nth-child(3) .etapa { color: var(--a3); }
+.tramo h3 { font-size: clamp(26px, 2.8vw, 34px); }
+.tramo p { color: var(--hueso); opacity: .88; font-size: 18px; max-width: 34ch; }
+
+/* ENTRADA */
+.datos { padding: 100px 0; }
+.ticket { display: grid; grid-template-columns: minmax(0,1fr) 260px; background: var(--hueso); color: var(--tierra-2); border-radius: 18px; position: relative; margin-top: 40px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
+.ticket .izq { padding: 36px 40px; display: grid; gap: 14px; }
+.ticket .der { padding: 36px 30px; border-left: 2px dashed rgba(36,21,14,.35); display: grid; gap: 6px; align-content: center; position: relative; background: repeating-linear-gradient(135deg, rgba(217,116,75,.07) 0 10px, transparent 10px 20px); border-radius: 0 18px 18px 0; }
+.ticket::before, .ticket::after { content: ""; position: absolute; right: 249px; width: 22px; height: 22px; border-radius: 50%; background: var(--noche); }
+.ticket::before { top: -11px; } .ticket::after { bottom: -11px; }
+.ticket .tag { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; color: #8a6248; }
+.ticket .fecha { font-family: var(--display); font-size: clamp(44px, 6.6vw, 80px); line-height: .95; }
+.ticket .fecha span { color: var(--terracota); }
+.ticket .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 17px; font-weight: 700; }
+.relojes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.relojes span { font-size: 14px; padding: 6px 10px; border-radius: 6px; background: rgba(36,21,14,.08); font-variant-numeric: tabular-nums; }
+.relojes b { color: var(--terracota); }
+.der .precio { font-family: var(--display); font-size: 44px; line-height: 1; }
+.der .precio small { font-size: 18px; }
+.der .otro { font-size: 15px; font-weight: 700; }
+.der .antes { margin-top: 8px; font-size: 18px; font-weight: 800; color: var(--terracota); }
+.der .cupo { margin-top: 14px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; color: #8a6248; }
+.traer { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.traer .t { color: var(--niebla); font-size: 15px; margin-right: 4px; }
+
+/* RESERVA */
+.reserva { padding: 110px 0 90px; background: linear-gradient(180deg, var(--noche) 0%, #1c1714 55%, var(--tierra) 100%); }
+.reserva-caja { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 48px; align-items: start; }
+.reserva h2 { font-size: clamp(38px, 5.2vw, 62px); margin-top: 14px; }
+.reserva .sub { margin-top: 18px; font-size: 20px; max-width: 36ch; opacity: .92; }
+.reserva .sub2 { margin-top: 14px; font-size: 17px; color: var(--niebla); max-width: 40ch; }
+.mensaje { background: rgba(11,24,40,.78); border: 1px solid var(--linea); border-radius: 14px; padding: 26px; display: grid; gap: 16px; }
+.mensaje label { font-size: 13px; color: var(--niebla); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.mensaje textarea { width: 100%; min-height: 120px; resize: vertical; font: 400 17px/1.5 var(--body); background: var(--noche); color: var(--hueso); border: 1px solid var(--linea); border-radius: 8px; padding: 14px; }
+.mensaje .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+.estado { font-size: 15px; color: var(--ocre); min-height: 1.4em; }
+footer { padding: 40px 0 56px; color: var(--niebla); font-size: 15px; background: var(--tierra); }
+footer .wrap { display: grid; gap: 10px; }
+footer a { color: var(--hueso); }
+
+@media (max-width: 920px) {
+  .hero-grid, .det-head, .resultado, .reserva-caja { grid-template-columns: minmax(0,1fr); }
+  .cuatro { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .cuatro div:nth-child(2) { border-right: 0; }
+  .cuatro div:nth-child(-n+2) { border-bottom: 1px solid var(--linea); }
+  .banda { grid-template-columns: minmax(0, 140px) minmax(0,1fr); }
+  .banda .preg { grid-column: 1 / -1; }
+  .tramo { grid-template-columns: minmax(0,1fr); gap: 36px; }
+  .tramo::before { display: none; }
+  .ticket { grid-template-columns: minmax(0,1fr); }
+  .ticket .der { border-left: 0; border-top: 2px dashed rgba(36,21,14,.35); border-radius: 0 0 18px 18px; }
+  .ticket::before, .ticket::after { display: none; }
+}
+@media (max-width: 480px) {
+  body { font-size: 17px; }
+  .wrap { padding: 0 18px; }
+  .cuatro { grid-template-columns: minmax(0,1fr); }
+  .cuatro div { border-right: 0; border-bottom: 1px solid var(--linea); }
+  .cuatro div:last-child { border-bottom: 0; }
+  .hero .wrap { padding-bottom: 200px; }
+  .pc .grilla { gap: 4px; padding: 6px; }
+  .tile .nom { font-size: 10px; }
+  .pbar .part { display: none; }
+  .pc figcaption { padding-right: 70px; }
+  .carta-zona { padding: 20px; }
+  .carta .num { font-size: 92px; }
+  .ticket .izq { padding: 26px 22px; }
+  .banda { grid-template-columns: minmax(0,1fr); gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="raices" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="marca">🌱 <span><b>Jardín de Gente</b> · taller vivencial online</span></div>
+      <h1 class="titulo">Vivir los <em>Cuatro Acuerdos</em></h1>
+      <p class="libro">Un taller online a partir del libro <i>Los Cuatro Acuerdos</i>, de don Miguel Ruiz.</p>
+      <p class="gancho">Hay acuerdos que firmaste sin leer.</p>
+      <p class="bajada">Dos horas en grupo chico para recorrer los cuatro acuerdos y salir con compromisos nuevos.</p>
+      <div class="chips">
+        <span class="chip"><strong>Domingo 6/12</strong> · 11 h Argentina</span>
+        <span class="chip">2 horas por Zoom</span>
+        <span class="chip">Grupo chico, cámara prendida</span>
+        <span class="chip">No hace falta haber leído el libro</span>
+        <span class="chip">Facilita Juan Manuel Gaitán</span>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-tierra" href="#reservar">Reservar mi lugar</a>
+        <a class="btn btn-linea" href="#detector">Hacer el ejercicio →</a>
+      </div>
+    </div>
+    <figure class="pc" aria-label="Así se ve el taller: una videollamada en grupo chico desde tu computadora">
+      <div class="pantalla">
+        <div class="pbar"><span class="punto"></span>Vivir los Cuatro Acuerdos · dom 6/12 · 11:00<span class="part">6 participantes</span></div>
+        <div class="grilla" id="grilla"><div class="tile" style="--f:linear-gradient(160deg,#5a3424,#2a1a12); --d:3.20s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><path d="M30 34c0-16 9-24 20-24s20 8 20 24v22H30z" fill="#3b2418"/><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#7a8f6a"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#d9b598"/><circle cx="50" cy="30" r="15" fill="#d9b598"/><path d="M35 27c1-10 8-16 15-16s14 6 15 16c-4-6-9-8-15-8s-11 2-15 8z" fill="#3b2418"/></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Sofi</span></div><div class="tile" style="--f:linear-gradient(160deg,#1f3a5a,#13243a); --d:3.65s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><circle cx="50" cy="9" r="8" fill="#1e1612"/><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#c9744f"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#c79a7b"/><circle cx="50" cy="30" r="15" fill="#c79a7b"/><path d="M36 26c1-9 7-14 14-14s13 5 14 14c-4-5-9-6-14-6s-10 1-14 6z" fill="#1e1612"/></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Laura</span></div><div class="tile" style="--f:linear-gradient(160deg,#3b4a2a,#1f2716); --d:4.10s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#3f5f86"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#e2c3a6"/><circle cx="50" cy="30" r="15" fill="#e2c3a6"/><path d="M36 25c1-9 7-14 14-14s13 5 14 14c-5-4-9-5-14-5s-9 1-14 5z" fill="#5a3b26"/><g fill="none" stroke="#1d1f24" stroke-width="1.6"><circle cx="44" cy="31" r="4.5"/><circle cx="56" cy="31" r="4.5"/><path d="M48.5 31h3"/></g></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Diego</span></div><div class="tile" style="--f:linear-gradient(160deg,#4a3a1c,#271e0e); --d:4.55s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><circle cx="38" cy="20" r="7" fill="#20160f"/><circle cx="44" cy="13" r="7" fill="#20160f"/><circle cx="52" cy="11" r="7" fill="#20160f"/><circle cx="60" cy="14" r="7" fill="#20160f"/><circle cx="64" cy="22" r="7" fill="#20160f"/><circle cx="36" cy="30" r="7" fill="#20160f"/><circle cx="65" cy="31" r="7" fill="#20160f"/><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#d8a948"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#a77a5c"/><circle cx="50" cy="30" r="15" fill="#a77a5c"/></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Caro</span></div><div class="tile" style="--f:linear-gradient(160deg,#2c2f4f,#17192e); --d:5.00s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#8a5a8a"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#dcb79a"/><circle cx="50" cy="30" r="15" fill="#dcb79a"/><path d="M34 27c0-11 7-17 16-17s16 6 16 17z" fill="#2a2a2a"/><rect x="33" y="24" width="34" height="5" rx="2.5" fill="#2a2a2a" opacity=".8"/></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Mati</span></div><div class="tile vos" style="--f:linear-gradient(160deg,#5a4a3a,#2b2219); --d:5.45s"><svg class="persona" viewBox="0 0 100 80" aria-hidden="true"><path d="M20 80c4-19 17-27 30-27s26 8 30 27z" fill="#4f7a78"/><rect x="45" y="42" width="10" height="12" rx="4" fill="#bf9373"/><circle cx="50" cy="30" r="15" fill="#bf9373"/><path d="M35 26c1-10 8-15 15-15s14 5 15 15c-5-5-10-6-15-6s-10 1-15 6z" fill="#3a281c"/></svg><span class="nom"><span class="ondas"><b></b><b></b><b></b></span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Vos</span></div></div>
+        <div class="controles" aria-hidden="true">
+          <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i>
+          <i><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></i>
+          <i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c1-4 3.5-6 6-6s5 2 6 6M14 18c.6-2.5 2-4 3.5-4S20.4 15.5 21 18"/></svg></i>
+          <i><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></i>
+          <i class="salir"><svg viewBox="0 0 24 24"><path d="M3 13c5-5 13-5 18 0l-3 3-3-2v-3c-2-.6-4-.6-6 0v3l-3 2z"/></svg></i>
+        </div>
+      </div>
+      <div class="cuello"></div><div class="base"></div>
+      <figcaption>Así se ve: tu compu, una videollamada y un grupo chico.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section class="detector" id="detector">
+    <div class="wrap">
+      <div class="det-head">
+        <div>
+          <span class="eyebrow">Ejercicio · 1 minuto</span>
+          <h2>¿Cuál de los cuatro acuerdos te está costando más hoy?</h2>
+        </div>
+        <div>
+          <p>Estos son los cuatro acuerdos. Abajo hay frases: cada una está escondida detrás de uno de ellos. Marcá las que te pasan y el resultado te va a mostrar cuál está más activo en vos.</p>
+          <div class="pasos-det">
+            <span><i>1</i>Mirá los cuatro</span>
+            <span><i>2</i>Marcá las frases</span>
+            <span><i>3</i>Mirá tus raíces</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cuatro" id="cuatro"></div>
+
+      <div class="instruccion">
+        <h3>¿Cuáles te pasan, aunque sea a veces?</h3>
+        <span>Nadie más ve lo que marcás.</span>
+      </div>
+      <div class="frases" id="frases" role="group" aria-label="Frases para marcar"></div>
+      <div class="det-pie">
+        <span class="contador" id="contador">Marcaste <b>0</b> de 12</span>
+        <div class="ctas" style="margin:0">
+          <button class="btn btn-linea" id="limpiar" type="button">Empezar de nuevo</button>
+          <button class="btn btn-tierra" id="ver" type="button">Ver mis raíces</button>
+        </div>
+      </div>
+
+      <div class="resultado" id="resultado" hidden aria-live="polite">
+        <div class="mapa">
+          <canvas id="mapa" role="img" aria-label="Mapa de raíces: cada acuerdo es una raíz y cada frase marcada es una piedra en ella"></canvas>
+          <p class="mapa-leyenda">Cada frase que marcaste es una piedra en una raíz. La raíz con más piedras es el acuerdo que más te está costando hoy.</p>
+        </div>
+        <div class="carta-zona" id="cartaZona"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="recorrido" id="recorrido">
+    <div class="wrap">
+      <div class="rec-head">
+        <span class="eyebrow">Las dos horas</span>
+        <h2>No es una charla. Es un recorrido.</h2>
+        <p>Tres momentos, en grupo chico y con cámara prendida.</p>
+      </div>
+      <ol class="tramo" id="tramo"></ol>
+    </div>
+  </section>
+
+  <section class="datos" id="datos">
+    <div class="wrap">
+      <span class="eyebrow">Tu entrada</span>
+      <div class="ticket">
+        <div class="izq">
+          <span class="tag">Vivir los Cuatro Acuerdos · online</span>
+          <div class="fecha">Domingo <span>6</span> de diciembre</div>
+          <div class="meta"><span>11 h de Argentina</span><span>2 horas</span><span>Por Zoom</span><span>Facilita Juan Manuel Gaitán</span></div>
+          <div class="relojes" aria-label="Horario en otros países">
+            <span>Argentina · Uruguay · Chile <b>11:00</b></span>
+            <span>Venezuela <b>10:00</b></span>
+            <span>Colombia · Perú · Ecuador <b>9:00</b></span>
+            <span>México (CDMX) <b>8:00</b></span>
+            <span>España <b>15:00</b></span>
+          </div>
+        </div>
+        <div class="der">
+          <span class="tag">Aporte</span>
+          <span class="precio">$20.000 <small>ARS</small></span>
+          <span class="antes">$15.000 reservando hasta el 29/11</span>
+          <span class="otro">Desde otros países: USD 12 · USD 10 reservando antes</span>
+          <span class="cupo">Grupo chico · cupo limitado</span>
+        </div>
+      </div>
+      <div class="traer">
+        <span class="t">Qué traer:</span>
+        <span class="chip">Un lugar tranquilo</span>
+        <span class="chip">Cuaderno y lapicera</span>
+        <span class="chip">Cámara y micrófono</span>
+        <span class="chip">Ganas de mirarte un rato</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserva" id="reservar">
+    <div class="wrap reserva-caja">
+      <div>
+        <span class="eyebrow">Somos pocos</span>
+        <h2>Reservá tu lugar con Mariana</h2>
+        <p class="sub">Mariana coordina el Jardín de Gente. Escribile y te confirma el lugar, el pago y el link del encuentro.</p>
+      </div>
+      <form class="mensaje" id="form-reserva">
+        <label for="msg">Tu mensaje para Mariana</label>
+        <textarea id="msg">Hola Mariana, quiero reservar mi lugar en Vivir los Cuatro Acuerdos online del domingo 6/12 🌱</textarea>
+        <div class="acciones">
+          <a class="btn btn-tierra" id="wa" href="#" hidden>Enviar por WhatsApp</a>
+          <button class="btn btn-linea" type="button" id="copiar">Copiar mensaje</button>
+        </div>
+        <span class="estado" id="estado"></span>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vivir los Cuatro Acuerdos es una experiencia de <a href="https://jardin.jardindegente.workers.dev">Jardín de Gente</a>, una comunidad para imaginar otras formas de vivir.</span>
+    <span>Taller independiente inspirado en el libro <i>Los Cuatro Acuerdos</i> de don Miguel Ruiz. Sin vínculo oficial con el autor ni con su editorial.</span>
+  </div>
+</footer>
+
+<script>
+/* Número de WhatsApp de Mariana, con código de país y sin "+" ni espacios (ej: 5491112345678).
+   Vacío = se muestra solo el botón de copiar. */
+const WHATSAPP_NUMERO = "584248105868";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const GLIFOS = {
+  1: '<path d="M4 6h16v9H10l-5 4v-4H4z"/><path d="M8 10.5h8"/>',
+  2: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
+  3: '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/><path d="M12 3v1.5M12 19.5V21"/>',
+  4: '<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>'
+};
+function glifo(n, cls) {
+  return '<svg class="' + (cls || "") + '" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + GLIFOS[n] + '</svg>';
+}
+
+const ACUERDOS = [
+  { n: 1, c: "var(--a1)", hex: "#d9744b", corto: "La palabra", nombre: "Sé impecable con tus palabras",
+    linea: "Lo que decís, y sobre todo lo que te decís, crea realidad.",
+    preg: "¿Qué te dijiste hoy que no le dirías a un amigo?",
+    lectura: "Tus palabras, sobre todo las que te decís a vos, vienen pesando. Hay una voz interna que habla más duro de lo que le hablarías a cualquiera.",
+    taller: "El 6/12 lo vas a poner en práctica junto con los otros tres, y mirar de cerca cómo te hablás." },
+  { n: 2, c: "var(--a2)", hex: "#e7b14f", corto: "Lo personal", nombre: "No te tomes nada personalmente",
+    linea: "Lo que hace el otro habla de su mundo, no del tuyo.",
+    preg: "¿Cuántas veces te tomaste algo personal esta semana?",
+    lectura: "Lo que hacen o dicen los demás te llega directo. Te cargás cosas que no son tuyas.",
+    taller: "El 6/12 lo vas a poner en práctica junto con los otros tres, y probar soltar algo que no es tuyo." },
+  { n: 3, c: "var(--a3)", hex: "#93cf8f", corto: "Las suposiciones", nombre: "No hagas suposiciones",
+    linea: "La película que te armás en la cabeza no es lo que pasó.",
+    preg: "¿Qué diste por hecho sin preguntar?",
+    lectura: "Tu cabeza completa los huecos rápido, y casi siempre con la peor versión. Y eso se vive como si fuera verdad.",
+    taller: "El 6/12 lo vas a poner en práctica junto con los otros tres, y mirar alguna película que te armaste." },
+  { n: 4, c: "var(--a4)", hex: "#86b9e6", corto: "Lo máximo", nombre: "Hacé siempre lo máximo que puedas",
+    linea: "Lo máximo de hoy, no lo perfecto. Y sin castigarte por lo de ayer.",
+    preg: "¿Dónde te estás exigiendo de más?",
+    lectura: "La exigencia está alta. Lo máximo se te confunde con lo perfecto, y eso cansa.",
+    taller: "El 6/12 lo vas a poner en práctica junto con los otros tres, y buscar tu máximo de hoy, no el de un día perfecto." }
+];
+
+/* Los cuatro, arriba del ejercicio */
+document.getElementById("cuatro").innerHTML = ACUERDOS.map(a =>
+  '<div style="--c:' + a.c + '"><span class="n">' + a.n + glifo(a.n) + '</span><b>' + a.nombre + '</b></div>'
+).join("");
+
+
+/* Frases */
+const FRASES = [
+  ["Me digo cosas que no le diría a nadie", 1], ["Digo que sí cuando quiero decir que no", 1], ["Hablo de otros cuando no están", 1],
+  ["Si alguien está de mal humor, pienso que es por mí", 2], ["Una crítica me arruina el día", 2], ["Necesito que me aprueben para estar tranquilo/a", 2],
+  ["Si no me contesta, ya imagino lo peor", 3], ["Doy por hecho lo que el otro piensa", 3], ["No pregunto para no molestar", 3],
+  ["Si no sale perfecto, prefiero no empezar", 4], ["Me exijo hasta quedar vacío/a", 4], ["Me culpo por no haber hecho más", 4]
+];
+const frasesEl = document.getElementById("frases");
+[0,3,6,9,1,4,7,10,2,5,8,11].forEach(i => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "frase"; b.textContent = FRASES[i][0];
+  b.dataset.ac = FRASES[i][1]; b.dataset.i = i; b.setAttribute("aria-pressed", "false");
+  b.addEventListener("click", () => { b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true"); contar(); });
+  frasesEl.appendChild(b);
+});
+const marcadas = () => [...frasesEl.querySelectorAll('[aria-pressed="true"]')];
+function contar() { document.getElementById("contador").innerHTML = "Marcaste <b>" + marcadas().length + "</b> de 12"; }
+const resultado = document.getElementById("resultado");
+document.getElementById("limpiar").addEventListener("click", () => {
+  frasesEl.querySelectorAll(".frase").forEach(b => b.setAttribute("aria-pressed", "false"));
+  contar(); resultado.hidden = true;
+});
+
+let datosMapa = null;
+document.getElementById("ver").addEventListener("click", () => {
+  const m = marcadas();
+  const zona = document.getElementById("cartaZona");
+  resultado.hidden = false;
+  const cuenta = {1:0,2:0,3:0,4:0}, frasesPor = {1:[],2:[],3:[],4:[]};
+  m.forEach(b => { cuenta[b.dataset.ac]++; frasesPor[b.dataset.ac].push(b.textContent); });
+  if (m.length === 0) {
+    zona.innerHTML = '<div class="carta" style="--c:var(--a2)"><span class="tag">Todavía nada</span><h3>Marcá al menos una frase</h3><p>Elegí las que te pasan aunque sea a veces. Sin piedras, las raíces están sueltas: eso también está bien, pero el ejercicio necesita algo para mirar.</p></div>';
+    datosMapa = { cuenta, top: [] }; dibujarMapa(true); return;
+  }
+  const max = Math.max(...Object.values(cuenta));
+  const tops = ACUERDOS.filter(a => cuenta[a.n] === max);
+  const t = tops[0];
+  const empate = tops.length > 1
+    ? '<p><b>Empate:</b> ' + tops.map(a => 'el ' + a.n).join(' y ') + ' tienen las mismas piedras. Suele pasar: los acuerdos viejos vienen en racimo.</p>' : '';
+  zona.innerHTML =
+    '<div class="carta gira" style="--c:' + t.c + '">' +
+      '<span class="tag">Tu acuerdo más activo</span>' +
+      '<div class="grande"><span class="num">' + t.n + '</span>' + glifo(t.n, "glifo") + '</div>' +
+      '<h3>' + t.nombre + '</h3>' +
+      '<p>' + t.lectura + '</p>' + empate +
+      '<p class="taller">' + t.taller + '</p>' +
+    '</div>' +
+    '<div class="piedras"><span class="t">Tus piedras</span><ul>' +
+      ACUERDOS.flatMap(a => frasesPor[a.n].map(f => '<li style="--c:' + a.c + '">' + a.n + ' · ' + f + '</li>')).join("") +
+    '</ul></div>' +
+    '<a class="ir" href="#reservar">Quiero trabajarlo el 6/12 →</a>';
+  datosMapa = { cuenta, top: tops.map(a => a.n) };
+  dibujarMapa(false);
+  resultado.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+});
+
+/* Mapa de raíces con piedras */
+const mapa = document.getElementById("mapa");
+const mctx = mapa.getContext("2d");
+let animMapa = 0;
+function semilla(s) { return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; }; }
+function dibujarMapa(vacio) {
+  cancelAnimationFrame(animMapa);
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const W = mapa.clientWidth, H = mapa.clientHeight;
+  mapa.width = W * dpr; mapa.height = H * dpr;
+  mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const suelo = H * 0.18, cx = W / 2, fondo = H - 70;
+  const angs = [-50, -16, 16, 50].map(d => d * Math.PI / 180);
+  const maxL = Math.min(...angs.map(ang => Math.min((fondo - suelo) / Math.cos(ang), (W / 2 - 60) / Math.abs(Math.sin(ang)))));
+  const raices = ACUERDOS.map((a, k) => {
+    const n = datosMapa.cuenta[a.n];
+    const ang = angs[k];
+    const L = Math.min(maxL, maxL * (0.45 + 0.18 * n));
+    const r = semilla(17 + k * 31);
+    const pts = [];
+    const seg = 40;
+    for (let i = 0; i <= seg; i++) {
+      const s = i / seg * L;
+      const w = Math.sin(s * 0.035 + k * 2) * 10 * (s / L) + (r() - .5) * 2;
+      pts.push([cx + Math.sin(ang) * s + Math.cos(ang) * w, suelo + Math.cos(ang) * s - Math.sin(ang) * w * 0.3]);
+    }
+    const piedras = [];
+    for (let j = 0; j < n; j++) {
+      const f = 0.32 + j * 0.24;
+      const p = pts[Math.round(f * seg)];
+      piedras.push({ x: p[0], y: p[1], r: 9 + r() * 5, rot: r() * 6 });
+    }
+    return { a, pts, piedras, ancho: 2 + n * 1.6, top: datosMapa.top.includes(a.n) };
+  });
+  const t0 = performance.now();
+  function frame(ahora) {
+    const t = reduce ? 99999 : ahora - t0;
+    mctx.clearRect(0, 0, W, H);
+    // estratos
+    mctx.strokeStyle = "rgba(231,177,79,.12)"; mctx.lineWidth = 1;
+    [0.42, 0.66, 0.86].forEach(f => {
+      const y = suelo + (H - suelo) * f; mctx.beginPath();
+      for (let x = 0; x <= W; x += 20) mctx.lineTo(x, y + Math.sin(x * 0.015 + f * 7) * 5);
+      mctx.stroke();
+    });
+    mctx.strokeStyle = "rgba(239,229,214,.35)"; mctx.beginPath(); mctx.moveTo(0, suelo); mctx.lineTo(W, suelo); mctx.stroke();
+    // brote
+    const pb = Math.min(1, t / 600);
+    mctx.save(); mctx.shadowColor = "#e7b14f"; mctx.shadowBlur = 18; mctx.strokeStyle = "#a8dc9f"; mctx.lineWidth = 3;
+    mctx.beginPath(); mctx.moveTo(cx, suelo); mctx.quadraticCurveTo(cx - 5, suelo - 22 * pb, cx + 2, suelo - 44 * pb); mctx.stroke();
+    mctx.fillStyle = "#a8dc9f";
+    if (pb > .5) { const s = (pb - .5) * 2; hoja(cx + 2, suelo - 44 * pb, -1, s); hoja(cx + 2, suelo - 36 * pb, 1, s); }
+    mctx.restore();
+    // raíces
+    const pulso = 0.5 + 0.5 * Math.sin(t / 380);
+    raices.forEach((rz, k) => {
+      const p = Math.max(0, Math.min(1, (t - 200 - k * 120) / 1100));
+      const hasta = Math.max(1, Math.round(p * (rz.pts.length - 1)));
+      mctx.save();
+      mctx.lineCap = "round"; mctx.lineJoin = "round";
+      mctx.strokeStyle = rz.a.hex; mctx.globalAlpha = vacio ? .55 : (rz.top ? 1 : .6);
+      mctx.shadowColor = rz.a.hex; mctx.shadowBlur = rz.top ? 14 + 18 * pulso * (p >= 1 ? 1 : 0) : 4;
+      mctx.lineWidth = rz.ancho;
+      mctx.beginPath(); mctx.moveTo(rz.pts[0][0], rz.pts[0][1]);
+      for (let i = 1; i <= hasta; i++) mctx.lineTo(rz.pts[i][0], rz.pts[i][1]);
+      mctx.stroke();
+      // raicillas
+      mctx.lineWidth = 1; mctx.globalAlpha *= .6; mctx.shadowBlur = 0;
+      for (let i = 8; i < hasta; i += 7) {
+        const [x, y] = rz.pts[i], d = (i % 2 ? 1 : -1);
+        mctx.beginPath(); mctx.moveTo(x, y); mctx.quadraticCurveTo(x + d * 10, y + 6, x + d * 18, y + 16); mctx.stroke();
+      }
+      mctx.restore();
+      // piedras
+      rz.piedras.forEach((pd, j) => {
+        const ap = Math.max(0, Math.min(1, (t - 900 - k * 120 - j * 160) / 350));
+        if (ap <= 0) return;
+        piedra(pd.x, pd.y, pd.r * ap, pd.rot);
+      });
+      // punta con número
+      if (p >= 1) {
+        const [tx, ty] = rz.pts[rz.pts.length - 1];
+        mctx.save();
+        mctx.fillStyle = rz.a.hex; mctx.globalAlpha = rz.top || vacio ? 1 : .75;
+        if (rz.top) { mctx.shadowColor = rz.a.hex; mctx.shadowBlur = 20 * pulso; }
+        mctx.beginPath(); mctx.arc(tx, ty, rz.top ? 17 : 13, 0, Math.PI * 2); mctx.fill();
+        mctx.shadowBlur = 0; mctx.fillStyle = "#24150e"; mctx.font = "700 " + (rz.top ? 17 : 14) + "px Karla, sans-serif";
+        mctx.textAlign = "center"; mctx.textBaseline = "middle"; mctx.fillText(rz.a.n, tx, ty + 1);
+        mctx.fillStyle = "#efe5d6"; mctx.globalAlpha = rz.top || vacio ? 1 : .7; mctx.font = "500 13px Karla, sans-serif";
+        mctx.fillText(rz.a.corto, tx, ty + 30);
+        mctx.restore();
+      }
+    });
+    if (!reduce && (t < 2600 || datosMapa.top.length)) animMapa = requestAnimationFrame(frame);
+  }
+  function hoja(x, y, dir, s) {
+    mctx.beginPath(); mctx.moveTo(x, y);
+    mctx.quadraticCurveTo(x + dir * 16 * s, y - 14 * s, x + dir * 24 * s, y - 3 * s);
+    mctx.quadraticCurveTo(x + dir * 12 * s, y + 5 * s, x, y); mctx.fill();
+  }
+  function piedra(x, y, r, rot) {
+    mctx.save(); mctx.translate(x, y); mctx.rotate(rot);
+    mctx.beginPath();
+    for (let i = 0; i < 7; i++) {
+      const a = i / 7 * Math.PI * 2, rr = r * (0.82 + ((i * 37) % 10) / 40);
+      mctx.lineTo(Math.cos(a) * rr * 1.25, Math.sin(a) * rr);
+    }
+    mctx.closePath();
+    const g = mctx.createLinearGradient(-r, -r, r, r);
+    g.addColorStop(0, "#b9ab98"); g.addColorStop(1, "#5d5246");
+    mctx.fillStyle = g; mctx.shadowColor = "rgba(0,0,0,.5)"; mctx.shadowBlur = 6; mctx.fill();
+    mctx.restore();
+  }
+  animMapa = requestAnimationFrame(frame);
+}
+window.addEventListener("resize", () => { if (!resultado.hidden && datosMapa) dibujarMapa(!datosMapa.top.length); });
+
+/* Recorrido: tres momentos */
+const PASOS = [
+  { t: "Llegar", h: "Llegamos de verdad", p: "Una ronda corta para conocernos y ver con qué llega cada uno. Cámaras prendidas: estar presente ya es parte del taller.", n: "Grupo chico, para que todos tengan lugar." },
+  { t: "Recorrer", h: "Los cuatro, uno por uno", p: "Pasamos por cada acuerdo con una práctica corta, en duplas y en salas chicas. No para estudiarlos: para sentir dónde te tocan.", n: "Es el corazón del taller." },
+  { t: "Comprometerte", h: "Salir con acuerdos nuevos", p: "Te vas con compromisos nuevos, tuyos, que nacen de lo que viviste en el recorrido. Los compartimos en una ronda final.", n: "Y si te quedás con ganas, el Jardín sigue." }
+];
+document.getElementById("tramo").innerHTML = PASOS.map((s, i) =>
+  '<li><span class="etapa">' + (i + 1) + '</span><span class="eyebrow">' + s.t + '</span><h3>' + s.h + '</h3><p>' + s.p + '</p></li>'
+).join("");
+
+/* Reserva */
+const msg = document.getElementById("msg"), wa = document.getElementById("wa"), estado = document.getElementById("estado");
+function actualizarWa() { if (!WHATSAPP_NUMERO) return; wa.hidden = false; wa.href = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(msg.value); }
+msg.addEventListener("input", actualizarWa); actualizarWa();
+document.getElementById("form-reserva").addEventListener("submit", e => e.preventDefault());
+document.getElementById("copiar").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(msg.value); estado.textContent = "Copiado. Pegalo en el chat con Mariana."; }
+  catch (err) { msg.select(); estado.textContent = "Seleccioné el texto: copialo con Ctrl+C o mantené apretado."; }
+});
+
+
+/* Videollamada con vida: va hablando distinta gente, aparecen reacciones */
+(function () {
+  if (reduce) { document.querySelector("#grilla .tile").classList.add("habla"); return; }
+  const tiles = [...document.querySelectorAll("#grilla .tile")];
+  const orden = [0, 2, 1, 3, 0, 4, 1, 5];
+  let k = 0;
+  function turno() {
+    tiles.forEach(t => t.classList.remove("habla"));
+    tiles[orden[k % orden.length]].classList.add("habla");
+    k++;
+  }
+  turno(); setInterval(turno, 2600);
+  const emojis = ["🌱", "👏", "💛", "🙌", "✨"];
+  setInterval(() => {
+    const t = tiles[Math.floor(Math.random() * tiles.length)];
+    const r = document.createElement("span");
+    r.className = "reac"; r.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    t.appendChild(r); setTimeout(() => r.remove(), 2500);
+  }, 3200);
+  setInterval(() => {
+    const t = tiles[1 + Math.floor(Math.random() * (tiles.length - 1))];
+    if (t.querySelector(".mano")) return;
+    const m = document.createElement("span");
+    m.className = "mano"; m.textContent = "✋";
+    t.appendChild(m); setTimeout(() => m.remove(), 3400);
+  }, 7000);
+})();
+
+/* Hero: brote con cuatro raíces, una por acuerdo */
+(function () {
+  const c = document.getElementById("raices"), ctx = c.getContext("2d");
+  let W, H, ramas, t0, suelo, x0;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function armar() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    suelo = H - (W < 600 ? 150 : 170); x0 = W < 920 ? W * 0.8 : W * 0.9; ramas = [];
+    const cols = ["#d9744b", "#e7b14f", "#93cf8f", "#86b9e6"];
+    [-1.05, -0.35, 0.35, 1.05].forEach((ang, k) => crecer(x0, suelo + 4, Math.PI / 2 + ang * 0.75, 0, cols[k], 0));
+    function crecer(x, y, a, prof, col, ini) {
+      const largo = rnd(28, 46) * (1 - prof * 0.13), pasos = 5 + Math.floor(rnd(0, 4));
+      let px = x, py = y, an = a; const pts = [[px, py]];
+      for (let i = 0; i < pasos; i++) { an += rnd(-0.32, 0.32); px += Math.cos(an) * largo / 2.2; py = Math.min(H - 6, Math.max(suelo + 6, py + Math.sin(an) * largo / 2.2)); pts.push([px, py]); }
+      ramas.push({ pts, ancho: Math.max(0.6, 3.2 - prof * 0.8), col, ini, dur: 900 - prof * 120 });
+      if (prof < 3) for (let h = 0; h < (prof === 0 ? 3 : 2); h++) {
+        const [hx, hy] = pts[2 + Math.floor(rnd(0, pts.length - 2))];
+        crecer(hx, hy, an + rnd(-0.9, 0.9), prof + 1, col, ini + 500 + prof * 380 + h * 120);
+      }
+    }
+  }
+  function dibujar(ahora) {
+    const t = reduce ? 1e9 : ahora - t0;
+    ctx.clearRect(0, 0, W, H);
+    const g = ctx.createLinearGradient(0, suelo, 0, H);
+    g.addColorStop(0, "rgba(58,35,24,0)"); g.addColorStop(.12, "rgba(58,35,24,.85)"); g.addColorStop(1, "rgba(30,18,12,1)");
+    ctx.fillStyle = g; ctx.fillRect(0, suelo, W, H - suelo);
+    ctx.strokeStyle = "rgba(231,177,79,.18)"; ctx.lineWidth = 1;
+    [0.35, 0.62, 0.84].forEach(f => { ctx.beginPath(); const yy = suelo + (H - suelo) * f; for (let x = 0; x <= W; x += 24) ctx.lineTo(x, yy + Math.sin(x * 0.012 + f * 9) * 4); ctx.stroke(); });
+    ctx.strokeStyle = "rgba(239,229,214,.25)"; ctx.beginPath(); ctx.moveTo(0, suelo); ctx.lineTo(W, suelo); ctx.stroke();
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ramas.forEach(r => {
+      const p = Math.max(0, Math.min(1, (t - r.ini) / r.dur)); if (p <= 0) return;
+      const n = r.pts.length - 1, hasta = p * n;
+      ctx.save(); ctx.shadowColor = r.col; ctx.shadowBlur = 8; ctx.strokeStyle = r.col; ctx.globalAlpha = .85; ctx.lineWidth = r.ancho;
+      ctx.beginPath(); ctx.moveTo(r.pts[0][0], r.pts[0][1]);
+      for (let i = 1; i <= Math.ceil(hasta); i++) { const f = Math.min(1, hasta - (i - 1)); const [ax, ay] = r.pts[i - 1], [bx, by] = r.pts[i]; ctx.lineTo(ax + (bx - ax) * f, ay + (by - ay) * f); }
+      ctx.stroke(); ctx.restore();
+    });
+    const pb = reduce ? 1 : Math.max(0, Math.min(1, (t - 200) / 1100)), alto = 74 * pb;
+    ctx.save(); ctx.shadowColor = "#e7b14f"; ctx.shadowBlur = 22; ctx.strokeStyle = "#9fd39a"; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(x0, suelo); ctx.quadraticCurveTo(x0 - 6, suelo - alto * .5, x0 + 2, suelo - alto); ctx.stroke();
+    if (pb > .6) { const h = (pb - .6) / .4; ctx.fillStyle = "#a8dc9f"; hoja(x0 + 2, suelo - alto, -1, h); hoja(x0 + 2, suelo - alto + 8, 1, h); }
+    ctx.restore();
+    const halo = ctx.createRadialGradient(x0, suelo - 40, 0, x0, suelo - 40, 180);
+    halo.addColorStop(0, "rgba(231,177,79," + .16 * pb + ")"); halo.addColorStop(1, "rgba(231,177,79,0)");
+    ctx.fillStyle = halo; ctx.fillRect(x0 - 180, suelo - 220, 360, 360);
+    if (!reduce && t < 4200) requestAnimationFrame(dibujar);
+  }
+  function hoja(x, y, dir, s) { ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + dir * 22 * s, y - 20 * s, x + dir * 34 * s, y - 4 * s); ctx.quadraticCurveTo(x + dir * 18 * s, y + 6 * s, x, y); ctx.fill(); }
+  armar(); t0 = performance.now(); requestAnimationFrame(dibujar);
+  let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { armar(); t0 = performance.now() - 1e6; requestAnimationFrame(dibujar); }, 150); });
+})();
+</script>
+</body>
+</html>
