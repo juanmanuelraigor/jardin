@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Algo más · Taller presencial en Lomas del Mirador</title>
-<meta name="description" content="Sabés en tu corazón que estás acá para algo más que trabajar y pagar cuentas. Una jornada de meditación, viaje sonoro, relajación, indagación y ronda de compartir.">
-<meta property="og:title" content="Algo más · Taller presencial">
-<meta property="og:description" content="Sabés en tu corazón que estás acá para algo más que trabajar y pagar cuentas.">
+<title>Algo más · Online · Jardín de Gente</title>
+<meta name="description" content="Vivís apagando incendios. Dos horas en vivo para salir del piloto automático y armar tu mapa ikigai. Sin gurúes.">
+<meta property="og:title" content="Algo más · Online, en vivo">
+<meta property="og:description" content="Vivís apagando incendios. Estás acá para algo más.">
 <meta name="theme-color" content="#04060D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,14 +141,14 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
 <header class="hero">
   <canvas id="sky" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <p class="eyebrow">TALLER PRESENCIAL · LOMAS DEL MIRADOR</p>
-    <h1 class="serif">Sabés en tu corazón que estás acá para <em>algo más</em></h1>
-    <p class="sub serif">que trabajar y pagar cuentas.</p>
+    <p class="eyebrow">ONLINE · EN VIVO · 2 HORAS</p>
+    <h1 class="serif">Vivís apagando incendios.<br>Estás acá para <em>algo más</em>.</h1>
+    <p class="sub serif">Dos horas para salir del piloto automático y armar tu mapa ikigai. Sin gurúes, sin humo.</p>
     <p class="when" data-fill="fecha"></p>
     <a class="btn" href="#reservar">Quiero mi lugar</a>
   </div>
   <div class="scene">
-    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Una persona de espaldas sobre una loma mira el cielo, con una luz cálida en el pecho">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Una persona de espaldas mira el cielo, con una luz cálida en el pecho">
       <defs>
         <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
         <filter id="halo" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="18"/></filter>
@@ -175,9 +175,9 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
 <section>
   <div class="wrap">
     <div class="qs serif">
-      <p class="q">¿Te preguntaste qué cosas te hacen <em>vibrar el alma</em>?</p>
-      <p class="q">¿Cuántas veces hacés cosas <em>en automático</em>, o porque no te queda otra?</p>
-      <p class="q">¿Hace cuánto no te frenás a <em>escucharte</em>?</p>
+      <p class="q">¿Cuántas pestañas tenés abiertas ahora? <em>¿Y en la cabeza?</em></p>
+      <p class="q">¿Cuándo fue la última vez que hiciste algo <em>que nadie te pidió</em>?</p>
+      <p class="q">¿Estás viviendo tu vida, o <em>respondiéndole</em>?</p>
     </div>
   </div>
 </section>
@@ -188,9 +188,9 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
     <div class="reveal">
       <p class="eyebrow">ANTES DE SEGUIR</p>
       <h2 class="serif" style="margin-top:18px">Regalate <em>30 segundos</em>.</h2>
-      <p>El ritmo de la vida casi nunca nos deja frenar. Probalo ahora: tres respiraciones, siguiendo la luz.</p>
+      <p>Dejá el mail un toque. Tres respiraciones, siguiendo la luz. Nada más.</p>
       <button class="btn breath-btn" id="breathBtn" type="button">Respirar conmigo</button>
-      <p class="after" id="after" aria-live="polite">Eso que sentiste es apenas el comienzo.<br>Imaginá una tarde entera así.</p>
+      <p class="after" id="after" aria-live="polite">Eso fue medio minuto.<br>Imaginá dos horas.</p>
     </div>
     <div class="orb-wrap reveal" aria-hidden="true">
       <div class="orb-ring"></div>
@@ -204,32 +204,51 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
 <section>
   <div class="wrap">
     <div class="center reveal">
-      <p class="eyebrow">EL RECORRIDO DE LA TARDE</p>
-      <h2 class="serif" style="margin-top:18px">Una jornada para <em>volver a vos</em></h2>
+      <p class="eyebrow">CÓMO SON LAS DOS HORAS</p>
+      <h2 class="serif" style="margin-top:18px">Frenar, preguntarte, <em>moverte</em></h2>
     </div>
     <div class="journey" id="journey">
       <span class="fill" id="fill"></span>
-      <div class="stop"><span class="dot"></span><span class="k">01 · LLEGAR</span><h3 class="serif">Meditación</h3><p>Bajamos el ruido. Dejamos afuera la semana y llegamos al cuerpo.</p></div>
-      <div class="stop"><span class="dot"></span><span class="k">02 · SOLTAR</span><h3 class="serif">Viaje sonoro</h3><p>Cuencos y sonidos que te llevan a un estado de calma profunda.</p></div>
-      <div class="stop"><span class="dot"></span><span class="k">03 · AFLOJAR</span><h3 class="serif">Relajación</h3><p>Un rato para que el cuerpo descanse de verdad y suelte el estrés.</p></div>
-      <div class="stop"><span class="dot"></span><span class="k">04 · PREGUNTARTE</span><h3 class="serif">Trabajo de indagación</h3><p>Ejercicios para escuchar qué te enciende, qué dejaste en pausa y qué futuro deseás.</p></div>
-      <div class="stop"><span class="dot"></span><span class="k">05 · COMPARTIR</span><h3 class="serif">Ronda de compartir</h3><p>Encontrarte con otras personas que también sienten que hay algo más.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">01 · FRENAR</span><h3 class="serif">Aterrizar</h3><p>Notificaciones apagadas, pestañas cerradas. Llegás de verdad, no a medias.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">02 · BAJAR</span><h3 class="serif">Viaje sonoro</h3><p>Auriculares y ojos cerrados. Sonido para que la cabeza deje de correr.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">03 · PREGUNTARTE</span><h3 class="serif">Tu mapa ikigai</h3><p>Las cuatro preguntas del ikigai, a mano y sin apuro. Ahí aparece lo que venís tapando.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">04 · CONTRASTAR</span><h3 class="serif">En pares</h3><p>Una conversación con alguien que no te conoce y te escucha sin juzgar.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">05 · MOVERTE</span><h3 class="serif">Una acción</h3><p>Te vas con algo concreto para hacer esta semana. Chiquito, pero tuyo.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Qué te llevás -->
+<!-- Ikigai -->
 <section class="alt">
   <div class="wrap">
     <div class="center reveal">
-      <p class="eyebrow">QUÉ TE LLEVÁS</p>
-      <h2 class="serif" style="margin-top:18px">No es una charla. <em>Es una experiencia.</em></h2>
+      <p class="eyebrow">LA HERRAMIENTA</p>
+      <h2 class="serif" style="margin-top:18px">Cuatro preguntas. <em>Un cruce.</em></h2>
+      <p style="margin:18px auto 0;max-width:600px;font-size:18px;line-height:1.6;color:var(--soft)">El ikigai es una idea japonesa: tu razón de ser está donde se cruzan estas cuatro preguntas. No se trata de encontrar el trabajo perfecto. Se trata de ver qué parte de vos está quedando afuera.</p>
     </div>
     <div class="takes">
-      <article class="take reveal"><h3 class="serif">Calma</h3><p>Herramientas simples para bajar la ansiedad en tu día a día.</p></article>
-      <article class="take reveal"><h3 class="serif">Claridad</h3><p>Una mirada más honesta sobre lo que te enciende y lo que querés.</p></article>
-      <article class="take reveal"><h3 class="serif">Un primer paso</h3><p>Un gesto concreto para empezar a moverte hacia ese algo más.</p></article>
-      <article class="take reveal"><h3 class="serif">Una semilla</h3><p>Real, para plantar. Para que cada vez que la mires te acuerdes.</p></article>
+      <article class="take reveal"><h3 class="serif">Lo que amás</h3><p>Eso que hacés y se te pasan las horas. Aunque hace años que no lo hacés.</p></article>
+      <article class="take reveal"><h3 class="serif">En lo que sos bueno</h3><p>Lo que otros te piden, te reconocen o te sale fácil.</p></article>
+      <article class="take reveal"><h3 class="serif">Lo que el mundo necesita</h3><p>Lo que te duele o te indigna ver. Ahí hay una pista.</p></article>
+      <article class="take reveal"><h3 class="serif">Por lo que te pueden pagar</h3><p>Lo que sostiene tu vida. Sin culpa y sin que sea lo único.</p></article>
+    </div>
+    <p class="center reveal serif" style="margin-top:34px;font-size:clamp(22px,3vw,30px);color:var(--ink)">En el medio está <em style="color:var(--gold)">algo más</em>.</p>
+  </div>
+</section>
+
+<!-- Qué te llevás -->
+<section>
+  <div class="wrap">
+    <div class="center reveal">
+      <p class="eyebrow">QUÉ TE LLEVÁS</p>
+      <h2 class="serif" style="margin-top:18px">No es una charla motivacional. <em>Es práctica.</em></h2>
+      <p style="margin:18px auto 0;max-width:560px;font-size:18px;line-height:1.6;color:var(--soft)">Sin gurú, sin energías, sin promesas de cambiarte la vida en dos horas. Y sin venderte un curso al final.</p>
+    </div>
+    <div class="takes">
+      <article class="take reveal"><h3 class="serif">Pausa real</h3><p>Dos horas fuera del modo urgencia. Y cómo volver a ese lugar cuando lo necesites.</p></article>
+      <article class="take reveal"><h3 class="serif">Claridad</h3><p>Una mirada honesta sobre qué querés y qué venís postergando.</p></article>
+      <article class="take reveal"><h3 class="serif">Una acción</h3><p>Un paso concreto para esta semana. No un plan de cinco años.</p></article>
+      <article class="take reveal"><h3 class="serif">Gente en la misma</h3><p>Otras personas que también sienten que tiene que haber algo más.</p></article>
     </div>
   </div>
 </section>
@@ -239,30 +258,29 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
   <div class="wrap center">
     <div class="reveal">
       <p class="eyebrow">TU LUGAR</p>
-      <h2 class="serif" style="margin-top:18px">¿Qué te gustaría <em>encender</em>?</h2>
+      <h2 class="serif" style="margin-top:18px">¿Qué venís a <em>buscar</em>?</h2>
       <p style="margin:18px auto 0;max-width:560px;font-size:18px;line-height:1.6;color:var(--soft)">Elegí una o varias. Se suman a tu mensaje de reserva, así llegamos sabiendo qué venís a buscar.</p>
     </div>
-    <div class="picks reveal" role="group" aria-label="Qué te gustaría encender">
-      <button class="pick" type="button" aria-pressed="false">Descansar de verdad</button>
-      <button class="pick" type="button" aria-pressed="false">Escucharme</button>
-      <button class="pick" type="button" aria-pressed="false">Bajar la ansiedad</button>
-      <button class="pick" type="button" aria-pressed="false">Encontrar sentido</button>
-      <button class="pick" type="button" aria-pressed="false">Conocer gente</button>
+    <div class="picks reveal" role="group" aria-label="Qué venís a buscar">
+      <button class="pick" type="button" aria-pressed="false">Frenar un rato</button>
+      <button class="pick" type="button" aria-pressed="false">Salir del piloto automático</button>
+      <button class="pick" type="button" aria-pressed="false">Pensar con claridad</button>
+      <button class="pick" type="button" aria-pressed="false">Retomar algo que dejé</button>
+      <button class="pick" type="button" aria-pressed="false">Conocer gente con la misma inquietud</button>
       <button class="pick" type="button" aria-pressed="false">Animarme a un cambio</button>
     </div>
     <div class="details reveal">
       <span class="detail" data-fill="fecha"></span>
-      <span class="detail">Lomas del Mirador</span>
-      <span class="detail">Cupo limitado</span>
+      <span class="detail">Online por videollamada</span>
+      <span class="detail">Grupo chico</span>
     </div>
     <div class="price reveal">
-      <span class="price-old">$<span data-fill="precioLista"></span></span>
       <span class="price-new">$<span data-fill="precioPromo"></span></span>
-      <span class="price-tag">PRECIO PROMOCIONAL</span>
+      <span class="price-tag">ENTRADA</span>
     </div>
     <div class="reveal">
       <a class="btn js-wa" href="#">Reservar por WhatsApp</a>
-      <small>Cupos reducidos para que cada persona tenga su espacio.</small>
+      <small>Grupo chico para que haya espacio de verdad. Traé auriculares, papel y birome.</small>
     </div>
   </div>
 </section>
@@ -281,10 +299,9 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
 /* ==== EDITÁ ACÁ ==== */
 const DATOS = {
   whatsapp: "5491151325175",            // número con código de país, sin + ni espacios
-  mensaje:  "Hola! Quiero reservar mi lugar en el taller Algo más",
-  fecha:    "Domingo 15 de noviembre · 17 h",
-  precioLista: "40.000",
-  precioPromo: "20.000"
+  mensaje:  "Hola! Quiero reservar mi lugar en Algo más online",
+  fecha:    "Próxima fecha a confirmar",
+  precioPromo: "15.000"
 };
 /* =================== */
 
