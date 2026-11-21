@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Algo más · Taller presencial en Lomas del Mirador</title>
+<meta name="description" content="Sabés en tu corazón que estás acá para algo más que trabajar y pagar cuentas. Una jornada de meditación, viaje sonoro, relajación, indagación y ronda de compartir.">
+<meta property="og:title" content="Algo más · Taller presencial">
+<meta property="og:description" content="Sabés en tu corazón que estás acá para algo más que trabajar y pagar cuentas.">
+<meta name="theme-color" content="#04060D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --night:#04060D; --night2:#0A1022; --chip:#17213F; --line:#24305A; --line2:#3A4E8A;
+  --ink:#F7F5EF; --soft:#C9D3EA; --muted:#A9B6D6; --gold:#FFD98A; --warm:#FFC86B;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold)}
+button{font:inherit}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eyebrow{margin:0;font-size:14px;font-weight:600;letter-spacing:.26em;color:var(--muted)}
+.btn{display:inline-block;padding:18px 34px;border:0;border-radius:999px;background:var(--gold);color:#0A0E1C;font-weight:700;font-size:18px;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(255,200,107,.35);color:#0A0E1C}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line2)}
+.btn.ghost:hover{box-shadow:none;border-color:var(--gold)}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:12vh 20px 0}
+#sky{position:absolute;inset:0;width:100%;height:100%}
+.hero-copy{position:relative;z-index:2;max-width:900px}
+.hero h1{margin:26px 0 0;font-weight:600;font-size:clamp(40px,7vw,80px);line-height:1.04}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold)}
+.hero .sub{margin:14px 0 0;font-size:clamp(24px,3.4vw,38px);color:var(--soft)}
+.hero .when{margin:22px 0 0;font-size:16px;font-weight:500;letter-spacing:.08em;color:var(--muted)}
+.hero .btn{margin-top:30px}
+.scene{position:absolute;left:0;right:0;bottom:0;z-index:1;pointer-events:none}
+.scene svg{display:block;width:100%;height:auto}
+.glow{animation:breathe 4.5s ease-in-out infinite;transform-origin:720px 618px;transform-box:view-box}
+@keyframes breathe{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:.85;transform:scale(1.15)}}
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;font-size:13px;letter-spacing:.2em;color:var(--muted);animation:float 2.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+
+section{padding:110px 0}
+.center{text-align:center}
+.alt{background:var(--night2)}
+h2{margin:0;font-weight:600;font-size:clamp(32px,4.6vw,52px);line-height:1.12}
+h2 em{font-style:italic;font-weight:500;color:var(--gold)}
+.lead{max-width:760px;margin:0 auto}
+.lead p{margin:24px 0 0;font-size:20px;line-height:1.65;color:var(--soft)}
+
+/* Preguntas que se encienden */
+.qs{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+.q{font-size:clamp(28px,4vw,44px);line-height:1.2;font-weight:500;color:#2C3760;transition:color 1.2s ease}
+.q.lit{color:var(--ink)}
+.q.lit em{color:var(--gold)}
+.q em{font-style:italic;transition:color 1.2s ease}
+
+/* Pausa: respiración */
+.pause{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center}
+.pause p{font-size:20px;line-height:1.6;color:var(--soft)}
+.orb-wrap{position:relative;display:flex;align-items:center;justify-content:center;height:360px}
+.orb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,#FFF1CC 0%,#FFC86B 45%,rgba(255,200,107,0) 72%);transform:scale(.8);transition:transform 4s ease-in-out,opacity 4s;opacity:.7}
+.orb.in{transform:scale(2.1);opacity:1}
+.orb.out{transform:scale(.8);opacity:.6;transition-duration:6s}
+.orb-ring{position:absolute;width:300px;height:300px;border-radius:50%;border:1.5px dashed var(--line)}
+.orb-label{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:22px;font-weight:500;letter-spacing:.06em;color:var(--ink);min-height:30px}
+.breath-btn{margin-top:28px}
+.after{margin-top:20px;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;line-height:1.25;color:var(--ink);opacity:0;transition:opacity 1.2s}
+.after.show{opacity:1}
+
+/* Constelación: recorrido */
+.journey{position:relative;max-width:760px;margin:56px auto 0;padding-left:56px}
+.journey::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(var(--line),var(--line))}
+.journey .fill{position:absolute;left:15px;top:8px;width:1.5px;height:0;background:linear-gradient(var(--gold),var(--warm));transition:height .2s linear}
+.stop{position:relative;padding:0 0 52px}
+.stop:last-child{padding-bottom:0}
+.dot{position:absolute;left:-49px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--night2);border:1.5px solid var(--line2);transition:all .6s}
+.stop.on .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 22px 6px rgba(255,200,107,.45)}
+.stop .k{font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--muted)}
+.stop h3{margin:8px 0 0;font-size:34px;font-weight:600}
+.stop p{margin:10px 0 0;font-size:18px;line-height:1.6;color:var(--soft);max-width:560px}
+
+/* Te llevás */
+.takes{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.take{padding:30px 26px;border:1.5px solid var(--line);border-radius:22px;transition:border-color .3s,transform .3s}
+.take:hover{border-color:var(--line2);transform:translateY(-4px)}
+.take h3{margin:0;font-size:28px;font-weight:600;color:var(--gold)}
+.take p{margin:10px 0 0;font-size:17px;line-height:1.55;color:var(--soft)}
+
+/* Elegí qué encender */
+.picks{margin:36px auto 0;max-width:820px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.pick{padding:14px 24px;border-radius:999px;border:1.5px solid var(--line2);background:transparent;color:var(--ink);font-size:18px;font-weight:500;cursor:pointer;transition:all .25s}
+.pick:hover{border-color:var(--gold)}
+.pick[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#0A0E1C;box-shadow:0 0 26px rgba(255,200,107,.35)}
+.details{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.detail{padding:12px 22px;border:1.5px solid var(--line2);border-radius:999px;font-size:18px;color:#E6EBF6}
+.final .btn{margin-top:34px}
+.final small{display:block;margin-top:14px;font-size:15px;color:var(--muted)}
+
+footer{padding:36px 20px 110px;text-align:center}
+footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0C8}
+
+.price{margin-top:30px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:10px 18px}
+.price-old{font-size:24px;color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,217,138,.8)}
+.price-new{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(54px,8vw,76px);font-weight:600;line-height:1;color:var(--gold)}
+.price-tag{flex-basis:100%;font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--muted)}
+
+.sound{position:fixed;top:16px;right:16px;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--line2);background:rgba(4,6,13,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;transition:border-color .3s}
+.sound:hover,.sound[aria-pressed="true"]{border-color:var(--gold)}
+.bars{display:flex;align-items:flex-end;gap:3px;height:14px}
+.bars i{display:block;width:3px;height:4px;border-radius:2px;background:var(--gold)}
+.sound[aria-pressed="true"] .bars i{animation:eq 1.2s ease-in-out infinite}
+.sound[aria-pressed="true"] .bars i:nth-child(2){animation-delay:.3s}
+.sound[aria-pressed="true"] .bars i:nth-child(3){animation-delay:.6s}
+.sound[aria-pressed="true"] .bars i:nth-child(4){animation-delay:.15s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+@media (max-width:520px){.sound-txt{display:none}.sound{padding:12px}}
+
+.sticky{position:fixed;left:16px;right:16px;bottom:16px;z-index:10;text-align:center;opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none}
+.sticky.show{opacity:1;transform:none;pointer-events:auto}
+.sticky .btn{width:100%;max-width:420px;padding:16px 24px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .glow,.scroll-hint{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .q{color:var(--ink)}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <p class="eyebrow">TALLER PRESENCIAL · LOMAS DEL MIRADOR</p>
+    <h1 class="serif">Sabés en tu corazón que estás acá para <em>algo más</em></h1>
+    <p class="sub serif">que trabajar y pagar cuentas.</p>
+    <p class="when" data-fill="fecha"></p>
+    <a class="btn" href="#reservar">Quiero mi lugar</a>
+  </div>
+  <div class="scene">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Una persona de espaldas sobre una loma mira el cielo, con una luz cálida en el pecho">
+      <defs>
+        <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+        <filter id="halo" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="18"/></filter>
+      </defs>
+      <g transform="translate(0,-480)">
+        <ellipse cx="720" cy="700" rx="700" ry="130" fill="#1C2D63" opacity=".7" filter="url(#soft)"/>
+        <path d="M0 730 C400 680 1040 670 1440 725 L1440 780 L0 780 Z" fill="#010205"/>
+        <circle class="glow" cx="720" cy="618" r="46" fill="#FFC86B" filter="url(#halo)"/>
+        <g fill="#010205">
+          <ellipse cx="720" cy="566" rx="17" ry="19" transform="rotate(-12 720 566)"/>
+          <path d="M712 580 L728 580 L729 594 L711 594 Z"/>
+          <path d="M694 604 C697 592 743 592 746 604 L751 664 C751 668 747 669 745 666 L740 632 L737 674 L735 704 L725 704 L721 676 L719 704 L709 704 L705 674 L701 632 L696 666 C694 669 690 668 690 664 Z"/>
+        </g>
+        <circle cx="720" cy="618" r="3.5" fill="#FFE6B0"/>
+      </g>
+    </svg>
+  </div>
+  <span class="scroll-hint" aria-hidden="true">BAJÁ DESPACIO ↓</span>
+</header>
+
+<main>
+
+<!-- Preguntas que se encienden al bajar -->
+<section>
+  <div class="wrap">
+    <div class="qs serif">
+      <p class="q">¿Te preguntaste qué cosas te hacen <em>vibrar el alma</em>?</p>
+      <p class="q">¿Cuántas veces hacés cosas <em>en automático</em>, o porque no te queda otra?</p>
+      <p class="q">¿Hace cuánto no te frenás a <em>escucharte</em>?</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pausa interactiva -->
+<section class="alt">
+  <div class="wrap pause">
+    <div class="reveal">
+      <p class="eyebrow">ANTES DE SEGUIR</p>
+      <h2 class="serif" style="margin-top:18px">Regalate <em>30 segundos</em>.</h2>
+      <p>El ritmo de la vida casi nunca nos deja frenar. Probalo ahora: tres respiraciones, siguiendo la luz.</p>
+      <button class="btn breath-btn" id="breathBtn" type="button">Respirar conmigo</button>
+      <p class="after" id="after" aria-live="polite">Eso que sentiste es apenas el comienzo.<br>Imaginá una tarde entera así.</p>
+    </div>
+    <div class="orb-wrap reveal" aria-hidden="true">
+      <div class="orb-ring"></div>
+      <div class="orb" id="orb"></div>
+      <div class="orb-label" id="orbLabel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Recorrido como constelación -->
+<section>
+  <div class="wrap">
+    <div class="center reveal">
+      <p class="eyebrow">EL RECORRIDO DE LA TARDE</p>
+      <h2 class="serif" style="margin-top:18px">Una jornada para <em>volver a vos</em></h2>
+    </div>
+    <div class="journey" id="journey">
+      <span class="fill" id="fill"></span>
+      <div class="stop"><span class="dot"></span><span class="k">01 · LLEGAR</span><h3 class="serif">Meditación</h3><p>Bajamos el ruido. Dejamos afuera la semana y llegamos al cuerpo.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">02 · SOLTAR</span><h3 class="serif">Viaje sonoro</h3><p>Cuencos y sonidos que te llevan a un estado de calma profunda.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">03 · AFLOJAR</span><h3 class="serif">Relajación</h3><p>Un rato para que el cuerpo descanse de verdad y suelte el estrés.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">04 · PREGUNTARTE</span><h3 class="serif">Trabajo de indagación</h3><p>Ejercicios para escuchar qué te enciende, qué dejaste en pausa y qué futuro deseás.</p></div>
+      <div class="stop"><span class="dot"></span><span class="k">05 · COMPARTIR</span><h3 class="serif">Ronda de compartir</h3><p>Encontrarte con otras personas que también sienten que hay algo más.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Qué te llevás -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center reveal">
+      <p class="eyebrow">QUÉ TE LLEVÁS</p>
+      <h2 class="serif" style="margin-top:18px">No es una charla. <em>Es una experiencia.</em></h2>
+    </div>
+    <div class="takes">
+      <article class="take reveal"><h3 class="serif">Calma</h3><p>Herramientas simples para bajar la ansiedad en tu día a día.</p></article>
+      <article class="take reveal"><h3 class="serif">Claridad</h3><p>Una mirada más honesta sobre lo que te enciende y lo que querés.</p></article>
+      <article class="take reveal"><h3 class="serif">Un primer paso</h3><p>Un gesto concreto para empezar a moverte hacia ese algo más.</p></article>
+      <article class="take reveal"><h3 class="serif">Una semilla</h3><p>Real, para plantar. Para que cada vez que la mires te acuerdes.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Reserva interactiva -->
+<section id="reservar" class="final">
+  <div class="wrap center">
+    <div class="reveal">
+      <p class="eyebrow">TU LUGAR</p>
+      <h2 class="serif" style="margin-top:18px">¿Qué te gustaría <em>encender</em>?</h2>
+      <p style="margin:18px auto 0;max-width:560px;font-size:18px;line-height:1.6;color:var(--soft)">Elegí una o varias. Se suman a tu mensaje de reserva, así llegamos sabiendo qué venís a buscar.</p>
+    </div>
+    <div class="picks reveal" role="group" aria-label="Qué te gustaría encender">
+      <button class="pick" type="button" aria-pressed="false">Descansar de verdad</button>
+      <button class="pick" type="button" aria-pressed="false">Escucharme</button>
+      <button class="pick" type="button" aria-pressed="false">Bajar la ansiedad</button>
+      <button class="pick" type="button" aria-pressed="false">Encontrar sentido</button>
+      <button class="pick" type="button" aria-pressed="false">Conocer gente</button>
+      <button class="pick" type="button" aria-pressed="false">Animarme a un cambio</button>
+    </div>
+    <div class="details reveal">
+      <span class="detail" data-fill="fecha"></span>
+      <span class="detail">Lomas del Mirador</span>
+      <span class="detail">Cupo limitado</span>
+    </div>
+    <div class="price reveal">
+      <span class="price-old">$<span data-fill="precioLista"></span></span>
+      <span class="price-new">$<span data-fill="precioPromo"></span></span>
+      <span class="price-tag">PRECIO PROMOCIONAL</span>
+    </div>
+    <div class="reveal">
+      <a class="btn js-wa" href="#">Reservar por WhatsApp</a>
+      <small>Cupos reducidos para que cada persona tenga su espacio.</small>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><p>JARDÍN DE GENTE</p></footer>
+
+<div class="sticky" id="sticky"><a class="btn" href="#reservar">Reservar mi lugar · $<span data-fill="precioPromo"></span></a></div>
+
+<button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Activar música">
+  <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="sound-txt">Activar música</span>
+</button>
+
+<script>
+/* ==== EDITÁ ACÁ ==== */
+const DATOS = {
+  whatsapp: "5491151325175",            // número con código de país, sin + ni espacios
+  mensaje:  "Hola! Quiero reservar mi lugar en el taller Algo más",
+  fecha:    "Domingo 15 de noviembre · 17 h",
+  precioLista: "40.000",
+  precioPromo: "20.000"
+};
+/* =================== */
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('[data-fill]').forEach(el => { el.textContent = DATOS[el.dataset.fill]; });
+
+// WhatsApp con lo elegido
+const picks = [...document.querySelectorAll('.pick')];
+function waLink() {
+  const sel = picks.filter(p => p.getAttribute('aria-pressed') === 'true').map(p => p.textContent.toLowerCase());
+  let msg = DATOS.mensaje;
+  if (sel.length) msg += '. Me gustaría ' + (sel.length > 1 ? sel.slice(0, -1).join(', ') + ' y ' + sel.at(-1) : sel[0]) + '.';
+  return 'https://wa.me/' + DATOS.whatsapp + '?text=' + encodeURIComponent(msg);
+}
+function updateWa() { document.querySelectorAll('.js-wa').forEach(a => { a.href = waLink(); a.target = '_blank'; a.rel = 'noopener'; }); }
+picks.forEach(p => p.addEventListener('click', () => { p.setAttribute('aria-pressed', p.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); updateWa(); }));
+updateWa();
+
+// Aparecer al scrollear
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Preguntas que se encienden
+const qo = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('lit', e.isIntersecting)), { rootMargin: '-35% 0px -35% 0px' });
+document.querySelectorAll('.q').forEach(q => qo.observe(q));
+
+// Constelación que se completa al bajar
+const journey = document.getElementById('journey'), fill = document.getElementById('fill'), stops = [...journey.querySelectorAll('.stop')];
+function onScroll() {
+  const r = journey.getBoundingClientRect(), mid = innerHeight * .6;
+  const h = Math.max(0, Math.min(r.height - 16, mid - r.top));
+  fill.style.height = h + 'px';
+  stops.forEach(s => s.classList.toggle('on', s.getBoundingClientRect().top + 14 < mid));
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+// Respiración guiada
+const orb = document.getElementById('orb'), label = document.getElementById('orbLabel'), btn = document.getElementById('breathBtn'), after = document.getElementById('after');
+const wait = ms => new Promise(r => setTimeout(r, ms));
+btn.addEventListener('click', async () => {
+  btn.disabled = true; btn.textContent = 'Respirando…'; after.classList.remove('show');
+  for (let i = 1; i <= 3; i++) {
+    orb.className = 'orb in'; label.textContent = 'Inhalá… ' + i + '/3'; Sound.bowl([196, 261.63, 329.63][i - 1]); await wait(4000);
+    label.textContent = 'Sostené'; await wait(1500);
+    orb.className = 'orb out'; label.textContent = 'Exhalá…'; await wait(6000);
+  }
+  orb.className = 'orb'; label.textContent = '';
+  after.classList.add('show'); btn.disabled = false; btn.textContent = 'Otra vez';
+});
+
+// Botón fijo
+const sticky = document.getElementById('sticky'), hero = document.querySelector('.hero'), reservar = document.getElementById('reservar');
+let pastHero = false, atBooking = false;
+const upd = () => sticky.classList.toggle('show', pastHero && !atBooking);
+new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; upd(); }).observe(hero);
+new IntersectionObserver(([e]) => { atBooking = e.isIntersecting; upd(); }, { threshold: .15 }).observe(reservar);
+
+// Música ambiente generada en el navegador (sin archivos ni derechos de terceros)
+const Sound = (() => {
+  let ac, master, bowlTimer, on = false;
+  const notes = [196.00, 220.00, 261.63, 293.66, 329.63, 392.00]; // pentatónica en Sol
+  function init() {
+    ac = new (window.AudioContext || window.webkitAudioContext)();
+    master = ac.createGain(); master.gain.value = 0; master.connect(ac.destination);
+    // Reverb simple
+    const len = ac.sampleRate * 4, imp = ac.createBuffer(2, len, ac.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = imp.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3); }
+    const verb = ac.createConvolver(); verb.buffer = imp;
+    const wet = ac.createGain(); wet.gain.value = .55; verb.connect(wet); wet.connect(master);
+    Sound.bus = ac.createGain(); Sound.bus.connect(master); Sound.bus.connect(verb);
+    // Colchón grave (drone)
+    const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 600; lp.connect(Sound.bus);
+    [[98, 0], [98, 4], [147, -3], [196, 2]].forEach(([f, det], i) => {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = i < 2 ? 'sine' : 'triangle'; o.frequency.value = f; o.detune.value = det;
+      g.gain.value = i < 2 ? .09 : .025;
+      const lfo = ac.createOscillator(), lg = ac.createGain();
+      lfo.frequency.value = .05 + i * .03; lg.gain.value = g.gain.value * .6;
+      lfo.connect(lg); lg.connect(g.gain); lfo.start();
+      o.connect(g); g.connect(lp); o.start();
+    });
+    // Viento suave
+    const nb = ac.createBuffer(1, ac.sampleRate * 2, ac.sampleRate), nd = nb.getChannelData(0);
+    for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+    const ns = ac.createBufferSource(); ns.buffer = nb; ns.loop = true;
+    const bp = ac.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 500; bp.Q.value = .6;
+    const ng = ac.createGain(); ng.gain.value = .012;
+    ns.connect(bp); bp.connect(ng); ng.connect(master); ns.start();
+  }
+  function bowl(freq) {
+    if (!ac || !on) return;
+    const f = freq || notes[Math.floor(Math.random() * notes.length)], t = ac.currentTime;
+    [[1, .18], [2.76, .06], [5.4, .025]].forEach(([m, v]) => {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sine'; o.frequency.value = f * m;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + .02);
+      g.gain.exponentialRampToValueAtTime(.0001, t + 7 / m + 2);
+      o.connect(g); g.connect(Sound.bus); o.start(t); o.stop(t + 10);
+    });
+  }
+  function loop() { bowl(); bowlTimer = setTimeout(loop, 7000 + Math.random() * 6000); }
+  function toggle() {
+    if (!ac) init();
+    on = !on;
+    const t = ac.currentTime;
+    master.gain.cancelScheduledValues(t);
+    master.gain.setValueAtTime(master.gain.value, t);
+    if (on) { ac.resume(); master.gain.linearRampToValueAtTime(.9, t + 3); setTimeout(() => bowl(196), 600); bowlTimer = setTimeout(loop, 5000); }
+    else { master.gain.linearRampToValueAtTime(0, t + 1.5); clearTimeout(bowlTimer); }
+    return on;
+  }
+  return { toggle, bowl, get on() { return on; } };
+})();
+const soundBtn = document.getElementById('sound');
+soundBtn.addEventListener('click', () => {
+  const on = Sound.toggle();
+  soundBtn.setAttribute('aria-pressed', on);
+  soundBtn.setAttribute('aria-label', on ? 'Pausar música' : 'Activar música');
+  soundBtn.querySelector('.sound-txt').textContent = on ? 'Música' : 'Activar música';
+});
+
+// Cielo estrellado
+const cv = document.getElementById('sky'), ctx = cv.getContext('2d');
+let W, H, stars = [], shooting = null;
+function size() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const n = Math.round(W * H / 4500);
+  stars = Array.from({ length: n }, () => ({
+    x: Math.random() * W, y: Math.random() * H * .88,
+    r: Math.random() < .08 ? 1.6 + Math.random() : .4 + Math.random() * .9,
+    a: .3 + Math.random() * .7, s: .5 + Math.random() * 2, p: Math.random() * 6.28
+  }));
+}
+function draw(t) {
+  ctx.clearRect(0, 0, W, H);
+  for (const s of stars) {
+    ctx.globalAlpha = reduce ? s.a : s.a * (.55 + .45 * Math.sin(t / 1000 * s.s + s.p));
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.28); ctx.fill();
+  }
+  if (!reduce) {
+    if (!shooting && Math.random() < .004) shooting = { x: Math.random() * W * .7, y: Math.random() * H * .35, l: 0 };
+    if (shooting) {
+      shooting.l += 14;
+      const x = shooting.x + shooting.l, y = shooting.y + shooting.l * .45;
+      const g = ctx.createLinearGradient(x, y, x - 120, y - 54);
+      g.addColorStop(0, 'rgba(255,255,255,.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 120, y - 54); ctx.stroke();
+      if (shooting.l > 420) shooting = null;
+    }
+    requestAnimationFrame(draw);
+  }
+  ctx.globalAlpha = 1;
+}
+size(); addEventListener('resize', size); requestAnimationFrame(draw);
+</script>
+</body>
+</html>
