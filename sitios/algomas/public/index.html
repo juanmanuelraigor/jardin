@@ -39,10 +39,17 @@ button{font:inherit}
 .hero .sub{margin:14px 0 0;font-size:clamp(24px,3.4vw,38px);color:var(--soft)}
 .hero .when{margin:22px 0 0;font-size:16px;font-weight:500;letter-spacing:.08em;color:var(--muted)}
 .hero .btn{margin-top:30px}
-.scene{position:absolute;left:0;right:0;bottom:0;z-index:1;pointer-events:none}
-.scene svg{display:block;width:100%;height:auto}
-.glow{animation:breathe 4.5s ease-in-out infinite;transform-origin:720px 618px;transform-box:view-box}
-@keyframes breathe{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:.85;transform:scale(1.15)}}
+#sky{cursor:pointer;touch-action:pan-y}
+.hero-copy{pointer-events:none}
+.hero-copy .btn,.hero-copy a{pointer-events:auto}
+.hero h1,.hero .sub,.hero .when{text-shadow:0 1px 12px rgba(4,6,13,.85);transition:text-shadow 2s ease}
+.hero.calm h1,.hero.calm .sub,.hero.calm .when{text-shadow:none}
+.hero .l2{display:inline-block;opacity:0;transform:translateY(14px);filter:blur(6px);transition:opacity 1.6s ease,transform 1.6s ease,filter 1.6s ease}
+.hero.calm .l2{opacity:1;transform:none;filter:none}
+.hero.calm .l2 em{animation:glowtxt 4s ease-in-out 1.2s infinite}
+@keyframes glowtxt{0%,100%{text-shadow:0 0 18px rgba(255,200,107,.25)}50%{text-shadow:0 0 34px rgba(255,200,107,.7)}}
+.hero .l1{transition:opacity 1.6s ease,color 1.6s ease}
+.hero.calm .l1{color:var(--muted)}
 .scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;font-size:13px;letter-spacing:.2em;color:var(--muted);animation:float 2.4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
 
@@ -129,7 +136,8 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  .glow,.scroll-hint{animation:none}
+  .scroll-hint{animation:none}
+  .hero .l2{opacity:1;transform:none;filter:none;transition:none}
   .reveal{opacity:1;transform:none;transition:none}
   .q{color:var(--ink)}
   html{scroll-behavior:auto}
@@ -142,31 +150,12 @@ footer p{margin:0;font-size:13px;font-weight:500;letter-spacing:.2em;color:#8FA0
   <canvas id="sky" aria-hidden="true"></canvas>
   <div class="hero-copy">
     <p class="eyebrow">ONLINE · EN VIVO · 2 HORAS</p>
-    <h1 class="serif">Vivís apagando incendios.<br>Estás acá para <em>algo más</em>.</h1>
+    <h1 class="serif"><span class="l1">Vivís apagando incendios.</span><br><span class="l2">Estás acá para <em>algo más</em>.</span></h1>
     <p class="sub serif">Dos horas para salir del piloto automático y armar tu mapa ikigai.</p>
     <p class="when" data-fill="fecha"></p>
     <a class="btn" href="#reservar">Quiero mi lugar</a>
   </div>
-  <div class="scene">
-    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Una persona de espaldas mira el cielo, con una luz cálida en el pecho">
-      <defs>
-        <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
-        <filter id="halo" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="18"/></filter>
-      </defs>
-      <g transform="translate(0,-480)">
-        <ellipse cx="720" cy="700" rx="700" ry="130" fill="#1C2D63" opacity=".7" filter="url(#soft)"/>
-        <path d="M0 730 C400 680 1040 670 1440 725 L1440 780 L0 780 Z" fill="#010205"/>
-        <circle class="glow" cx="720" cy="618" r="46" fill="#FFC86B" filter="url(#halo)"/>
-        <g fill="#010205">
-          <ellipse cx="720" cy="566" rx="17" ry="19" transform="rotate(-12 720 566)"/>
-          <path d="M712 580 L728 580 L729 594 L711 594 Z"/>
-          <path d="M694 604 C697 592 743 592 746 604 L751 664 C751 668 747 669 745 666 L740 632 L737 674 L735 704 L725 704 L721 676 L719 704 L709 704 L705 674 L701 632 L696 666 C694 669 690 668 690 664 Z"/>
-        </g>
-        <circle cx="720" cy="618" r="3.5" fill="#FFE6B0"/>
-      </g>
-    </svg>
-  </div>
-  <span class="scroll-hint" aria-hidden="true">BAJÁ DESPACIO ↓</span>
+  <span class="scroll-hint" id="hint" aria-hidden="true">TOCÁ LOS FUEGOS</span>
 </header>
 
 <main>
@@ -422,42 +411,115 @@ soundBtn.addEventListener('click', () => {
   soundBtn.querySelector('.sound-txt').textContent = on ? 'Música' : 'Activar música';
 });
 
-// Cielo estrellado
-const cv = document.getElementById('sky'), ctx = cv.getContext('2d');
-let W, H, stars = [], shooting = null;
+// Hero: incendios que no se terminan, hasta que frenás
+const cv = document.getElementById('sky'), ctx = cv.getContext('2d'), heroEl = document.querySelector('.hero'), hint = document.getElementById('hint');
+let W, H, stars = [], fires = [], sparks = [], smoke = [], calm = false, calmAt = 0, putOut = 0, shooting = null;
+const START = performance.now();
+const rnd = (a, b) => a + Math.random() * (b - a);
+function spot() {
+  // lejos del bloque de texto central cuando se puede
+  for (let k = 0; k < 12; k++) {
+    const x = rnd(W * .04, W * .96), y = rnd(H * .18, H * .94);
+    const inText = Math.abs(x - W / 2) < Math.min(W * .32, 380) && y < H * .62;
+    if (!inText || k === 11) return { x, y };
+  }
+}
+function newFire(delay) {
+  const { x, y } = spot();
+  return { x, y, s: rnd(.7, 1.5) * (W < 600 ? .8 : 1), p: rnd(0, 6.28), born: performance.now() + (delay || 0), life: 1, dying: false };
+}
 function size() {
   const dpr = Math.min(devicePixelRatio || 1, 2);
   W = cv.clientWidth; H = cv.clientHeight;
   cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const n = Math.round(W * H / 4500);
-  stars = Array.from({ length: n }, () => ({
-    x: Math.random() * W, y: Math.random() * H * .88,
+  stars = Array.from({ length: Math.round(W * H / 4500) }, () => ({
+    x: Math.random() * W, y: Math.random() * H * .9,
     r: Math.random() < .08 ? 1.6 + Math.random() : .4 + Math.random() * .9,
     a: .3 + Math.random() * .7, s: .5 + Math.random() * 2, p: Math.random() * 6.28
   }));
+  if (!calm) fires = Array.from({ length: Math.max(9, Math.round(W * H / 26000)) }, (_, i) => newFire(i * 90));
+}
+function puff(x, y, n) { for (let i = 0; i < n; i++) smoke.push({ x: x + rnd(-6, 6), y: y - rnd(0, 10), r: rnd(6, 14), vx: rnd(-.3, .3), vy: rnd(-.9, -.4), a: rnd(.25, .45) }); }
+function extinguish(f) { if (f.dying) return; f.dying = true; puff(f.x, f.y - 10 * f.s, 7); }
+function goCalm() {
+  if (calm) return;
+  calm = true; calmAt = performance.now();
+  fires.forEach((f, i) => setTimeout(() => extinguish(f), i * 45));
+  heroEl.classList.add('calm');
+  hint.textContent = 'BAJÁ DESPACIO ↓';
+}
+cv.addEventListener('pointerdown', e => {
+  if (calm) return;
+  const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  let best = null, bd = 70 * 70;
+  for (const f of fires) { if (f.dying) continue; const d = (f.x - x) ** 2 + (f.y - y) ** 2; if (d < bd) { bd = d; best = f; } }
+  if (best) {
+    extinguish(best); putOut++;
+    // el incendio nunca se termina: aparecen dos donde apagaste uno
+    if (putOut < 5) { fires.push(newFire(500)); fires.push(newFire(900)); }
+    else goCalm();
+  }
+});
+addEventListener('scroll', () => { if (scrollY > 40) goCalm(); }, { passive: true });
+setTimeout(goCalm, 9000);
+
+function drawFire(f, t) {
+  const age = Math.min(1, (t - f.born) / 600);
+  if (age <= 0) return;
+  if (f.dying) f.life -= .045;
+  const k = Math.max(0, f.life) * age, fl = 1 + .18 * Math.sin(t / 90 + f.p) + .1 * Math.sin(t / 37 + f.p * 2);
+  const h = 26 * f.s * fl * k, w = 11 * f.s * k;
+  if (h < .5) return;
+  const g0 = ctx.createRadialGradient(f.x, f.y - h * .3, 0, f.x, f.y - h * .3, h * 2.2);
+  g0.addColorStop(0, `rgba(255,120,40,${.35 * k})`); g0.addColorStop(1, 'rgba(255,120,40,0)');
+  ctx.fillStyle = g0; ctx.beginPath(); ctx.arc(f.x, f.y - h * .3, h * 2.2, 0, 6.28); ctx.fill();
+  const sway = Math.sin(t / 160 + f.p) * w * .35;
+  const layer = (sc, col) => {
+    ctx.fillStyle = col; ctx.beginPath();
+    ctx.moveTo(f.x - w * sc, f.y);
+    ctx.quadraticCurveTo(f.x - w * sc * 1.1, f.y - h * sc * .55, f.x + sway, f.y - h * sc);
+    ctx.quadraticCurveTo(f.x + w * sc * 1.1, f.y - h * sc * .55, f.x + w * sc, f.y);
+    ctx.quadraticCurveTo(f.x, f.y + w * sc * .6, f.x - w * sc, f.y); ctx.fill();
+  };
+  layer(1, `rgba(255,96,32,${.9 * k})`); layer(.68, `rgba(255,170,60,${.95 * k})`); layer(.38, `rgba(255,236,170,${k})`);
+  if (!f.dying && Math.random() < .12) sparks.push({ x: f.x + rnd(-w, w) * .5, y: f.y - h * .8, vx: rnd(-.4, .4), vy: rnd(-1.8, -.8), a: 1 });
 }
 function draw(t) {
   ctx.clearRect(0, 0, W, H);
+  const c = calm ? Math.min(1, (t - calmAt) / 2200) : 0;
+  // bruma cálida que se va
+  const haze = ctx.createLinearGradient(0, H, 0, H * .35);
+  haze.addColorStop(0, `rgba(120,40,12,${.55 * (1 - c)})`); haze.addColorStop(1, 'rgba(120,40,12,0)');
+  ctx.fillStyle = haze; ctx.fillRect(0, 0, W, H);
+  // estrellas que aparecen cuando todo se calma
   for (const s of stars) {
-    ctx.globalAlpha = reduce ? s.a : s.a * (.55 + .45 * Math.sin(t / 1000 * s.s + s.p));
+    const tw = reduce ? 1 : .55 + .45 * Math.sin(t / 1000 * s.s + s.p);
+    ctx.globalAlpha = s.a * tw * (.12 + .88 * c);
     ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.28); ctx.fill();
   }
-  if (!reduce) {
+  ctx.globalAlpha = 1;
+  fires = fires.filter(f => f.life > 0);
+  for (const f of fires) drawFire(f, t);
+  for (const p of sparks) { p.x += p.vx; p.y += p.vy; p.a -= .02; ctx.fillStyle = `rgba(255,190,90,${Math.max(0, p.a)})`; ctx.fillRect(p.x, p.y, 2, 2); }
+  sparks = sparks.filter(p => p.a > 0);
+  for (const m of smoke) { m.x += m.vx; m.y += m.vy; m.r += .35; m.a -= .006; ctx.fillStyle = `rgba(150,160,180,${Math.max(0, m.a)})`; ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.28); ctx.fill(); }
+  smoke = smoke.filter(m => m.a > 0);
+  if (c >= 1 && !reduce) {
     if (!shooting && Math.random() < .004) shooting = { x: Math.random() * W * .7, y: Math.random() * H * .35, l: 0 };
     if (shooting) {
       shooting.l += 14;
       const x = shooting.x + shooting.l, y = shooting.y + shooting.l * .45;
       const g = ctx.createLinearGradient(x, y, x - 120, y - 54);
       g.addColorStop(0, 'rgba(255,255,255,.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 120, y - 54); ctx.stroke();
+      ctx.strokeStyle = g; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 120, y - 54); ctx.stroke();
       if (shooting.l > 420) shooting = null;
     }
-    requestAnimationFrame(draw);
   }
-  ctx.globalAlpha = 1;
+  requestAnimationFrame(draw);
 }
-size(); addEventListener('resize', size); requestAnimationFrame(draw);
+size(); addEventListener('resize', size);
+if (reduce) { calm = true; calmAt = -1e9; fires = []; heroEl.classList.add('calm'); hint.textContent = 'BAJÁ DESPACIO ↓'; }
+requestAnimationFrame(draw);
 </script>
 </body>
 </html>
